@@ -15,5 +15,20 @@ package frc.robot;
  * <p>It is advised to statically import this class (or one of its inner classes) wherever the
  * constants are needed, to reduce verbosity.
  */
-public final class Constants {
+public final class Constants
+{
+    public static final class TalonIDs
+    {
+        //These names will be changed later. Just for placement know
+        public static final int TALON_ONE = 1;
+        public static final int TALON_TWO = 2;
+        public static final int TALON_THREE = 3;
+        public static final int TALON_FOUR = 4;
+        public static final int TALON_FIVE = 5;
+        public static final int TALON_SIX = 6;
+        public static final int TALON_SEVEN = 7;
+        public static final int TALON_EIGHT = 8;
+        public static final int TALON_NINE = 9;
+        public static final int TALON_TEN = 10;
+    }
 }
