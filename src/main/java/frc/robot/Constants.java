@@ -52,6 +52,13 @@ public final class Constants
     public static final class DriverJoystick
     {
         public static Joystick driverStick = new Joystick(0);
+        public static final int driverLeftXAxis = 1;
+        public static final int driverRightYAxis = 4;
+    }
+
+    public static final class OperatorJoystick
+    {
+        public static Joystick operatorStick = new Joystick(1);
     }
 
     public static final class TalonNames
