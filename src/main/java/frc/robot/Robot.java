@@ -7,8 +7,8 @@
 
 package frc.robot;
 
-
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.DriveTrain;
@@ -28,6 +28,7 @@ public class Robot extends TimedRobot
   private RobotContainer m_robotContainer;
 
   public static DriveTrain robotDriveTrain = new DriveTrain();
+  public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -48,7 +49,8 @@ public class Robot extends TimedRobot
    * LiveWindow and SmartDashboard integrated updating.
    */
   @Override
-  public void robotPeriodic() {
+  public void robotPeriodic()
+  {
     // Runs the Scheduler.  This is responsible for polling buttons, adding newly-scheduled
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
@@ -60,7 +62,9 @@ public class Robot extends TimedRobot
    * This function is called once each time the robot enters Disabled mode.
    */
   @Override
-  public void disabledInit() {
+  public void disabledInit()
+  {
+
   }
 
   @Override
@@ -78,13 +82,44 @@ public class Robot extends TimedRobot
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
     }
+
+    Constants.TalonNames.frontLeft.configFactoryDefault();
+    Constants.TalonNames.frontRight.configFactoryDefault();
+    Constants.TalonNames.rearLeft.configFactoryDefault();
+    Constants.TalonNames.rearRight.configFactoryDefault();
+
+    // adjust these so that when the stick is forward both of these are green
+    Constants.TalonNames.frontLeft.setInverted(false);
+    Constants.TalonNames.rearLeft.setInverted(false);
+    Constants.TalonNames.frontRight.setInverted(true); 
+    Constants.TalonNames.rearRight.setInverted(true);
+    // DO NOT TOUCH THIS OR YOU WILL GRENADE THE TRANSMISSION
+
+    drive.setRightSideInverted(false); // don't change this
+
+    drive.setSafetyEnabled(false);
+        // end of drivetrain stuff
+
+    drive.setExpiration(2);
+    drive.setSafetyEnabled(false);
+    
+    Constants.TalonNames.frontLeft.setSafetyEnabled(false);
+    Constants.TalonNames.rearLeft.setSafetyEnabled(false);
+    Constants.TalonNames.frontRight.setSafetyEnabled(false);
+    Constants.TalonNames.rearRight.setSafetyEnabled(false);
+
+    //Constants.TalonNames.hatchTalon.setSafetyEnabled(false);
+
+    //robotDriveTrain.setDirectionBack(); // starts the match with hatch as forward
   }
 
   /**
    * This function is called periodically during autonomous.
    */
   @Override
-  public void autonomousPeriodic() {
+  public void autonomousPeriodic()
+  {
+    robotDriveTrain.robotDrive();
   }
 
   @Override
@@ -96,13 +131,41 @@ public class Robot extends TimedRobot
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+
+    Constants.TalonNames.frontLeft.configFactoryDefault();
+    Constants.TalonNames.frontRight.configFactoryDefault();
+    Constants.TalonNames.rearLeft.configFactoryDefault();
+    Constants.TalonNames.rearRight.configFactoryDefault();
+
+    // adjust these so that when the stick is forward both of these are green
+    Constants.TalonNames.frontLeft.setInverted(false);
+    Constants.TalonNames.rearLeft.setInverted(false);
+    Constants.TalonNames.frontRight.setInverted(true); 
+    Constants.TalonNames.rearRight.setInverted(true);
+    // DO NOT TOUCH THIS OR YOU WILL GRENADE THE TRANSMISSION
+
+    drive.setRightSideInverted(false); // don't change this
+
+    drive.setSafetyEnabled(false);
+        // end of drivetrain stuff
+
+    drive.setExpiration(2);
+    drive.setSafetyEnabled(false);
+    
+    Constants.TalonNames.frontLeft.setSafetyEnabled(false);
+    Constants.TalonNames.rearLeft.setSafetyEnabled(false);
+    Constants.TalonNames.frontRight.setSafetyEnabled(false);
+    Constants.TalonNames.rearRight.setSafetyEnabled(false);
+
   }
 
   /**
    * This function is called periodically during operator control.
    */
   @Override
-  public void teleopPeriodic() {
+  public void teleopPeriodic() 
+  {
+    robotDriveTrain.robotDrive();
   }
 
   @Override

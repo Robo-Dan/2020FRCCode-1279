@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Robot;
 
 public class DriveTrainCommand extends CommandBase
 {
@@ -17,6 +18,7 @@ public class DriveTrainCommand extends CommandBase
   public DriveTrainCommand()
   {
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(Robot.robotDriveTrain);
   }
 
   // Called when the command is initially scheduled.
@@ -30,7 +32,7 @@ public class DriveTrainCommand extends CommandBase
   @Override
   public void execute()
   {
-
+    Robot.robotDriveTrain.robotDrive();
   }
 
   // Called once the command ends or is interrupted.
