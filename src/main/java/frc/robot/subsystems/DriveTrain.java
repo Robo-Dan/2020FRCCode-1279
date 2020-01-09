@@ -29,16 +29,7 @@ public class DriveTrain extends SubsystemBase
   private static int inverse = 1;
   private double modifier = 1;
 
-  //static DifferentialDrive drive = RobotMap.diffDrive;
-
   // CHECK THIS HERE static Joystick driverStick = RobotMap.driverStick;
-
-  /*public DriveTrain(DifferentialDrive diffDrive, Joystick stick)
-  {
-    // drive = new DriveTrain(frontLeft, rearLeft, frontRight, rearRight));
-    drive = diffDrive;
-    driverStick = stick;
-  }*/
 
   /**
    * This command drives the robot
@@ -53,67 +44,4 @@ public class DriveTrain extends SubsystemBase
     //Robot.drive.feed();
   }
 
-  /**
-   * This flips the direction of the drive train
-   */
-  public void flipDirection()
-  {
-    inverse = inverse * -1; // just flips the value between 1 and negative 1
-  }
-
-  /**
-   * Sets the direction forward
-   * Forward is the formalerly hatch side
-   */
-  public void setDirectionForward()
-  { // hatch side
-    inverse = 1;
-  }
-
-  /**
-   * Sets the direction backwards
-   * Backwards is the formaleryly cargo side
-   */
-  public void setDirectionBack()
-  { // cargo side
-    inverse = -1;
-  }
-
-  /**
-   * This slows down the drive train
-   * Slows it to 60%
-   * Multiplies the drive train by 0.6
-   */
-  public void slowSpeed()
-  {
-    modifier = 0.6; // 60%
-  }
-
-  /**
-   * This is the normal speed
-   * This will allow for the values to be times 1
-   */
-  public void normalSpeed()
-  {
-    modifier = 1; // 100%
-  }
-
-  /**
-   * Returns the direction of the drivetrain
-   * @return false when not inverted (cargo side), true when inverted (hatch side)
-   */
-  public static boolean getDirection()
-  {
-    if(inverse == 1)
-    {
-      return false; // cargo side
-    }
-
-    if(inverse == -1)
-    {
-      return true; // hatch side
-    }
-
-    else return false;
-  }
 }
