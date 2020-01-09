@@ -49,16 +49,25 @@ public final class Constants
         public static final int BUTTON_FIVE = 5;
     }
 
-    public static final class DriverJoystick
+    public static final class DriverAndOperatorJoystick
     {
         public static Joystick driverStick = new Joystick(0);
+        public static Joystick operatorStick = new Joystick(1);
         public static final int driverLeftXAxis = 1;
         public static final int driverRightYAxis = 4;
-    }
-
-    public static final class OperatorJoystick
-    {
-        public static Joystick operatorStick = new Joystick(1);
+        
+        public static Joystick getGamepad(int stickId)
+        {
+            if (stickId == 0)
+            {
+                return driverStick;
+            }
+            if (stickId == 1)
+            {
+                return operatorStick;
+            }
+            return driverStick; // failsafe
+        }
     }
 
     public static final class TalonNames

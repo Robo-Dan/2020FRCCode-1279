@@ -30,15 +30,15 @@ public class DriveTrain extends SubsystemBase
   private static int inverse = 1;
   private double modifier = 1;
 
-  static Joystick driverStick = Constants.DriverJoystick.driverStick;
+  static Joystick driverStick = Constants.DriverAndOperatorJoystick.driverStick;
 
   /**
    * This command drives the robot
    */
   public void robotDrive()
   {
-    double xSpeed = driverStick.getRawAxis(Constants.DriverJoystick.driverLeftXAxis) * -1 * inverse * modifier; // makes forward stick positive
-    double zRotation =  driverStick.getRawAxis(Constants.DriverJoystick.driverRightYAxis) * modifier; // WPI Drivetrain uses positive=> right; right stick for left and right
+    double xSpeed = driverStick.getRawAxis(Constants.DriverAndOperatorJoystick.driverLeftXAxis) * -1 * inverse * modifier; // makes forward stick positive
+    double zRotation =  driverStick.getRawAxis(Constants.DriverAndOperatorJoystick.driverRightYAxis) * modifier; // WPI Drivetrain uses positive=> right; right stick for left and right
 
     Robot.drive.arcadeDrive(xSpeed, zRotation);
 
@@ -105,5 +105,5 @@ public class DriveTrain extends SubsystemBase
 
     else return false;
   }
-  
+
 }
