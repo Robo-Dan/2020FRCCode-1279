@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -82,14 +83,17 @@ public class Robot extends TimedRobot
   }
 
   @Override
-  public void disabledPeriodic() {
+  public void disabledPeriodic()
+  {
+
   }
 
   /**
    * This autonomous runs the autonomous command selected by your {@link RobotContainer} class.
    */
   @Override
-  public void autonomousInit() {
+  public void autonomousInit()
+  {
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
     // schedule the autonomous command (example)
@@ -189,12 +193,47 @@ public class Robot extends TimedRobot
 
     robotDriveTrain.robotDrive();
 
-    SmartDashboard.putNumber("Distance (in inches):", currentDistance);
+    SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
     SmartDashboard.putString("Test", "Hello");
+
+    String gameData;
+    gameData = DriverStation.getInstance().getGameSpecificMessage();
+    if(gameData.length() > 0)
+    {
+      switch (gameData.charAt(0))
+      {
+        case 'B' :
+        //Blue case code
+        SmartDashboard.putString("Spin the Control Panel to color: ", "BLUE");
+        break;
+        case 'G' :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "GREEN");
+        //Green case code
+        break;
+        case 'R' :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "RED");
+        //Red case code
+        break;
+        case 'Y' :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "YELLOW");
+        //Yellow case code
+        break;
+        default :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "UNKNOWN COLOR");
+       //This is corrupt data
+        break;
+        }
+    }
+    else
+    {
+      SmartDashboard.putString("Spin the Control Panel to color: ", "NOTHING YET");
+  //Code for no data received yet
+    }
   }
 
   @Override
-  public void testInit() {
+  public void testInit()
+  {
     // Cancels all running commands at the start of test mode.
     CommandScheduler.getInstance().cancelAll();
   }
@@ -203,6 +242,8 @@ public class Robot extends TimedRobot
    * This function is called periodically during test mode.
    */
   @Override
-  public void testPeriodic() {
+  public void testPeriodic()
+  {
+
   }
 }
