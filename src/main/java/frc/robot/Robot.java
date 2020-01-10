@@ -188,7 +188,9 @@ public class Robot extends TimedRobot
     //double currentSpeed = (kHoldDistance - currentDistance) * kP;
 
     robotDriveTrain.robotDrive();
-    SmartDashboard.putNumber("Distance:", currentDistance);
+
+    SmartDashboard.putNumber("Distance (in inches):", currentDistance);
+    SmartDashboard.putString("Test", "Hello");
   }
 
   @Override
