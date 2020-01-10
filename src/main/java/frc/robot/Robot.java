@@ -7,8 +7,10 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.DriveTrain;
@@ -29,6 +31,18 @@ public class Robot extends TimedRobot
 
   public static DriveTrain robotDriveTrain = new DriveTrain();
   public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
+  
+  // distance in inches the robot wants to stay from an object
+  private static final double kHoldDistance = 12.0;
+
+  // factor to convert sensor values to a distance in inches
+  private static final double kValueToInches = 0.125;
+
+  // proportional speed constant
+  private static final double kP = 0.05;
+  private static final int kUltrasonicPort = 0;
+
+  private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -123,12 +137,14 @@ public class Robot extends TimedRobot
   }
 
   @Override
-  public void teleopInit() {
+  public void teleopInit()
+  {
     // This makes sure that the autonomous stops running when
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
     // this line or comment it out.
-    if (m_autonomousCommand != null) {
+    if (m_autonomousCommand != null)
+    {
       m_autonomousCommand.cancel();
     }
 
@@ -165,7 +181,14 @@ public class Robot extends TimedRobot
   @Override
   public void teleopPeriodic() 
   {
+    // sensor returns a value from 0-4095 that is scaled to inches
+    double currentDistance = m_ultrasonic.getValue() * kValueToInches;
+
+    // convert distance error to a motor speed
+    //double currentSpeed = (kHoldDistance - currentDistance) * kP;
+
     robotDriveTrain.robotDrive();
+    SmartDashboard.putNumber("Distance:", currentDistance);
   }
 
   @Override
