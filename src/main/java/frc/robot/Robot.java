@@ -204,30 +204,35 @@ public class Robot extends TimedRobot
       {
         case 'B' :
         //Blue case code
+        //when blue sent, do this
         SmartDashboard.putString("Spin the Control Panel to color: ", "BLUE");
         break;
         case 'G' :
         SmartDashboard.putString("Spin the Control Panel to color: ", "GREEN");
         //Green case code
+        //when green sent, do this
         break;
         case 'R' :
         SmartDashboard.putString("Spin the Control Panel to color: ", "RED");
         //Red case code
+        //when red sent, do this
         break;
         case 'Y' :
         SmartDashboard.putString("Spin the Control Panel to color: ", "YELLOW");
         //Yellow case code
+        //when yellow sent, do this
         break;
         default :
         SmartDashboard.putString("Spin the Control Panel to color: ", "UNKNOWN COLOR");
        //This is corrupt data
+       //when field sents a value not one of the above
         break;
         }
     }
     else
     {
       SmartDashboard.putString("Spin the Control Panel to color: ", "NOTHING YET");
-  //Code for no data received yet
+      //Code for no data received yet
     }
   }
 
