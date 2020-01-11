@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.DriveAuto;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
 
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot
 {
   
   private Command m_autonomousCommand;
+  private DriveAuto driveAuto = new DriveAuto();
 
   private RobotContainer m_robotContainer;
 
@@ -47,6 +49,8 @@ public class Robot extends TimedRobot
   // proportional speed constant
   private static final double kP = 0.05;
   private static final int kUltrasonicPort = 0;
+
+  public int cat = 5;
 
   private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
 
@@ -109,6 +113,7 @@ public class Robot extends TimedRobot
     if (m_autonomousCommand != null)
     {
       m_autonomousCommand.schedule();
+
     }
 
     Constants.TalonNames.frontLeft.configFactoryDefault();
@@ -147,7 +152,7 @@ public class Robot extends TimedRobot
   @Override
   public void autonomousPeriodic()
   {
-    //robotDriveTrain.driveAuto();
+    robotDriveTrain.driveAuto();
 
     SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
     SmartDashboard.putString("Test", "Hello");

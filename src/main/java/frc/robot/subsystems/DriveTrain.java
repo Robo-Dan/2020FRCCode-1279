@@ -45,13 +45,13 @@ public class DriveTrain extends SubsystemBase
     Robot.drive.feed();
   }
 
-  /*public void driveAuto()
+  public void driveAuto()
   {
     Robot.drive.arcadeDrive(.2, 0);// this is test auto
 
     
     Robot.drive.feed();
-  }*/
+  }
 
   public void flipDirection()
   {
