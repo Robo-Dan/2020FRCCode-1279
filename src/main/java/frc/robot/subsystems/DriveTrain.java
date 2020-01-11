@@ -110,4 +110,9 @@ public class DriveTrain extends SubsystemBase
   {
     Robot.drive.arcadeDrive(.2, 0);// this is test auto
   }
+
+  public void complexDriveAuto()
+  {
+    
+  }
 }

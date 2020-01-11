@@ -49,6 +49,10 @@ public class Robot extends TimedRobot
   private static final int kUltrasonicPort = 0;
 
   private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
+
+  
+    // sensor returns a value from 0-4095 that is scaled to inches
+  private double currentDistance = m_ultrasonic.getValue() * kValueToInches;
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -144,6 +148,9 @@ public class Robot extends TimedRobot
   public void autonomousPeriodic()
   {
     robotDriveTrain.driveAuto();
+
+    SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
+    SmartDashboard.putString("Test", "Hello");
   }
 
   @Override
@@ -191,8 +198,6 @@ public class Robot extends TimedRobot
   @Override
   public void teleopPeriodic() 
   {
-    // sensor returns a value from 0-4095 that is scaled to inches
-    double currentDistance = m_ultrasonic.getValue() * kValueToInches;
 
     // convert distance error to a motor speed
     //double currentSpeed = (kHoldDistance - currentDistance) * kP;
