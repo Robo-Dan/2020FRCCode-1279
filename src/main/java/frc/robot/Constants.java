@@ -92,4 +92,9 @@ public final class Constants
         public static WPI_TalonSRX leftIntakeMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_NINE);
         public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_TEN);
     }
+
+    public static final class AutoConstants
+    {
+        
+    }
 }
