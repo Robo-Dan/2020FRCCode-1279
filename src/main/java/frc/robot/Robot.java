@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.PowerCell;
 
 
 /**
@@ -30,8 +31,12 @@ public class Robot extends TimedRobot
 
   private RobotContainer m_robotContainer;
 
+  //section for subsystems
   public static DriveTrain robotDriveTrain = new DriveTrain();
+  public static PowerCell powerCellSubsystem = new PowerCell();
+  //^^section for subsystems
   public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
+
   
   // distance in inches the robot wants to stay from an object
   private static final double kHoldDistance = 12.0;
