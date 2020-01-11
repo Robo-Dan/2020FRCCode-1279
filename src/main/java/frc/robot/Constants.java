@@ -76,21 +76,21 @@ public final class Constants
 
     public static final class TalonNames
     {
-        public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_TEN);
-        public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_EIGHT);
+        public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_TEN); //change to one
+        public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_EIGHT); //change to two
         public static SpeedControllerGroup m_left = new SpeedControllerGroup(frontLeft, rearLeft);
-        public static WPI_TalonSRX frontRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_TWO);
-        public static WPI_TalonSRX rearRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_SEVEN);
+        public static WPI_TalonSRX frontRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_TWO); //change to three
+        public static WPI_TalonSRX rearRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_SEVEN); //change to four
         public static SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
 
         // This is the Talons for shooting the ball
-        public static WPI_TalonSRX leftOffConveyorBelt = new WPI_TalonSRX(17); // left when 
-        public static WPI_TalonSRX rightOffConveyorBelt = new WPI_TalonSRX(95);
-        public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(31);
-        public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(14);
+        public static WPI_TalonSRX leftOffConveyorBelt = new WPI_TalonSRX(17); // change to 5
+        public static WPI_TalonSRX rightOffConveyorBelt = new WPI_TalonSRX(95); // change to 6
+        public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(31); //change to 7
+        public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(14); // change to 8
 
-        public static WPI_TalonSRX leftIntakeMotor = new WPI_TalonSRX(20);
-        public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(15);
+        public static WPI_TalonSRX leftIntakeMotor = new WPI_TalonSRX(20); // change to 9
+        public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(15); // change to 10
     }
 
     public static final class AutoConstants

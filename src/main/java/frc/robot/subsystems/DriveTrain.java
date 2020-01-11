@@ -106,4 +106,8 @@ public class DriveTrain extends SubsystemBase
     else return false;
   }
 
+  public void driveAuto()
+  {
+    Robot.drive.arcadeDrive(.2, 0);
+  }
 }
