@@ -30,10 +30,11 @@ public class PowerCell extends SubsystemBase
 
   public void shootPowerCell() //currently, this method is for shooting the upper goal. will change the name of the method if we also do the lower goal
   {
-    Constants.TalonNames.leftShooter.set(ControlMode.PercentOutput, 1);
-    Constants.TalonNames.rightShooter.set(ControlMode.PercentOutput, -1);
-    Constants.TalonNames.leftOffConveyorBelt.set(ControlMode.PercentOutput, .25);
-    Constants.TalonNames.rightOffConveyorBelt.set(ControlMode.PercentOutput, -.25);
+    Constants.TalonNames.leftShooter.set(ControlMode.PercentOutput, .5);
+    Constants.TalonNames.rightShooter.set(ControlMode.PercentOutput, -.5);
+    Constants.TalonNames.leftOffConveyorBelt.set(ControlMode.PercentOutput, 1);
+    Constants.TalonNames.rightOffConveyorBelt.set(ControlMode.PercentOutput, -1);
+    //Test
   }
 
   public void intakePowerCell()
