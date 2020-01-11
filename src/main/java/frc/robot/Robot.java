@@ -143,7 +143,7 @@ public class Robot extends TimedRobot
   @Override
   public void autonomousPeriodic()
   {
-    robotDriveTrain.robotDrive();
+    robotDriveTrain.driveAuto();
   }
 
   @Override
