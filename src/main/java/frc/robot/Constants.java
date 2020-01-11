@@ -80,7 +80,7 @@ public final class Constants
         public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_EIGHT); //change to two
         public static SpeedControllerGroup m_left = new SpeedControllerGroup(frontLeft, rearLeft);
         public static WPI_TalonSRX frontRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_TWO); //change to three
-        public static WPI_TalonSRX rearRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_SEVEN); //change to four
+        public static WPI_TalonSRX rearRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_THREE); //change to four
         public static SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
 
         // This is the Talons for shooting the ball
