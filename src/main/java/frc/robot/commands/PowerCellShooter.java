@@ -9,14 +9,17 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
+import frc.robot.subsystems.PowerCell;
 
 public class PowerCellShooter extends CommandBase
 {
+  private final PowerCell powerCellSystem;
   /**
    * Creates a new PowerCellShooter.
    */
-  public PowerCellShooter()
+  public PowerCellShooter(PowerCell system)
   {
+    powerCellSystem = system;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.powerCellSubsystem);
   }
@@ -32,7 +35,7 @@ public class PowerCellShooter extends CommandBase
   @Override
   public void execute()
   {
-    Robot.powerCellSubsystem.shootPowerCell();
+    powerCellSystem.shootPowerCell();
   }
 
   // Called once the command ends or is interrupted.

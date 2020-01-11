@@ -9,14 +9,17 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
+import frc.robot.subsystems.ClimbingSubsystem;
 
 public class MovingArmUp extends CommandBase
 {
+  private ClimbingSubsystem climberInSubsystem;
   /**
    * Creates a new MovingArmUp.
    */
-  public MovingArmUp()
+  public MovingArmUp(ClimbingSubsystem climb)
   {
+    climberInSubsystem = climb;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.climber);
   }
@@ -32,7 +35,7 @@ public class MovingArmUp extends CommandBase
   @Override
   public void execute()
   {
-    Robot.climber.movingArmUp();
+    climberInSubsystem.movingArmUp();
   }
 
   // Called once the command ends or is interrupted.

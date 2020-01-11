@@ -9,35 +9,46 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
+import frc.robot.subsystems.ClimbingSubsystem;
 
-public class ClimbingRobotUp extends CommandBase {
+public class ClimbingRobotUp extends CommandBase
+{
+  private ClimbingSubsystem climberInSubsystem;
   /**
    * Creates a new ClimbingRobotUp.
    */
-  public ClimbingRobotUp() {
+  public ClimbingRobotUp(ClimbingSubsystem climb)
+  {
+    climberInSubsystem = climb;
     addRequirements(Robot.climber);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
+  public void initialize()
+  {
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    Robot.climber.pullingRobotUp();
+  public void execute()
+  {
+    climberInSubsystem.pullingRobotUp();
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
+  public void end(boolean interrupted)
+  {
+
   }
 
   // Returns true when the command should end.
   @Override
-  public boolean isFinished() {
+  public boolean isFinished()
+  {
     return false;
   }
 }
