@@ -38,8 +38,8 @@ public class PowerCell extends SubsystemBase
 
   public void intakePowerCell()
   {
-    Constants.TalonNames.leftIntakeMotor.set(ControlMode.PercentOutput, -.5);
-    Constants.TalonNames.rightIntakeMotor.set(ControlMode.PercentOutput, .5);
+    Constants.TalonNames.intakeMotor.set(ControlMode.PercentOutput, -.5);
+    //Constants.TalonNames.rightIntakeMotor.set(ControlMode.PercentOutput, .5);
   }
 
   public void stopAll() //May have to change this later. I think I may change this to stopShooting and stopIntaking
@@ -48,8 +48,8 @@ public class PowerCell extends SubsystemBase
     Constants.TalonNames.rightShooter.stopMotor();
     Constants.TalonNames.leftOffConveyorBelt.stopMotor();
     Constants.TalonNames.rightOffConveyorBelt.stopMotor();
-    Constants.TalonNames.leftIntakeMotor.stopMotor();
-    Constants.TalonNames.rightIntakeMotor.stopMotor();
+    Constants.TalonNames.intakeMotor.stopMotor();
+    //Constants.TalonNames.rightIntakeMotor.stopMotor();
   }
 
   public void stopShooting()
@@ -62,7 +62,7 @@ public class PowerCell extends SubsystemBase
 
   public void stopIntaking()
   {
-    Constants.TalonNames.leftIntakeMotor.stopMotor();
-    Constants.TalonNames.rightIntakeMotor.stopMotor();
+    Constants.TalonNames.intakeMotor.stopMotor();
+    //Constants.TalonNames.rightIntakeMotor.stopMotor();
   }
 }

@@ -89,8 +89,9 @@ public final class Constants
         public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(31); //change to 7
         public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(14); // change to 8
 
-        public static WPI_TalonSRX leftIntakeMotor = new WPI_TalonSRX(20); // change to 9
-        public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(15); // change to 10
+        public static WPI_TalonSRX intakeMotor = new WPI_TalonSRX(20); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
+        //^CHANGE THIS BACK TO LEFT IF NEEDED
+        //public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(15); // change to 10
     }
 
     public static final class AutoConstants
