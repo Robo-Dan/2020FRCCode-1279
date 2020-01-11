@@ -78,6 +78,9 @@ public final class Constants
     {
         public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_TEN); //change to one
         public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_EIGHT); //change to two
+        /**
+         * This is the speed group for the left side of the robot for motors
+         */
         public static SpeedControllerGroup m_left = new SpeedControllerGroup(frontLeft, rearLeft);
         public static WPI_TalonSRX frontRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_TWO); //change to three
         public static WPI_TalonSRX rearRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_THREE); //change to four

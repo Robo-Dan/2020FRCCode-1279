@@ -50,8 +50,6 @@ public class Robot extends TimedRobot
   private static final double kP = 0.05;
   private static final int kUltrasonicPort = 0;
 
-  public int cat = 5;
-
   private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
 
   
