@@ -45,6 +45,14 @@ public class DriveTrain extends SubsystemBase
     Robot.drive.feed();
   }
 
+  public void driveAuto()
+  {
+    Robot.drive.arcadeDrive(.2, 0);// this is test auto
+
+    
+    Robot.drive.feed();
+  }
+
   public void flipDirection()
   {
     inverse = inverse * -1; // just flips the value between 1 and negative 1
@@ -106,13 +114,8 @@ public class DriveTrain extends SubsystemBase
     else return false;
   }
 
-  public void driveAuto()
+  /**public void complexDriveAuto(double distance)
   {
-    Robot.drive.arcadeDrive(.2, 0);// this is test auto
-  }
 
-  public void complexDriveAuto()
-  {
-    
-  }
+  }*/
 }
