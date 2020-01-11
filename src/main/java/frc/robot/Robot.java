@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.DriveAuto;
+import frc.robot.subsystems.ClimbingSubsystem;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
 
@@ -29,13 +30,14 @@ public class Robot extends TimedRobot
 {
   
   private Command m_autonomousCommand;
-  private DriveAuto driveAuto = new DriveAuto();
+  private DriveAuto driveAuto = new DriveAuto(robotDriveTrain);
 
   private RobotContainer m_robotContainer;
 
   //section for subsystems
   public static DriveTrain robotDriveTrain = new DriveTrain();
   public static PowerCell powerCellSubsystem = new PowerCell();
+  public static ClimbingSubsystem climber = new ClimbingSubsystem();
   //^^section for subsystems
   public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
 

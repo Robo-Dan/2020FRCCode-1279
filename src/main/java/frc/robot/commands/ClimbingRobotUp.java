@@ -9,46 +9,35 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.subsystems.DriveTrain;
 
-public class DriveAuto extends CommandBase
-{
-  private final DriveTrain test;
+public class ClimbingRobotUp extends CommandBase {
   /**
-   * Creates a new DriveAuto.
+   * Creates a new ClimbingRobotUp.
    */
-  public DriveAuto(DriveTrain driveTrainSubsystem)
-  {
-    test = driveTrainSubsystem;
+  public ClimbingRobotUp() {
+    addRequirements(Robot.climber);
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.robotDriveTrain);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize()
-  {
-
+  public void initialize() {
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute()
-  {
-    test.driveAuto();
+  public void execute() {
+    Robot.climber.pullingRobotUp();
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted)
-  {
-
+  public void end(boolean interrupted) {
   }
 
   // Returns true when the command should end.
   @Override
-  public boolean isFinished()
-  {
+  public boolean isFinished() {
     return false;
   }
 }

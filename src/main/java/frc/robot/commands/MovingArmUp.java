@@ -9,19 +9,16 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.subsystems.DriveTrain;
 
-public class DriveAuto extends CommandBase
+public class MovingArmUp extends CommandBase
 {
-  private final DriveTrain test;
   /**
-   * Creates a new DriveAuto.
+   * Creates a new MovingArmUp.
    */
-  public DriveAuto(DriveTrain driveTrainSubsystem)
+  public MovingArmUp()
   {
-    test = driveTrainSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.robotDriveTrain);
+    addRequirements(Robot.climber);
   }
 
   // Called when the command is initially scheduled.
@@ -35,7 +32,7 @@ public class DriveAuto extends CommandBase
   @Override
   public void execute()
   {
-    test.driveAuto();
+    Robot.climber.movingArmUp();
   }
 
   // Called once the command ends or is interrupted.

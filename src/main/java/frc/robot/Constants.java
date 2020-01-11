@@ -40,6 +40,8 @@ public final class Constants
         public static final int TALON_EIGHT = 8;
         public static final int TALON_NINE = 9;
         public static final int TALON_TEN = 10;
+        public static final int TALON_ELEVEN = 11;
+        public static final int TALON_TWELVE = 12;
     }
 
     public static final class JoystickButtonNumbers
@@ -94,7 +96,10 @@ public final class Constants
 
         public static WPI_TalonSRX intakeMotor = new WPI_TalonSRX(20); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
         //^CHANGE THIS BACK TO LEFT IF NEEDED
-        //public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(15); // change to 10
+        //public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(15); // change to 10, if we use it
+
+        public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_TEN);
+        public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
     }
 
     public static final class AutoConstants

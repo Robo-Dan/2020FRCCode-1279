@@ -28,7 +28,7 @@ public class RobotContainer
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final DriveTrain m_robotDrive = new DriveTrain();
-  private final DriveAuto autoDriveCommand = new DriveAuto();
+  private final DriveAuto autoDriveCommand = new DriveAuto(Robot.robotDriveTrain);
 
   XboxController m_driverController = new XboxController(0);
   /**
@@ -60,6 +60,7 @@ public class RobotContainer
   public Command getAutonomousCommand()
   {
     // An ExampleCommand will run in autonomous
+    //return autoDriveCommand;
     return autoDriveCommand;
   }
 }

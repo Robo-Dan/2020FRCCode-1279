@@ -47,8 +47,8 @@ public class DriveTrain extends SubsystemBase
 
   public void driveAuto()
   {
-    
-    Robot.drive.arcadeDrive(.2, 0);// this is test auto
+
+    Robot.drive.arcadeDrive(.75, 0);// this is test auto
     
     Robot.drive.feed();
   }
