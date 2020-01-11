@@ -12,6 +12,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj2.command.button.Button;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -68,6 +70,8 @@ public final class Constants
             }
             return driverStick; // failsafe
         }
+
+        static Button driver_A_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 1);
     }
 
     public static final class TalonNames
