@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DriveAuto;
 import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.PowerCellIntake;
 import frc.robot.commands.PowerCellShooter;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -32,6 +33,7 @@ public class RobotContainer
   private final DriveAuto autoDriveCommand = new DriveAuto(Robot.robotDriveTrain);
 
   private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
+  private PowerCellIntake intakeThePowerCell = new PowerCellIntake(Robot.powerCell);
 
 
   /**
@@ -52,6 +54,7 @@ public class RobotContainer
   private void configureButtonBindings()
   {
     Constants.DriverAndOperatorJoystick.driver_A_Button.whenHeld(shooting);
+    Constants.DriverAndOperatorJoystick.driver_B_Button.whenHeld(intakeThePowerCell);
   }
 
   
