@@ -30,7 +30,7 @@ public class Robot extends TimedRobot
 {
   
   private Command m_autonomousCommand;
-  private DriveAuto driveAuto = new DriveAuto(robotDriveTrain);
+  private DriveAuto driveAuto = new DriveAuto(robotDriveTrain, powerCell);
 
   private RobotContainer m_robotContainer;
 

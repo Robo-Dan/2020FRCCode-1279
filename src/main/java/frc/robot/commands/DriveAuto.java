@@ -10,16 +10,19 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.PowerCell;
 
 public class DriveAuto extends CommandBase
 {
   private final DriveTrain test;
+  private final PowerCell shooting;
   /**
    * Creates a new DriveAuto.
    */
-  public DriveAuto(DriveTrain driveTrainSubsystem)
+  public DriveAuto(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
   {
     test = driveTrainSubsystem;
+    shooting = testPowerCell;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.robotDriveTrain);
   }

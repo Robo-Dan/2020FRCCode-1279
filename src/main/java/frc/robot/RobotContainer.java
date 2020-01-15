@@ -30,7 +30,7 @@ public class RobotContainer
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final DriveTrain m_robotDrive = new DriveTrain();
-  private final DriveAuto autoDriveCommand = new DriveAuto(Robot.robotDriveTrain);
+  private final DriveAuto autoDriveCommand = new DriveAuto(Robot.robotDriveTrain, Robot.powerCell);
 
   private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
   private PowerCellIntake intakeThePowerCell = new PowerCellIntake(Robot.powerCell);
