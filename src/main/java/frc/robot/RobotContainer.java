@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DriveAuto;
 import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.PowerCellShooter;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -30,7 +31,9 @@ public class RobotContainer
   private final DriveTrain m_robotDrive = new DriveTrain();
   private final DriveAuto autoDriveCommand = new DriveAuto(Robot.robotDriveTrain);
 
-  XboxController m_driverController = new XboxController(0);
+  private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
+
+
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -48,7 +51,7 @@ public class RobotContainer
    */
   private void configureButtonBindings()
   {
-    
+    Constants.DriverAndOperatorJoystick.driver_A_Button.whenHeld(shooting);
   }
 
   

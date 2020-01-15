@@ -74,31 +74,42 @@ public final class Constants
         }
 
         static Button driver_A_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 1);
+        static Button driver_B_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 2);
+        static Button driver_X_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 3);
+        static Button driver_Y_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 4);
+        static Button leftShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 5);
+        static Button rightShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 6);
+        static Button viewButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 7);
+        static Button menuButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 8);
+        static Button leftStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 9);
+        static Button rightStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 10);
+
+        
     }
 
     public static final class TalonNames
     {
-        public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_TEN); //change to one
-        public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_EIGHT); //change to two
+        public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(10); //change to one //Talon 10
+        public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(8); //change to two
         /**
          * This is the speed group for the left side of the robot for motors
          */
         public static SpeedControllerGroup m_left = new SpeedControllerGroup(frontLeft, rearLeft);
-        public static WPI_TalonSRX frontRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_TWO); //change to three
-        public static WPI_TalonSRX rearRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_THREE); //change to four
+        public static WPI_TalonSRX frontRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_SEVEN); //change to three
+        public static WPI_TalonSRX rearRight = new WPI_TalonSRX(13); //change to four
         public static SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
 
         // This is the Talons for shooting the ball
         public static WPI_TalonSRX leftOffConveyorBelt = new WPI_TalonSRX(17); // change to 5
         public static WPI_TalonSRX rightOffConveyorBelt = new WPI_TalonSRX(95); // change to 6
-        public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(31); //change to 7
-        public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(14); // change to 8
+        public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(321); //change to 7
+        public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(32); // change to 8
 
         public static WPI_TalonSRX intakeMotor = new WPI_TalonSRX(20); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
         //^CHANGE THIS BACK TO LEFT IF NEEDED
         //public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(15); // change to 10, if we use it
 
-        public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_TEN);
+        public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(47);
         public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
     }
 

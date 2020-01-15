@@ -13,6 +13,7 @@ import frc.robot.subsystems.PowerCell;
 
 public class PowerCellShooter extends CommandBase
 {
+
   private final PowerCell powerCellSystem;
   /**
    * Creates a new PowerCellShooter.
@@ -21,7 +22,7 @@ public class PowerCellShooter extends CommandBase
   {
     powerCellSystem = system;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.powerCellSubsystem);
+    addRequirements(Robot.powerCell);
   }
 
   // Called when the command is initially scheduled.
@@ -42,10 +43,10 @@ public class PowerCellShooter extends CommandBase
   @Override
   public void end(boolean interrupted)
   {
-    Robot.powerCellSubsystem.stopShooting();
+    powerCellSystem.stopShooting();
     if(interrupted == true) //ask Mr. Harkins about this
     {
-      Robot.powerCellSubsystem.stopAll();
+      powerCellSystem.stopAll();
     }
   }
 

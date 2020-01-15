@@ -21,7 +21,7 @@ public class PowerCellIntake extends CommandBase
   {
     powerCellSystem = system;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.powerCellSubsystem);
+    addRequirements(Robot.powerCell);
   }
 
   // Called when the command is initially scheduled.
@@ -42,10 +42,10 @@ public class PowerCellIntake extends CommandBase
   @Override
   public void end(boolean interrupted)
   {
-    Robot.powerCellSubsystem.stopIntaking();
+    Robot.powerCell.stopIntaking();
     if(interrupted == true) //ask Mr. Harkins about this
     {
-      Robot.powerCellSubsystem.stopAll();
+      Robot.powerCell.stopAll();
     }
   }
 

@@ -36,7 +36,7 @@ public class Robot extends TimedRobot
 
   //section for subsystems
   public static DriveTrain robotDriveTrain = new DriveTrain();
-  public static PowerCell powerCellSubsystem = new PowerCell();
+  public static PowerCell powerCell = new PowerCell();
   public static ClimbingSubsystem climber = new ClimbingSubsystem();
   //^^section for subsystems
   public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
@@ -55,8 +55,6 @@ public class Robot extends TimedRobot
   private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
 
   
-    // sensor returns a value from 0-4095 that is scaled to inches
-  private double currentDistance = m_ultrasonic.getValue() * kValueToInches;
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -154,7 +152,7 @@ public class Robot extends TimedRobot
   {
     robotDriveTrain.driveAuto();
 
-    SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
+    //SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
     SmartDashboard.putString("Test", "Hello");
   }
 
@@ -205,12 +203,17 @@ public class Robot extends TimedRobot
   {
 
     // convert distance error to a motor speed
-    //double currentSpeed = (kHoldDistance - currentDistance) * kP;
+    double currentDistance = m_ultrasonic.getValue();
+  
+    double currentSpeed = (kHoldDistance - currentDistance) * kP;
 
     robotDriveTrain.robotDrive();
 
+      // sensor returns a value from 0-4095 that is scaled to inches
+    
+
     SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
-    SmartDashboard.putString("Test", "Hello");
+    SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
 
     String gameData;
     gameData = DriverStation.getInstance().getGameSpecificMessage();
