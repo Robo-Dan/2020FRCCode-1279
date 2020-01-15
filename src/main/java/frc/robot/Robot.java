@@ -203,7 +203,7 @@ public class Robot extends TimedRobot
   {
 
     // convert distance error to a motor speed
-    double currentDistance = m_ultrasonic.getValue();
+    double currentDistance = m_ultrasonic.getValue() * kValueToInches;
   
     double currentSpeed = (kHoldDistance - currentDistance) * kP;
 
