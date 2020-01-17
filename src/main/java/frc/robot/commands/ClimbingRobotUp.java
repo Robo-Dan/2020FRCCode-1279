@@ -17,7 +17,7 @@ public class ClimbingRobotUp extends CommandBase
   /**
    * Creates a new ClimbingRobotUp.
    */
-  public ClimbingRobotUp(ClimbingSubsystem climb)
+  public ClimbingRobotUp(ClimbingSubsystem climb) //we have to include the subsytem in the command this year. Have to remember to add subsystem to RobotContainer
   {
     climberInSubsystem = climb;
     addRequirements(Robot.climber);
@@ -42,7 +42,7 @@ public class ClimbingRobotUp extends CommandBase
   @Override
   public void end(boolean interrupted)
   {
-
+    climberInSubsystem.stopPullingUpRobot();
   }
 
   // Returns true when the command should end.

@@ -42,7 +42,7 @@ public class MovingArmUp extends CommandBase
   @Override
   public void end(boolean interrupted)
   {
-
+    climberInSubsystem.stopMovingArm();
   }
 
   // Returns true when the command should end.

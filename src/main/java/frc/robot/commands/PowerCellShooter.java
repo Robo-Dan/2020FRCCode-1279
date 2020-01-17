@@ -44,10 +44,6 @@ public class PowerCellShooter extends CommandBase
   public void end(boolean interrupted)
   {
     powerCellSystem.stopShooting();
-    if(interrupted == true) //ask Mr. Harkins about this
-    {
-      powerCellSystem.stopAll();
-    }
   }
 
   // Returns true when the command should end.

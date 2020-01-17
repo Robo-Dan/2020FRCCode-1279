@@ -58,7 +58,7 @@ public class Robot extends TimedRobot
   private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
 
   UsbCamera forwardCamera;
-
+  UsbCamera backwardCamera;
   
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -72,11 +72,16 @@ public class Robot extends TimedRobot
     m_robotContainer = new RobotContainer();
 
     forwardCamera = CameraServer.getInstance().startAutomaticCapture(0);
+    backwardCamera = CameraServer.getInstance().startAutomaticCapture(1);
     //server = CameraServer.getInstance().addServer("Switched camera");
     //server = CameraServer.getInstance().addSwitchedCamera("Switched camera");
     forwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
     forwardCamera.setFPS(60);
     forwardCamera.setResolution(320, 240);
+    
+    backwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
+    backwardCamera.setFPS(60);
+    backwardCamera.setResolution(320, 240);
   }
 
   /**
