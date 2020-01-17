@@ -7,6 +7,9 @@
 
 package frc.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.cscore.VideoSource;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -54,6 +57,8 @@ public class Robot extends TimedRobot
 
   private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
 
+  UsbCamera forwardCamera;
+
   
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -65,6 +70,13 @@ public class Robot extends TimedRobot
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+
+    forwardCamera = CameraServer.getInstance().startAutomaticCapture(0);
+    //server = CameraServer.getInstance().addServer("Switched camera");
+    //server = CameraServer.getInstance().addSwitchedCamera("Switched camera");
+    forwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
+    forwardCamera.setFPS(60);
+    forwardCamera.setResolution(320, 240);
   }
 
   /**
@@ -203,10 +215,10 @@ public class Robot extends TimedRobot
   {
 
     // convert distance error to a motor speed
-    double currentDistance = m_ultrasonic.getValue() * kValueToInches;
+    double currentDistance = (m_ultrasonic.getValue() * kValueToInches) / 2.54;
   
     double currentSpeed = (kHoldDistance - currentDistance) * kP;
-
+    
     robotDriveTrain.robotDrive();
 
       // sensor returns a value from 0-4095 that is scaled to inches
