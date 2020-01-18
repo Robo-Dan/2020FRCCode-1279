@@ -49,6 +49,7 @@ public class DriveAuto extends CommandBase
     }
     else
     {
+      shooting.stopShooting();
       test.driveAuto();
     }
   }
