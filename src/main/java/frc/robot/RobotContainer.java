@@ -9,7 +9,14 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.DriveAuto;
+import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.MovingArmDown;
+import frc.robot.commands.MovingArmUp;
+import frc.robot.commands.PowerCellIntake;
+import frc.robot.commands.PowerCellShooter;
+import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -24,7 +31,13 @@ public class RobotContainer
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final DriveTrain m_robotDrive = new DriveTrain();
+  private final DriveAuto autoDriveCommand = new DriveAuto(Robot.robotDriveTrain, Robot.powerCell);
 
+  private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
+  private PowerCellIntake intakeThePowerCell = new PowerCellIntake(Robot.powerCell);
+  private MovingArmUp armUp = new MovingArmUp(Robot.climber);
+  private MovingArmDown armDown = new MovingArmDown(Robot.climber);
 
 
   /**
@@ -44,10 +57,13 @@ public class RobotContainer
    */
   private void configureButtonBindings()
   {
-
+    Constants.DriverAndOperatorJoystick.driver_A_Button.whenHeld(shooting);
+    Constants.DriverAndOperatorJoystick.driver_B_Button.whenHeld(intakeThePowerCell);
+    Constants.DriverAndOperatorJoystick.driver_Y_Button.whenHeld(armUp);
+    Constants.DriverAndOperatorJoystick.driver_X_Button.whenHeld(armDown);
   }
 
-
+  
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
@@ -56,6 +72,7 @@ public class RobotContainer
   public Command getAutonomousCommand()
   {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    //return autoDriveCommand;
+    return autoDriveCommand;
   }
 }

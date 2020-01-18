@@ -7,9 +7,21 @@
 
 package frc.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.cscore.VideoSource;
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.DriveAuto;
+import frc.robot.subsystems.ClimbingSubsystem;
+import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.PowerCell;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -21,9 +33,33 @@ public class Robot extends TimedRobot
 {
   
   private Command m_autonomousCommand;
+  private DriveAuto driveAuto = new DriveAuto(robotDriveTrain, powerCell);
 
   private RobotContainer m_robotContainer;
 
+  //section for subsystems
+  public static DriveTrain robotDriveTrain = new DriveTrain();
+  public static PowerCell powerCell = new PowerCell();
+  public static ClimbingSubsystem climber = new ClimbingSubsystem();
+  //^^section for subsystems
+  public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
+
+  
+  // distance in inches the robot wants to stay from an object
+  private static final double kHoldDistance = 12.0;
+
+  // factor to convert sensor values to a distance in inches
+  private static final double kValueToInches = 0.125;
+
+  // proportional speed constant
+  private static final double kP = 0.05;
+  private static final int kUltrasonicPort = 0;
+
+  private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
+
+  UsbCamera forwardCamera;
+  UsbCamera backwardCamera;
+  
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -34,6 +70,18 @@ public class Robot extends TimedRobot
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+
+    forwardCamera = CameraServer.getInstance().startAutomaticCapture(0);
+    backwardCamera = CameraServer.getInstance().startAutomaticCapture(1);
+    //server = CameraServer.getInstance().addServer("Switched camera");
+    //server = CameraServer.getInstance().addSwitchedCamera("Switched camera");
+    forwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
+    forwardCamera.setFPS(60);
+    forwardCamera.setResolution(320, 240);
+    
+    backwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
+    backwardCamera.setFPS(60);
+    backwardCamera.setResolution(320, 240);
   }
 
   /**
@@ -44,7 +92,8 @@ public class Robot extends TimedRobot
    * LiveWindow and SmartDashboard integrated updating.
    */
   @Override
-  public void robotPeriodic() {
+  public void robotPeriodic()
+  {
     // Runs the Scheduler.  This is responsible for polling buttons, adding newly-scheduled
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
@@ -56,53 +105,176 @@ public class Robot extends TimedRobot
    * This function is called once each time the robot enters Disabled mode.
    */
   @Override
-  public void disabledInit() {
+  public void disabledInit()
+  {
+
   }
 
   @Override
-  public void disabledPeriodic() {
+  public void disabledPeriodic()
+  {
+
   }
 
   /**
    * This autonomous runs the autonomous command selected by your {@link RobotContainer} class.
    */
   @Override
-  public void autonomousInit() {
+  public void autonomousInit()
+  {
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
     // schedule the autonomous command (example)
-    if (m_autonomousCommand != null) {
+    if (m_autonomousCommand != null)
+    {
       m_autonomousCommand.schedule();
+
     }
+
+    Constants.TalonNames.frontLeft.configFactoryDefault();
+    Constants.TalonNames.frontRight.configFactoryDefault();
+    Constants.TalonNames.rearLeft.configFactoryDefault();
+    Constants.TalonNames.rearRight.configFactoryDefault();
+
+    // adjust these so that when the stick is forward both of these are green
+    Constants.TalonNames.frontLeft.setInverted(false);
+    Constants.TalonNames.rearLeft.setInverted(false);
+    Constants.TalonNames.frontRight.setInverted(true); 
+    Constants.TalonNames.rearRight.setInverted(true);
+    // DO NOT TOUCH THIS OR YOU WILL GRENADE THE TRANSMISSION
+
+    drive.setRightSideInverted(false); // don't change this
+
+    drive.setSafetyEnabled(false);
+        // end of drivetrain stuff
+
+    drive.setExpiration(2);
+    drive.setSafetyEnabled(false);
+    
+    Constants.TalonNames.frontLeft.setSafetyEnabled(false);
+    Constants.TalonNames.rearLeft.setSafetyEnabled(false);
+    Constants.TalonNames.frontRight.setSafetyEnabled(false);
+    Constants.TalonNames.rearRight.setSafetyEnabled(false);
+
+    //Constants.TalonNames.hatchTalon.setSafetyEnabled(false);
+
+    //robotDriveTrain.setDirectionBack(); // starts the match with hatch as forward
   }
 
   /**
    * This function is called periodically during autonomous.
    */
   @Override
-  public void autonomousPeriodic() {
+  public void autonomousPeriodic()
+  {
+    robotDriveTrain.driveAuto();
+
+    //SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
+    SmartDashboard.putString("Test", "Hello");
   }
 
   @Override
-  public void teleopInit() {
+  public void teleopInit()
+  {
     // This makes sure that the autonomous stops running when
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
     // this line or comment it out.
-    if (m_autonomousCommand != null) {
+    if (m_autonomousCommand != null)
+    {
       m_autonomousCommand.cancel();
     }
+
+    Constants.TalonNames.frontLeft.configFactoryDefault();
+    Constants.TalonNames.frontRight.configFactoryDefault();
+    Constants.TalonNames.rearLeft.configFactoryDefault();
+    Constants.TalonNames.rearRight.configFactoryDefault();
+
+    // adjust these so that when the stick is forward both of these are green
+    Constants.TalonNames.frontLeft.setInverted(false);
+    Constants.TalonNames.rearLeft.setInverted(false);
+    Constants.TalonNames.frontRight.setInverted(true); 
+    Constants.TalonNames.rearRight.setInverted(true);
+    // DO NOT TOUCH THIS OR YOU WILL GRENADE THE TRANSMISSION
+
+    drive.setRightSideInverted(false); // don't change this
+
+    drive.setSafetyEnabled(false);
+        // end of drivetrain stuff
+
+    drive.setExpiration(2);
+    drive.setSafetyEnabled(false);
+    
+    Constants.TalonNames.frontLeft.setSafetyEnabled(false);
+    Constants.TalonNames.rearLeft.setSafetyEnabled(false);
+    Constants.TalonNames.frontRight.setSafetyEnabled(false);
+    Constants.TalonNames.rearRight.setSafetyEnabled(false);
+
   }
 
   /**
    * This function is called periodically during operator control.
    */
   @Override
-  public void teleopPeriodic() {
+  public void teleopPeriodic() 
+  {
+
+    // convert distance error to a motor speed
+    double currentDistance = (m_ultrasonic.getValue() * kValueToInches) / 2.54;
+  
+    double currentSpeed = (kHoldDistance - currentDistance) * kP;
+    
+    robotDriveTrain.robotDrive();
+
+      // sensor returns a value from 0-4095 that is scaled to inches
+    
+
+    SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
+    SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
+
+    String gameData;
+    gameData = DriverStation.getInstance().getGameSpecificMessage();
+    if(gameData.length() > 0)
+    {
+      switch (gameData.charAt(0))
+      {
+        case 'B' :
+        //Blue case code
+        //when blue sent, do this
+        SmartDashboard.putString("Spin the Control Panel to color: ", "BLUE");
+        break;
+        case 'G' :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "GREEN");
+        //Green case code
+        //when green sent, do this
+        break;
+        case 'R' :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "RED");
+        //Red case code
+        //when red sent, do this
+        break;
+        case 'Y' :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "YELLOW");
+        //Yellow case code
+        //when yellow sent, do this
+        break;
+        default :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "UNKNOWN COLOR");
+       //This is corrupt data
+       //when field sents a value not one of the above
+        break;
+        }
+    }
+    else
+    {
+      SmartDashboard.putString("Spin the Control Panel to color: ", "NOTHING YET");
+      //Code for no data received yet
+    }
   }
 
   @Override
-  public void testInit() {
+  public void testInit()
+  {
     // Cancels all running commands at the start of test mode.
     CommandScheduler.getInstance().cancelAll();
   }
@@ -111,6 +283,8 @@ public class Robot extends TimedRobot
    * This function is called periodically during test mode.
    */
   @Override
-  public void testPeriodic() {
+  public void testPeriodic()
+  {
+
   }
 }
