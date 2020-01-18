@@ -11,9 +11,12 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
+import edu.wpi.first.wpilibj.Timer;
 
 public class DriveAuto extends CommandBase
 {
+  private final Timer m_timer = new Timer();
+
   private final DriveTrain test;
   private final PowerCell shooting;
   /**
@@ -31,6 +34,8 @@ public class DriveAuto extends CommandBase
   @Override
   public void initialize()
   {
+    m_timer.reset();
+    m_timer.start();
 
   }
 
@@ -38,14 +43,21 @@ public class DriveAuto extends CommandBase
   @Override
   public void execute()
   {
-    test.driveAuto();
+    if(m_timer.get() < 5)
+    {
+      shooting.shootPowerCell();
+    }
+    else
+    {
+      test.driveAuto();
+    }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-
+    shooting.stopShooting();
   }
 
   // Returns true when the command should end.

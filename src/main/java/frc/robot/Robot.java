@@ -167,7 +167,7 @@ public class Robot extends TimedRobot
   @Override
   public void autonomousPeriodic()
   {
-    robotDriveTrain.driveAuto();
+    //robotDriveTrain.driveAuto();
 
     //SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
     SmartDashboard.putString("Test", "Hello");
