@@ -52,9 +52,6 @@ public final class Constants
         public static final int BUTTON_FOUR = 4;
         public static final int BUTTON_FIVE = 5;
     }
-<<<<<<< HEAD
-    //hi
-=======
 
     public static final class DriverAndOperatorJoystick
     {
@@ -120,5 +117,4 @@ public final class Constants
     {
 
     }
->>>>>>> a4389c8ccccd83a2ae13a39699ffd8d62e11f0a6
 }
