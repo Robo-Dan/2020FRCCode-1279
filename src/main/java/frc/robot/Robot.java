@@ -234,7 +234,7 @@ public class Robot extends TimedRobot
 
     String gameData;
     gameData = DriverStation.getInstance().getGameSpecificMessage();
-    gameData.toUpperCase();
+    gameData.toUpperCase(); //this makes it so that the gamedata that we get is capitalized and the code returned works
     if(gameData.length() > 0)
     {
       switch (gameData.charAt(0))
