@@ -59,6 +59,7 @@ public class ComplexAuto extends CommandBase
    *    {
    *      drive back
    *    }
+   *    shoot ball
    * }
    * else
    * {
@@ -66,6 +67,7 @@ public class ComplexAuto extends CommandBase
    *    {
    *      drive forward
    *    }
+   *    shoot ball
    * }
    */
 }
