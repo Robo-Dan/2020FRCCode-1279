@@ -47,4 +47,25 @@ public class ComplexAuto extends CommandBase
   {
     return false;
   }
+  /**
+   * PSEUDO-CODE FOR THE METHODS FOR DISTANCE SENSOR
+   * if(currentDistance <= 123 && currentDistance >= 117)
+   * {
+   *    shoot ball
+   * }
+   * else if(currentDistance < 117)
+   * {
+   *    while(currentDistance < 117)
+   *    {
+   *      drive back
+   *    }
+   * }
+   * else
+   * {
+   *    while(currentDistance > 123)
+   *    {
+   *      drive forward
+   *    }
+   * }
+   */
 }
