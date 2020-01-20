@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Robot;
 
 public class SlowDriveTrain extends CommandBase
 {
@@ -18,6 +19,7 @@ public class SlowDriveTrain extends CommandBase
   public SlowDriveTrain()
   {
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(Robot.robotDriveTrain);
   }
 
   // Called when the command is initially scheduled.
@@ -31,14 +33,14 @@ public class SlowDriveTrain extends CommandBase
   @Override
   public void execute()
   {
-
+Robot.robotDriveTrain.slowSpeed();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-
+Robot.robotDriveTrain.normalSpeed();
   }
 
   // Returns true when the command should end.
