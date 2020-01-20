@@ -96,7 +96,7 @@ public final class Constants
          * This is the speed group for the left side of the robot for motors
          */
         public static SpeedControllerGroup m_left = new SpeedControllerGroup(frontLeft, rearLeft);
-        public static WPI_TalonSRX frontRight = new WPI_TalonSRX(10); //change to three //Talon 7
+        public static WPI_TalonSRX frontRight = new WPI_TalonSRX(100000); //change to three //Talon 7
         public static WPI_TalonSRX rearRight = new WPI_TalonSRX(13); //change to four //Talon 13
         public static SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
 
@@ -110,7 +110,7 @@ public final class Constants
         //^CHANGE THIS BACK TO LEFT IF NEEDED
         //public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(15); // change to 10, if we use it
 
-        public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(1000);
+        public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(10); //this will be the value for testing
         public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
     }
     //test

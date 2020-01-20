@@ -12,6 +12,7 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.cscore.VideoSource;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -56,10 +57,14 @@ public class Robot extends TimedRobot
   private static final int kUltrasonicPort = 0;
 
   private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
-
+  //TODO: Possibly make own class just for the distance sensor. that way, can make it work for auto
   UsbCamera forwardCamera;
   UsbCamera backwardCamera;
+
+  //private final I2C.Port i2cPort = I2C.Port.kOnboard;
   
+
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.

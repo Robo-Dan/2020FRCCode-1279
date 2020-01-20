@@ -17,14 +17,14 @@ public class DriveAuto extends CommandBase
 {
   private final Timer m_timer = new Timer();
 
-  private final DriveTrain test;
+  private final DriveTrain driveTrainAuto;
   private final PowerCell shooting;
   /**
    * Creates a new DriveAuto.
    */
   public DriveAuto(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
   {
-    test = driveTrainSubsystem;
+    driveTrainAuto = driveTrainSubsystem;
     shooting = testPowerCell;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.robotDriveTrain);
@@ -50,7 +50,7 @@ public class DriveAuto extends CommandBase
     else
     {
       shooting.stopShooting();
-      test.driveAuto();
+      driveTrainAuto.driveAuto();
     }
   }
 
