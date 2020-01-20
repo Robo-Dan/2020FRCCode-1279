@@ -7,23 +7,41 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.AnalogInput;
+
 /**
  * This is the DistanceSensor class. The purpose of this
  * Is so that we will be able to use the distance sensor in more ways
  * Than just telling us how far away we are
  * We would be able to use this for auto and possibly even teleop
  */
-public class DistanceSensor 
+public class UltraSonicDistanceSensor 
 {
     private static final double kHoldDistance = 12.0;
   // factor to convert sensor values to a distance in inches
     private static final double kValueToInches = 0.125;
   // proportional speed constant
     private static final double kP = 0.05;
-    private static final int kUltrasonicPort = 0;
+    //private static final int kUltrasonicPort = 0;
 
-    public DistanceSensor()
+    private AnalogInput ultrasonicSensor;
+
+    /**
+     * Should allow for us to actually have multiple Ultrasonic Distance Sensors
+     * @param portNumber
+     */
+    public UltraSonicDistanceSensor(int portNumber)
     {
-        
+        ultrasonicSensor = new AnalogInput(portNumber);
+    }
+
+    public double getCurrentDistance()
+    {
+        return (ultrasonicSensor.getValue() * kValueToInches) / 2.54;
+    }
+
+    public double getCurrentSpeed()
+    {
+        return (kHoldDistance - this.getCurrentDistance()) *kP;
     }
 }

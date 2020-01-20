@@ -231,9 +231,8 @@ public class Robot extends TimedRobot
     
     robotDriveTrain.robotDrive();
 
-      // sensor returns a value from 0-4095 that is scaled to inches
+    // sensor returns a value from 0-4095 that is scaled to inches
     
-
     SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
     SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
 

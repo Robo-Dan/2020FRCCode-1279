@@ -115,6 +115,11 @@ public final class Constants
     }
     //test
 
+    public static final class LimitSwitch
+    {
+        public static int barArmDownLimitSwitch = 0;
+    }
+
     public static final class AutoConstants
     {
 

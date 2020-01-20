@@ -14,6 +14,7 @@ import frc.robot.Constants;
 
 public class ClimbingSubsystem extends SubsystemBase
 {
+  //TODO: POSSIBLY ADD LIMIT SWITCHES
   /**
    * Creates a new ClimbingSubsystem.
    */
@@ -30,12 +31,12 @@ public class ClimbingSubsystem extends SubsystemBase
 
   public void movingArmUp()
   {
-    Constants.TalonNames.raisingTheBarMotor.set(ControlMode.PercentOutput, -.25);
+    Constants.TalonNames.raisingTheBarMotor.set(ControlMode.PercentOutput, -.50);
   }
 
   public void movingArmDown()
   {
-    Constants.TalonNames.raisingTheBarMotor.set(ControlMode.PercentOutput, .25);
+    Constants.TalonNames.raisingTheBarMotor.set(ControlMode.PercentOutput, .2);
   }
 
   public void stopMovingArm()
