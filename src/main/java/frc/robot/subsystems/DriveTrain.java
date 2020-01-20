@@ -113,6 +113,10 @@ public class DriveTrain extends SubsystemBase
     else return false;
   }
 
+  public void stopDriving()
+  {
+    Robot.drive.arcadeDrive(0, 0);
+  }
   /**public void complexDriveAuto(double distance)
   {
 

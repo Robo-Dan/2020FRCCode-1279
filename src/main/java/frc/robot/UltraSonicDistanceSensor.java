@@ -28,7 +28,7 @@ public class UltraSonicDistanceSensor
 
     /**
      * Should allow for us to actually have multiple Ultrasonic Distance Sensors
-     * @param portNumber
+     * @param portNumber the Port Number
      */
     public UltraSonicDistanceSensor(int portNumber)
     {

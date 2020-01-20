@@ -43,14 +43,18 @@ public class DriveAuto extends CommandBase
   @Override
   public void execute()
   {
-    if(m_timer.get() < 5)
+    if(m_timer.get() < 10)
     {
       shooting.shootPowerCell();
     }
-    else
+    else if(m_timer.get() > 10 && m_timer.get() < 12)
     {
       shooting.stopShooting();
       driveTrainAuto.driveAuto();
+    }
+    else
+    {
+      driveTrainAuto.stopDriving();
     }
   }
 
@@ -59,6 +63,7 @@ public class DriveAuto extends CommandBase
   public void end(boolean interrupted)
   {
     shooting.stopShooting();
+    //driveTrainAuto.stopDriving(); //TODO: if a problem arises, check this
   }
 
   // Returns true when the command should end.

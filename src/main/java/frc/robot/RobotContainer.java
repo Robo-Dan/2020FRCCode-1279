@@ -40,7 +40,7 @@ public class RobotContainer
   private PowerCellIntake intakeThePowerCell = new PowerCellIntake(Robot.powerCell);
   private MovingArmUp armUp = new MovingArmUp(Robot.climber);
   private MovingArmDown armDown = new MovingArmDown(Robot.climber);
-private SlowDriveTrain slowDrive = new SlowDriveTrain();
+  private SlowDriveTrain slowDrive = new SlowDriveTrain();
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
