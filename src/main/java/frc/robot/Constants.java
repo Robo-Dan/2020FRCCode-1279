@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+//import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -27,32 +27,31 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
  */
 public final class Constants
 {
+    /**
+     * Contains the names of the Talon IDs
+     */
     public static final class TalonIDs
     {
-        //These names will be changed later. Just for placement know
-        public static final int TALON_ONE = 1;
-        public static final int TALON_TWO = 2;
-        public static final int TALON_THREE = 3;
-        public static final int TALON_FOUR = 4;
-        public static final int TALON_FIVE = 5;
-        public static final int TALON_SIX = 6;
-        public static final int TALON_SEVEN = 7;
-        public static final int TALON_EIGHT = 8;
-        public static final int TALON_NINE = 9;
-        public static final int TALON_TEN = 10;
-        public static final int TALON_ELEVEN = 11;
-        public static final int TALON_TWELVE = 12;
+        //These names may be changed later. Just for placement know
+        public static final int TALON_ONE = 1; // Name for the first talon
+        public static final int TALON_TWO = 2; // Name for the second talon
+        public static final int TALON_THREE = 3; // Name for the third talon
+        public static final int TALON_FOUR = 4; // Name for the fourth talon
+        public static final int TALON_FIVE = 5; // Name for the fifth talon
+        public static final int TALON_SIX = 6; // Name for the sixth talon
+        public static final int TALON_SEVEN = 7; // Name for the seventh talon
+        public static final int TALON_EIGHT = 8; // name for the eighth talon
+        public static final int TALON_NINE = 9; // Name for the ninth talon
+        public static final int TALON_TEN = 10; // Name for the tenth talon
+        public static final int TALON_ELEVEN = 11; // Name for the eleventh talon
+        public static final int TALON_TWELVE = 12; // Name for the twelvth talon
     }
 
-    public static final class JoystickButtonNumbers
-    {
-        public static final int BUTTON_ONE = 1;
-        public static final int BUTTON_TWO = 2;
-        public static final int BUTTON_THREE = 3;
-        public static final int BUTTON_FOUR = 4;
-        public static final int BUTTON_FIVE = 5;
-    }
-
+    /**
+     * Class that contains the driver and operator buttons
+     * Way to name the Buttons
+     * static Button driver_ButtonName or operator_ButtonName = new JoystickButton(JoystickName, NumberOnController)
+     */
     public static final class DriverAndOperatorJoystick
     {
         public static Joystick driverStick = new Joystick(0);
@@ -73,6 +72,14 @@ public final class Constants
             return driverStick; // failsafe
         }
 
+        // Here is how the process for assigning buttons is
+        // static Button driver_ButtonName or operator_ButtonName = new JoystickButton(JoystickName, NumberOnController)
+        // static (allows for us to use in other classes)
+        // Button (Name of class)
+        // driver_ButtonName or operator_ButtonName (name of the button on the controller)
+        // new JoystickButton (name of the class for the Button)
+        // JoystickName (name of the joystick. will either be the driver or operator controller)
+        // NumberOnController (number that corresponds to the button on the controller)
         static Button driver_A_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 1);
         static Button driver_B_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 2);
         static Button driver_X_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 3);
@@ -98,6 +105,11 @@ public final class Constants
         static Button operator_rightTrigger = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 12); // This may work but not sure since it doesn't come up on driver station
     }
 
+    /**
+     * Contains the names of the Talon Names
+     * Way to name Talons
+     * public static WPI_TalonSRX nameOfTalon = new WPI_TalonSRX(TalonNumber);
+     */
     public static final class TalonNames
     {
         //TALONS 7, 8, 10, 13 ARE FOR TESTING CURRENTLY
@@ -107,6 +119,7 @@ public final class Constants
          * This is the speed group for the left side of the robot for motors
          */
         public static SpeedControllerGroup m_left = new SpeedControllerGroup(frontLeft, rearLeft);
+
         public static WPI_TalonSRX frontRight = new WPI_TalonSRX(100000); //change to three //Talon 7
         public static WPI_TalonSRX rearRight = new WPI_TalonSRX(13); //change to four //Talon 13
         public static SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
@@ -124,15 +137,14 @@ public final class Constants
         public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(10); //this will be the value for testing
         public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
     }
-    //test
 
     public static final class LimitSwitch
     {
         public static int barArmDownLimitSwitch = 0;
     }
 
-    public static final class AutoConstants
+    /**public static final class AutoConstants
     {
 
-    }
+    }*/
 }

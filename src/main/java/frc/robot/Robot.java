@@ -36,7 +36,6 @@ import frc.robot.subsystems.PowerCell;
  */
 public class Robot extends TimedRobot
 {
-  
   private Command m_autonomousCommand;
   private DriveAuto driveAuto = new DriveAuto(robotDriveTrain, powerCell);
 
@@ -121,9 +120,12 @@ public class Robot extends TimedRobot
   
     double currentSpeed = (kHoldDistance - currentDistance) * kP;
 
+    //double possibleFixToErrorInDistance = kHoldDistance - currentDistance;
+
     SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
     SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
-
+    //SmartDashboard.putNumber("Possible Fix for Distance (in inches)", possibleFixToErrorInDistance);
+    
     String gameData;
     gameData = DriverStation.getInstance().getGameSpecificMessage();
     gameData.toUpperCase(); //this makes it so that the gamedata that we get is capitalized and the code returned works
