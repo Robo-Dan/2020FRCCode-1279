@@ -59,11 +59,14 @@ public class RobotContainer
    */
   private void configureButtonBindings()
   {
-    Constants.DriverAndOperatorJoystick.driver_A_Button.whenHeld(shooting);
-    Constants.DriverAndOperatorJoystick.driver_B_Button.whenHeld(intakeThePowerCell);
-    Constants.DriverAndOperatorJoystick.driver_Y_Button.whenHeld(armUp);
-    Constants.DriverAndOperatorJoystick.driver_X_Button.whenHeld(armDown);
-    Constants.DriverAndOperatorJoystick.leftShoulderButton.whenHeld(slowDrive);
+    //operator buttons
+    Constants.DriverAndOperatorJoystick.operator_A_Button.whenHeld(shooting);
+    Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(intakeThePowerCell);
+    Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(armUp);
+    Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(armDown);
+
+    //driver buttons
+    Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
   }
 
   

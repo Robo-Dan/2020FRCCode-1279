@@ -77,14 +77,25 @@ public final class Constants
         static Button driver_B_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 2);
         static Button driver_X_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 3);
         static Button driver_Y_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 4);
-        static Button leftShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 5);
-        static Button rightShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 6);
-        static Button viewButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 7);
-        static Button menuButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 8);
-        static Button leftStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 9);
-        static Button rightStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 10);
+        static Button driver_leftShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 5);
+        static Button driver_rightShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 6);
+        static Button driver_viewButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 7);
+        static Button driver_menuButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 8);
+        static Button driver_leftStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 9);
+        static Button driver_rightStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 10);
 
-        
+        static Button operator_A_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 1);
+        static Button operator_B_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 2);
+        static Button operator_X_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 3);
+        static Button operator_Y_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 4);
+        static Button operator_leftShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 5);
+        static Button operator_rightShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 6);
+        static Button operator_viewButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 7);
+        static Button operator_menuButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 8);
+        static Button operator_leftStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 9);
+        static Button operator_rightStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 10);
+        static Button operator_leftTrigger = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 11); // This may work but not sure since it doesn't come up on driver station
+        static Button operator_rightTrigger = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 12); // This may work but not sure since it doesn't come up on driver station
     }
 
     public static final class TalonNames
