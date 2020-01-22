@@ -7,6 +7,9 @@
 
 package frc.robot;
 
+import com.revrobotics.ColorMatch;
+import com.revrobotics.ColorSensorV3;
+
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.cscore.VideoSource;
@@ -16,6 +19,7 @@ import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.DriveAuto;
@@ -62,9 +66,13 @@ public class Robot extends TimedRobot
   UsbCamera backwardCamera;
 
   //private final I2C.Port i2cPort = I2C.Port.kOnboard;
-  
+  //private final ColorMatch m_colorMatcher = new ColorMatch();
+  //private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
 
-
+  /**private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
+  private final Color kGreenTarget = ColorMatch.makeColor(0.197, 0.561, 0.240);
+  private final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);
+  private final Color kYellowTarget = ColorMatch.makeColor(0.361, 0.524, 0.113);*/
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -104,6 +112,71 @@ public class Robot extends TimedRobot
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+
+    
+    // sensor returns a value from 0-4095 that is scaled to inches
+    
+    // convert distance error to a motor speed
+    double currentDistance = (m_ultrasonic.getValue() * kValueToInches) / 2.54;
+  
+    double currentSpeed = (kHoldDistance - currentDistance) * kP;
+
+    SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
+    SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
+
+    String gameData;
+    gameData = DriverStation.getInstance().getGameSpecificMessage();
+    gameData.toUpperCase(); //this makes it so that the gamedata that we get is capitalized and the code returned works
+    if(gameData.length() > 0)
+    {
+      switch (gameData.charAt(0))
+      {
+        case 'B' :
+        //Blue case code
+        //when blue sent, do this
+        SmartDashboard.putString("Spin the Control Panel to color: ", "BLUE");
+        break;
+        case 'G' :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "GREEN");
+        //Green case code
+        //when green sent, do this
+        break;
+        case 'R' :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "RED");
+        //Red case code
+        //when red sent, do this
+        break;
+        case 'Y' :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "YELLOW");
+        //Yellow case code
+        //when yellow sent, do this
+        break;
+        default :
+        SmartDashboard.putString("Spin the Control Panel to color: ", "UNKNOWN COLOR");
+       //This is corrupt data
+       //when field sents a value not one of the above
+        break;
+        }
+    }
+    else
+    {
+      SmartDashboard.putString("Spin the Control Panel to color: ", "NOTHING YET");
+      //Code for no data received yet
+    }
+
+    //Color detectedColor = m_colorSensor.getColor();
+
+   // double IR = m_colorSensor.getIR();
+
+    /**
+     * Open Smart Dashboard or Shuffleboard to see the color detected by the 
+     * sensor.
+     */
+    /*SmartDashboard.putNumber("Red", detectedColor.red);
+    SmartDashboard.putNumber("Green", detectedColor.green);
+    SmartDashboard.putNumber("Blue", detectedColor.blue);
+    SmartDashboard.putNumber("IR", IR);*/
+
   }
 
   /**
@@ -175,7 +248,7 @@ public class Robot extends TimedRobot
     //robotDriveTrain.driveAuto();
 
     //SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
-    SmartDashboard.putString("Test", "Hello");
+    //SmartDashboard.putString("Test", "Hello");
   }
 
   @Override
@@ -224,57 +297,9 @@ public class Robot extends TimedRobot
   public void teleopPeriodic() 
   {
 
-    // convert distance error to a motor speed
-    double currentDistance = (m_ultrasonic.getValue() * kValueToInches) / 2.54;
-  
-    double currentSpeed = (kHoldDistance - currentDistance) * kP;
     
     robotDriveTrain.robotDrive();
 
-    // sensor returns a value from 0-4095 that is scaled to inches
-    
-    SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
-    SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
-
-    String gameData;
-    gameData = DriverStation.getInstance().getGameSpecificMessage();
-    gameData.toUpperCase(); //this makes it so that the gamedata that we get is capitalized and the code returned works
-    if(gameData.length() > 0)
-    {
-      switch (gameData.charAt(0))
-      {
-        case 'B' :
-        //Blue case code
-        //when blue sent, do this
-        SmartDashboard.putString("Spin the Control Panel to color: ", "BLUE");
-        break;
-        case 'G' :
-        SmartDashboard.putString("Spin the Control Panel to color: ", "GREEN");
-        //Green case code
-        //when green sent, do this
-        break;
-        case 'R' :
-        SmartDashboard.putString("Spin the Control Panel to color: ", "RED");
-        //Red case code
-        //when red sent, do this
-        break;
-        case 'Y' :
-        SmartDashboard.putString("Spin the Control Panel to color: ", "YELLOW");
-        //Yellow case code
-        //when yellow sent, do this
-        break;
-        default :
-        SmartDashboard.putString("Spin the Control Panel to color: ", "UNKNOWN COLOR");
-       //This is corrupt data
-       //when field sents a value not one of the above
-        break;
-        }
-    }
-    else
-    {
-      SmartDashboard.putString("Spin the Control Panel to color: ", "NOTHING YET");
-      //Code for no data received yet
-    }
   }
 
   @Override
