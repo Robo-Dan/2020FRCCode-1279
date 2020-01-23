@@ -8,21 +8,15 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Robot;
-import frc.robot.subsystems.PowerCell;
 
-public class PowerCellShooter extends CommandBase
+public class TriggerBasedPowerCellShooter extends CommandBase
 {
-  boolean shooterOn = true;
-  private final PowerCell powerCellSystem;
   /**
-   * Creates a new PowerCellShooter.
+   * Creates a new TriggerBasedPowerCellShooter.
    */
-  public PowerCellShooter(PowerCell system)
+  public TriggerBasedPowerCellShooter()
   {
-    powerCellSystem = system;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.powerCell);
   }
 
   // Called when the command is initially scheduled.
@@ -36,14 +30,14 @@ public class PowerCellShooter extends CommandBase
   @Override
   public void execute()
   {
-      powerCellSystem.shootPowerCell();
+
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-      powerCellSystem.stopShooting();
+
   }
 
   // Returns true when the command should end.
@@ -53,15 +47,3 @@ public class PowerCellShooter extends CommandBase
     return false;
   }
 }
-
-/**
- * when pressed
- * shooting = false
- * press button
- * shooting = true
- * shoot ball
- * press button
- * stop shooting
- * shooting = false
- * repeat
- */

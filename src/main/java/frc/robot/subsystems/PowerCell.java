@@ -7,6 +7,8 @@
 
 package frc.robot.subsystems;
 
+import javax.lang.model.util.ElementScanner6;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -17,6 +19,8 @@ public class PowerCell extends SubsystemBase
   /**
    * Creates a new PowerCell.
    */
+
+  public static boolean shooterOn;
   public PowerCell()
   {
 
@@ -30,8 +34,8 @@ public class PowerCell extends SubsystemBase
 
   public void shootPowerCell() //currently, this method is for shooting the upper goal. will change the name of the method if we also do the lower goal
   {
-    Constants.TalonNames.leftShooter.set(ControlMode.PercentOutput, .5);
-    Constants.TalonNames.rightShooter.set(ControlMode.PercentOutput, -.5);
+    Constants.TalonNames.leftShooter.set(ControlMode.PercentOutput, 1);
+    Constants.TalonNames.rightShooter.set(ControlMode.PercentOutput, -1);
     Constants.TalonNames.leftOffConveyorBelt.set(ControlMode.PercentOutput, 1);
     Constants.TalonNames.rightOffConveyorBelt.set(ControlMode.PercentOutput, -1);
     //Test
@@ -65,5 +69,17 @@ public class PowerCell extends SubsystemBase
   {
     Constants.TalonNames.intakeMotor.stopMotor();
     //Constants.TalonNames.rightIntakeMotor.stopMotor();
+  }
+
+  public void changeBoolean()
+  {
+    if(shooterOn == true)
+    {
+      shooterOn = false;
+    }
+    else
+    {
+      shooterOn = true;
+    }
   }
 }

@@ -113,7 +113,7 @@ public final class Constants
     public static final class TalonNames
     {
         //TALONS 7, 8, 10, 13 ARE FOR TESTING CURRENTLY
-        public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(7); //change to one //Talon 10
+        public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(7000000); //change to one //Talon 10
         public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(80); //change to two //Talon 8
         /**
          * This is the speed group for the left side of the robot for motors
@@ -128,7 +128,7 @@ public final class Constants
         public static WPI_TalonSRX leftOffConveyorBelt = new WPI_TalonSRX(17); // change to 5
         public static WPI_TalonSRX rightOffConveyorBelt = new WPI_TalonSRX(95); // change to 6
         public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(8); //change to 7
-        public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(32); // change to 8
+        public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(7); // change to 8
 
         public static WPI_TalonSRX intakeMotor = new WPI_TalonSRX(20); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
         //^CHANGE THIS BACK TO LEFT IF NEEDED
