@@ -101,8 +101,6 @@ public final class Constants
         static Button operator_menuButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 8);
         static Button operator_leftStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 9);
         static Button operator_rightStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 10);
-        static Button operator_leftTrigger = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 11); // This may work but not sure since it doesn't come up on driver station
-        static Button operator_rightTrigger = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 12); // This may work but not sure since it doesn't come up on driver station
     }
 
     /**

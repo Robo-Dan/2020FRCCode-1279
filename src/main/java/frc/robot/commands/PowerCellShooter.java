@@ -13,7 +13,7 @@ import frc.robot.subsystems.PowerCell;
 
 public class PowerCellShooter extends CommandBase
 {
-  boolean shooterOn = true;
+  //boolean shooterOn = true;
   private final PowerCell powerCellSystem;
   /**
    * Creates a new PowerCellShooter.

@@ -17,6 +17,7 @@ import frc.robot.commands.MovingArmUp;
 import frc.robot.commands.PowerCellIntake;
 import frc.robot.commands.PowerCellShooter;
 import frc.robot.commands.SlowDriveTrain;
+import frc.robot.commands.TriggerBasedPowerCellShooter;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -42,6 +43,7 @@ public class RobotContainer
   private MovingArmDown armDown = new MovingArmDown(Robot.climber);
   private SlowDriveTrain slowDrive = new SlowDriveTrain();
 
+  private TriggerBasedPowerCellShooter triggeredPowerCell = new TriggerBasedPowerCellShooter(Robot.powerCell);
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -64,6 +66,8 @@ public class RobotContainer
     Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(intakeThePowerCell);
     Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(armUp);
     Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(armDown);
+
+    Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenPressed(triggeredPowerCell);
 
     //driver buttons
     Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);

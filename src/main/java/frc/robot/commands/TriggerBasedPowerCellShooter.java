@@ -8,36 +8,57 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Robot;
+import frc.robot.subsystems.PowerCell;
 
 public class TriggerBasedPowerCellShooter extends CommandBase
 {
+  private final PowerCell powerCellSubSystem;
+  public static boolean shooterIsOn = false;
   /**
    * Creates a new TriggerBasedPowerCellShooter.
    */
-  public TriggerBasedPowerCellShooter()
+  public TriggerBasedPowerCellShooter(PowerCell powerCellSub)
   {
+    powerCellSubSystem = powerCellSub;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(Robot.powerCell);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize()
   {
-
+    if(shooterIsOn == false)
+    {
+      this.execute();
+    }
+    else
+    {
+      this.end(false || true);
+    }
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-
+    powerCellSubSystem.shootPowerCell();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-
+    if(shooterIsOn == true)
+    {
+      shooterIsOn = !shooterIsOn;
+      powerCellSubSystem.stopShooting();
+    }
+    else
+    {
+      shooterIsOn = !shooterIsOn;
+    }
   }
 
   // Returns true when the command should end.
