@@ -11,14 +11,13 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.PowerCell;
 
-public class TriggerBasedPowerCellShooter extends CommandBase
+public class StopShooterTrigger extends CommandBase
 {
-  //TODO: ASK MR HARKINS TO HELP
   private final PowerCell powerCellSubSystem;
   /**
-   * Creates a new TriggerBasedPowerCellShooter.
+   * Creates a new StopShooterTrigger.
    */
-  public TriggerBasedPowerCellShooter(PowerCell powerCellSub)
+  public StopShooterTrigger(PowerCell powerCellSub)
   {
     powerCellSubSystem = powerCellSub;
     // Use addRequirements() here to declare subsystem dependencies.
@@ -29,21 +28,21 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   @Override
   public void initialize()
   {
-    
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-    powerCellSubSystem.shootPowerCell();
+    powerCellSubSystem.stopShooting();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-    //powerCellSubSystem.stopShooting();
+
   }
 
   // Returns true when the command should end.
