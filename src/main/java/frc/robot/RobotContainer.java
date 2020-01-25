@@ -14,7 +14,7 @@ import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.MovingArmDown;
 import frc.robot.commands.MovingArmUp;
-import frc.robot.commands.PowerCellIntake;
+import frc.robot.commands.PowerCellElevatorUpIntake;
 import frc.robot.commands.PowerCellShooter;
 import frc.robot.commands.SlowDriveTrain;
 import frc.robot.commands.TriggerBasedPowerCellShooter;
@@ -38,7 +38,7 @@ public class RobotContainer
   private final DriveAuto autoDriveCommand = new DriveAuto(Robot.robotDriveTrain, Robot.powerCell);
 
   private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
-  private PowerCellIntake intakeThePowerCell = new PowerCellIntake(Robot.powerCell);
+  private PowerCellElevatorUpIntake intakeThePowerCell = new PowerCellElevatorUpIntake(Robot.powerCell);
   private MovingArmUp armUp = new MovingArmUp(Robot.climber);
   private MovingArmDown armDown = new MovingArmDown(Robot.climber);
   private SlowDriveTrain slowDrive = new SlowDriveTrain();

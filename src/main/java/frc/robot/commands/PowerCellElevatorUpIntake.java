@@ -11,13 +11,13 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.PowerCell;
 
-public class PowerCellIntake extends CommandBase
+public class PowerCellElevatorUpIntake extends CommandBase
 {
   private final PowerCell powerCellSystem;
   /**
-   * Creates a new PowerCellIntake.
+   * This is run when trying to bring the power cell up into the holding pen
    */
-  public PowerCellIntake(PowerCell system)
+  public PowerCellElevatorUpIntake(PowerCell system)
   {
     powerCellSystem = system;
     // Use addRequirements() here to declare subsystem dependencies.

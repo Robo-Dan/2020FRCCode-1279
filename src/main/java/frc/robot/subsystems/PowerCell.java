@@ -19,8 +19,6 @@ public class PowerCell extends SubsystemBase
   /**
    * Creates a new PowerCell.
    */
-
-  public static boolean shooterOn;
   public PowerCell()
   {
 
@@ -45,6 +43,10 @@ public class PowerCell extends SubsystemBase
     //Constants.TalonNames.rightIntakeMotor.set(ControlMode.PercentOutput, .5);
   }
 
+  public void moveElevatorDown()
+  {
+    
+  }
   public void stopAll() //May have to change this later. I think I may change this to stopShooting and stopIntaking
   {
     Constants.TalonNames.leftShooter.stopMotor();
@@ -63,17 +65,5 @@ public class PowerCell extends SubsystemBase
   {
     Constants.TalonNames.elevatorForIntakingPowerCell.stopMotor();
     //Constants.TalonNames.rightIntakeMotor.stopMotor();
-  }
-
-  public void changeBoolean()
-  {
-    if(shooterOn == true)
-    {
-      shooterOn = false;
-    }
-    else
-    {
-      shooterOn = true;
-    }
   }
 }
