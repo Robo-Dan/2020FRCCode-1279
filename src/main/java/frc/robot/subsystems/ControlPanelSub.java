@@ -7,10 +7,14 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class ControlPanelSub extends SubsystemBase
 {
+
   /**
    * Creates a new ControlPanelSub.
    */
@@ -23,5 +27,15 @@ public class ControlPanelSub extends SubsystemBase
   public void periodic()
   {
     // This method will be called once per scheduler run
+  }
+
+  public void turnControlPanel()
+  {
+    Constants.TalonNames.controlPanel.set(ControlMode.PercentOutput, .25);
+  }
+
+  public void stopControlPanel()
+  {
+    Constants.TalonNames.controlPanel.stopMotor();
   }
 }

@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.DriveAuto;
 import frc.robot.subsystems.ClimbingSubsystem;
+import frc.robot.subsystems.ControlPanelSub;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
 
@@ -45,6 +46,7 @@ public class Robot extends TimedRobot
   public static DriveTrain robotDriveTrain = new DriveTrain();
   public static PowerCell powerCell = new PowerCell();
   public static ClimbingSubsystem climber = new ClimbingSubsystem();
+  public static ControlPanelSub controlPanelSubSystem = new ControlPanelSub();
   //^^section for subsystems
   public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
 

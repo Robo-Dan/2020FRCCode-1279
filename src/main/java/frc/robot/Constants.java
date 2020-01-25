@@ -86,8 +86,8 @@ public final class Constants
         static Button driver_Y_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 4);
         static Button driver_leftShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 5);
         static Button driver_rightShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 6);
-        static Button driver_viewButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 7);
-        static Button driver_menuButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 8);
+        static Button driver_backButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 7);
+        static Button driver_startButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 8);
         static Button driver_leftStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 9);
         static Button driver_rightStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 10);
 
@@ -97,8 +97,8 @@ public final class Constants
         static Button operator_Y_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 4);
         static Button operator_leftShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 5);
         static Button operator_rightShoulderButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 6);
-        static Button operator_viewButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 7);
-        static Button operator_menuButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 8);
+        static Button operator_backButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 7);
+        static Button operator_startButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 8);
         static Button operator_leftStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 9);
         static Button operator_rightStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 10);
     }
@@ -121,7 +121,6 @@ public final class Constants
         public static WPI_TalonSRX frontRight = new WPI_TalonSRX(100000); //change to three //Talon 7
         public static WPI_TalonSRX rearRight = new WPI_TalonSRX(13); //change to four //Talon 13
 
-
         public static SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
 
         // This is the Talons for shooting the ball
@@ -135,6 +134,7 @@ public final class Constants
         public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(10); //this will be the value for testing
         public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
 
+        public static WPI_TalonSRX controlPanel = new WPI_TalonSRX(45);
         //Land of Misfit Talons
         //public static WPI_TalonSRX leftOffConveyorBelt = new WPI_TalonSRX(17); // change to 5
         //TODO: REASON FOR COMMENTED OUT ^ ONLY ONE MOTOR

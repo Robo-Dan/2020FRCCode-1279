@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ClimbingRobotUp;
+import frc.robot.commands.ControlPanel;
 import frc.robot.commands.DriveAuto;
 import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.ExampleCommand;
@@ -55,6 +56,8 @@ public class RobotContainer
   private KickerIn moveKickerIn = new KickerIn(Robot.powerCell);
   private KickerOut moveKickerOut = new KickerOut(Robot.powerCell);
 
+  private ControlPanel controlPanel = new ControlPanel(Robot.controlPanelSubSystem);
+
   private TriggerBasedPowerCellShooter triggeredPowerCell = new TriggerBasedPowerCellShooter(Robot.powerCell);
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -80,9 +83,10 @@ public class RobotContainer
     Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(armDown);
     Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenPressed(movingIntakeDown);
     Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenPressed(winchRobotUp);
-    Constants.DriverAndOperatorJoystick.operator_viewButton.whenPressed(moveKickerIn);
-    Constants.DriverAndOperatorJoystick.operator_menuButton.whenPressed(moveKickerOut);
-
+    Constants.DriverAndOperatorJoystick.operator_backButton.whenPressed(moveKickerIn);
+    Constants.DriverAndOperatorJoystick.operator_startButton.whenPressed(moveKickerOut);
+    Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenPressed(controlPanel);
+    
     //driver buttons
     Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
   }
