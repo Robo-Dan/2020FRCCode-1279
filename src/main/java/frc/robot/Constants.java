@@ -130,6 +130,8 @@ public final class Constants
 
         public static WPI_TalonSRX elevatorForIntakingPowerCell = new WPI_TalonSRX(20); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
 
+        public static WPI_TalonSRX kickerTalon = new WPI_TalonSRX(100);
+
         public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(10); //this will be the value for testing
         public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
 

@@ -37,16 +37,27 @@ public class PowerCell extends SubsystemBase
     //Test
   }
 
-  public void intakePowerCell()
+  public void moveElevatorUpForIntake()
   {
     Constants.TalonNames.elevatorForIntakingPowerCell.set(ControlMode.PercentOutput, -.5);
     //Constants.TalonNames.rightIntakeMotor.set(ControlMode.PercentOutput, .5);
   }
 
-  public void moveElevatorDown()
+  public void moveElevatorDownForIntake()
   {
-    
+    Constants.TalonNames.elevatorForIntakingPowerCell.set(ControlMode.PercentOutput, .5); //TODO: if jammed, should this be slower? Ask Kedersha
   }
+
+  public void moveKickerIn()
+  {
+    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, .5);
+  }
+
+  public void moveKickerOut()
+  {
+    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, -.5);
+  }
+
   public void stopAll() //May have to change this later. I think I may change this to stopShooting and stopIntaking
   {
     Constants.TalonNames.leftShooter.stopMotor();
@@ -65,5 +76,10 @@ public class PowerCell extends SubsystemBase
   {
     Constants.TalonNames.elevatorForIntakingPowerCell.stopMotor();
     //Constants.TalonNames.rightIntakeMotor.stopMotor();
+  }
+
+  public void stopKicker()
+  {
+    Constants.TalonNames.kickerTalon.stopMotor();
   }
 }

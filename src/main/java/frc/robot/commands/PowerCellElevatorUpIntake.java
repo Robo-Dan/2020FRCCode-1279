@@ -35,7 +35,7 @@ public class PowerCellElevatorUpIntake extends CommandBase
   @Override
   public void execute()
   {
-    powerCellSystem.intakePowerCell();
+    powerCellSystem.moveElevatorUpForIntake();
   }
 
   // Called once the command ends or is interrupted.

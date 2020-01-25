@@ -9,20 +9,21 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.subsystems.ClimbingSubsystem;
+import frc.robot.subsystems.PowerCell;
 
-public class ClimbingRobotUp extends CommandBase
+public class PowerCellElevatorDownIntake extends CommandBase
 {
-  private ClimbingSubsystem climberInSubsystem;
+  private final PowerCell powerCellSystem;
   /**
-   * Creates a new ClimbingRobotUp.
+   * Creates a new PowerCellElevatorDownIntake.
    */
-  public ClimbingRobotUp(ClimbingSubsystem climb) //we have to include the subsytem in the command this year. Have to remember to add subsystem to RobotContainer
+  public PowerCellElevatorDownIntake(PowerCell systemForPowerCell)
   {
-    climberInSubsystem = climb;
-    addRequirements(Robot.climber);
+    powerCellSystem = systemForPowerCell;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(Robot.powerCell);
   }
+
 
   // Called when the command is initially scheduled.
   @Override
@@ -35,14 +36,14 @@ public class ClimbingRobotUp extends CommandBase
   @Override
   public void execute()
   {
-    climberInSubsystem.pullingRobotUpWithWinch();
+    powerCellSystem.moveElevatorDownForIntake();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-    climberInSubsystem.stopPullingUpRobot();
+    powerCellSystem.stopIntaking();
   }
 
   // Returns true when the command should end.

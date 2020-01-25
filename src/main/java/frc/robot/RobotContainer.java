@@ -9,11 +9,15 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.ClimbingRobotUp;
 import frc.robot.commands.DriveAuto;
 import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.KickerIn;
+import frc.robot.commands.KickerOut;
 import frc.robot.commands.MovingArmDown;
 import frc.robot.commands.MovingArmUp;
+import frc.robot.commands.PowerCellElevatorDownIntake;
 import frc.robot.commands.PowerCellElevatorUpIntake;
 import frc.robot.commands.PowerCellShooter;
 import frc.robot.commands.SlowDriveTrain;
@@ -38,10 +42,18 @@ public class RobotContainer
   private final DriveAuto autoDriveCommand = new DriveAuto(Robot.robotDriveTrain, Robot.powerCell);
 
   private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
-  private PowerCellElevatorUpIntake intakeThePowerCell = new PowerCellElevatorUpIntake(Robot.powerCell);
+  private PowerCellElevatorUpIntake movingIntakeUp = new PowerCellElevatorUpIntake(Robot.powerCell);
+  private PowerCellElevatorDownIntake movingIntakeDown = new PowerCellElevatorDownIntake(Robot.powerCell);
+  
   private MovingArmUp armUp = new MovingArmUp(Robot.climber);
   private MovingArmDown armDown = new MovingArmDown(Robot.climber);
+  
   private SlowDriveTrain slowDrive = new SlowDriveTrain();
+  
+  private ClimbingRobotUp winchRobotUp = new ClimbingRobotUp(Robot.climber);
+
+  private KickerIn moveKickerIn = new KickerIn(Robot.powerCell);
+  private KickerOut moveKickerOut = new KickerOut(Robot.powerCell);
 
   private TriggerBasedPowerCellShooter triggeredPowerCell = new TriggerBasedPowerCellShooter(Robot.powerCell);
   /**
@@ -63,11 +75,13 @@ public class RobotContainer
   {
     //operator buttons
     Constants.DriverAndOperatorJoystick.operator_A_Button.whenHeld(shooting);
-    Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(intakeThePowerCell);
+    Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(movingIntakeUp);
     Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(armUp);
     Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(armDown);
-
-    Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenPressed(triggeredPowerCell);
+    Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenPressed(movingIntakeDown);
+    Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenPressed(winchRobotUp);
+    Constants.DriverAndOperatorJoystick.operator_viewButton.whenPressed(moveKickerIn);
+    Constants.DriverAndOperatorJoystick.operator_menuButton.whenPressed(moveKickerOut);
 
     //driver buttons
     Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
