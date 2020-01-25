@@ -30,21 +30,29 @@ public class MovingArmUp extends CommandBase
   @Override
   public void initialize()
   {
-    //m_timer.reset();
-    //m_timer.start();
+    m_timer.reset();
+    m_timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
+    if(m_timer.get() < 1)
+    {
+      climberInSubsystem.movingArmUp();
+    }
+    else
+    {
+      climberInSubsystem.stopMovingArm();
+    }
     //for(int i = 0; i < 8; i++)
     //{
       //m_timer.start();
       //Timer timer = new Timer();
       //if(timer.get() <= .5)
       //{
-        climberInSubsystem.movingArmUp();
+        //climberInSubsystem.movingArmUp();
       //}
       //climberInSubsystem.stopMovingArm();
     //}

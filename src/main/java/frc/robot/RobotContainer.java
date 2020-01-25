@@ -81,7 +81,7 @@ public class RobotContainer
     //operator buttons
     Constants.DriverAndOperatorJoystick.operator_A_Button.whenPressed(triggeredPowerCell);
     Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(movingIntakeUp);
-    Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(armUp);
+    Constants.DriverAndOperatorJoystick.operator_Y_Button.whenPressed(armUp);
     Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(armDown);
     Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
     Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenHeld(winchRobotUp);
