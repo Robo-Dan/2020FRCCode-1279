@@ -14,6 +14,7 @@ import frc.robot.Constants;
 
 public class PowerCell extends SubsystemBase
 {
+  public static boolean shooterIsOn = false;
   /**
    * Creates a new PowerCell.
    */
@@ -28,6 +29,15 @@ public class PowerCell extends SubsystemBase
     // This method will be called once per scheduler run
   }
 
+  public boolean isShooterOn()
+  {
+    return shooterIsOn;
+  }
+
+  public void changeShooterBoolean()
+  {
+    shooterIsOn = !shooterIsOn;
+  }
   public void shootPowerCell() //currently, this method is for shooting the upper goal. will change the name of the method if we also do the lower goal
   {
     Constants.TalonNames.leftShooter.set(ControlMode.PercentOutput, 1);
@@ -61,6 +71,7 @@ public class PowerCell extends SubsystemBase
     Constants.TalonNames.leftShooter.stopMotor();
     Constants.TalonNames.rightShooter.stopMotor();
     Constants.TalonNames.elevatorForIntakingPowerCell.stopMotor();
+    Constants.TalonNames.kickerTalon.stopMotor();
     //Constants.TalonNames.rightIntakeMotor.stopMotor();
   }
 

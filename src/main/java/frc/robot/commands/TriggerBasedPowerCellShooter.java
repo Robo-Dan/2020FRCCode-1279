@@ -15,7 +15,6 @@ public class TriggerBasedPowerCellShooter extends CommandBase
 {
   //TODO: ASK MR HARKINS TO HELP
   private final PowerCell powerCellSubSystem;
-  public static boolean shooterIsOn = false;
   /**
    * Creates a new TriggerBasedPowerCellShooter.
    */
@@ -30,36 +29,21 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   @Override
   public void initialize()
   {
-    if(shooterIsOn == false)
-    {
-      this.execute();
-    }
-    else
-    {
-      this.end(false);
-    }
+    
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-    powerCellSubSystem.shootPowerCell();
+    
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-    if(shooterIsOn == true)
-    {
-      shooterIsOn = !shooterIsOn;
       powerCellSubSystem.stopShooting();
-    }
-    else
-    {
-      shooterIsOn = !shooterIsOn;
-    }
   }
 
   // Returns true when the command should end.
