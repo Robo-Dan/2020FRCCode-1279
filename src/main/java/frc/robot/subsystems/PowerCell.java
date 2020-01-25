@@ -36,14 +36,12 @@ public class PowerCell extends SubsystemBase
   {
     Constants.TalonNames.leftShooter.set(ControlMode.PercentOutput, 1);
     Constants.TalonNames.rightShooter.set(ControlMode.PercentOutput, -1);
-    Constants.TalonNames.leftOffConveyorBelt.set(ControlMode.PercentOutput, 1);
-    Constants.TalonNames.rightOffConveyorBelt.set(ControlMode.PercentOutput, -1);
     //Test
   }
 
   public void intakePowerCell()
   {
-    Constants.TalonNames.intakeMotor.set(ControlMode.PercentOutput, -.5);
+    Constants.TalonNames.elevatorForIntakingPowerCell.set(ControlMode.PercentOutput, -.5);
     //Constants.TalonNames.rightIntakeMotor.set(ControlMode.PercentOutput, .5);
   }
 
@@ -51,9 +49,7 @@ public class PowerCell extends SubsystemBase
   {
     Constants.TalonNames.leftShooter.stopMotor();
     Constants.TalonNames.rightShooter.stopMotor();
-    Constants.TalonNames.leftOffConveyorBelt.stopMotor();
-    Constants.TalonNames.rightOffConveyorBelt.stopMotor();
-    Constants.TalonNames.intakeMotor.stopMotor();
+    Constants.TalonNames.elevatorForIntakingPowerCell.stopMotor();
     //Constants.TalonNames.rightIntakeMotor.stopMotor();
   }
 
@@ -61,13 +57,11 @@ public class PowerCell extends SubsystemBase
   {
     Constants.TalonNames.leftShooter.stopMotor();
     Constants.TalonNames.rightShooter.stopMotor();
-    Constants.TalonNames.leftOffConveyorBelt.stopMotor();
-    Constants.TalonNames.rightOffConveyorBelt.stopMotor();
   }
 
   public void stopIntaking()
   {
-    Constants.TalonNames.intakeMotor.stopMotor();
+    Constants.TalonNames.elevatorForIntakingPowerCell.stopMotor();
     //Constants.TalonNames.rightIntakeMotor.stopMotor();
   }
 

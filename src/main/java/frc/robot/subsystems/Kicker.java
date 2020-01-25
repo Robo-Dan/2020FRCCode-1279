@@ -13,12 +13,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  * THIS CLASS IS FOR THE SHUTTLE SERVICE FOR THE POWER CELLS
  * IN THIS CLASS, THERE IS THE CODE FOR THE CONVEYOR BELT, CAROSEULL (CAROUSEL) AND KICKER
  */
-public class ShuttleForPowerCell extends SubsystemBase
+public class Kicker extends SubsystemBase
 {
   /**
-   * Creates a new ShuttleForPowerCell.
+   * Creates a new Kicker.
    */
-  public ShuttleForPowerCell()
+  public Kicker()
   {
 
   }

@@ -35,7 +35,7 @@ public class TriggerBasedPowerCellShooter extends CommandBase
     }
     else
     {
-      this.end(false || true);
+      this.end(false);
     }
   }
 

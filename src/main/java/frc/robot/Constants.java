@@ -120,20 +120,27 @@ public final class Constants
 
         public static WPI_TalonSRX frontRight = new WPI_TalonSRX(100000); //change to three //Talon 7
         public static WPI_TalonSRX rearRight = new WPI_TalonSRX(13); //change to four //Talon 13
+
+
         public static SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
 
         // This is the Talons for shooting the ball
-        public static WPI_TalonSRX leftOffConveyorBelt = new WPI_TalonSRX(17); // change to 5
-        public static WPI_TalonSRX rightOffConveyorBelt = new WPI_TalonSRX(95); // change to 6
         public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(8); //change to 7
         public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(7); // change to 8
 
-        public static WPI_TalonSRX intakeMotor = new WPI_TalonSRX(20); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
-        //^CHANGE THIS BACK TO LEFT IF NEEDED
-        //public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(15); // change to 10, if we use it
+        public static WPI_TalonSRX elevatorForIntakingPowerCell = new WPI_TalonSRX(20); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
 
         public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(10); //this will be the value for testing
         public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
+
+        //Land of Misfit Talons
+        //public static WPI_TalonSRX leftOffConveyorBelt = new WPI_TalonSRX(17); // change to 5
+        //TODO: REASON FOR COMMENTED OUT ^ ONLY ONE MOTOR
+        //public static WPI_TalonSRX rightOffConveyorBelt = new WPI_TalonSRX(95); // change to 6
+        //TODO: REASON FOR COMMENTED OUT ^ ONLY ONE MOTOR
+        //^CHANGE THIS BACK TO LEFT IF NEEDED
+        //public static WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(15); // change to 10, if we use it
+        //TODO: REASON FOR COMMENTED OUT ^ ONLY ONE MOTOR
     }
 
     public static final class LimitSwitch
