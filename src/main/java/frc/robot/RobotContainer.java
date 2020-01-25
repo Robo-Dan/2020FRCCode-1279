@@ -22,6 +22,7 @@ import frc.robot.commands.PowerCellElevatorDownIntake;
 import frc.robot.commands.PowerCellElevatorUpIntake;
 import frc.robot.commands.PowerCellShooter;
 import frc.robot.commands.SlowDriveTrain;
+import frc.robot.commands.StopShooterTrigger;
 import frc.robot.commands.TriggerBasedPowerCellShooter;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -59,6 +60,7 @@ public class RobotContainer
   private ControlPanel controlPanel = new ControlPanel(Robot.controlPanelSubSystem);
 
   private TriggerBasedPowerCellShooter triggeredPowerCell = new TriggerBasedPowerCellShooter(Robot.powerCell);
+  private StopShooterTrigger stopTrigPowerCell = new StopShooterTrigger(Robot.powerCell);
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -77,16 +79,16 @@ public class RobotContainer
   private void configureButtonBindings()
   {
     //operator buttons
-    Constants.DriverAndOperatorJoystick.operator_A_Button.whenHeld(shooting);
+    Constants.DriverAndOperatorJoystick.operator_A_Button.whenPressed(triggeredPowerCell);
     Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(movingIntakeUp);
     Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(armUp);
     Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(armDown);
-    Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenPressed(movingIntakeDown);
-    Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenPressed(winchRobotUp);
-    Constants.DriverAndOperatorJoystick.operator_backButton.whenPressed(moveKickerIn);
-    Constants.DriverAndOperatorJoystick.operator_startButton.whenPressed(moveKickerOut);
-    Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenPressed(controlPanel);
-    
+    Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
+    Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenHeld(winchRobotUp);
+    Constants.DriverAndOperatorJoystick.operator_backButton.whenHeld(moveKickerIn);
+    Constants.DriverAndOperatorJoystick.operator_startButton.whenHeld(moveKickerOut);
+    Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
+    Constants.DriverAndOperatorJoystick.operator_rightStickButton.whenPressed(stopTrigPowerCell);
     //driver buttons
     Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
   }

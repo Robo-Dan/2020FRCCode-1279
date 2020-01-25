@@ -36,7 +36,6 @@ public class DriveAuto extends CommandBase
   {
     m_timer.reset();
     m_timer.start();
-
   }
 
   // Called every time the scheduler runs while the command is scheduled.

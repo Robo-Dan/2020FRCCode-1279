@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.ClimbingSubsystem;
@@ -14,6 +15,7 @@ import frc.robot.subsystems.ClimbingSubsystem;
 public class MovingArmUp extends CommandBase
 {
   private ClimbingSubsystem climberInSubsystem;
+  private final Timer m_timer = new Timer();
   /**
    * Creates a new MovingArmUp.
    */
@@ -28,14 +30,24 @@ public class MovingArmUp extends CommandBase
   @Override
   public void initialize()
   {
-
+    //m_timer.reset();
+    //m_timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-    climberInSubsystem.movingArmUp();
+    //for(int i = 0; i < 8; i++)
+    //{
+      //m_timer.start();
+      //Timer timer = new Timer();
+      //if(timer.get() <= .5)
+      //{
+        climberInSubsystem.movingArmUp();
+      //}
+      //climberInSubsystem.stopMovingArm();
+    //}
   }
 
   // Called once the command ends or is interrupted.
@@ -52,3 +64,4 @@ public class MovingArmUp extends CommandBase
     return false;
   }
 }
+// loop for 100 ms for 100 tries
