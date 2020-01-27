@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -91,6 +92,9 @@ public final class Constants
         static Button driver_leftStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 9);
         static Button driver_rightStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.driverStick, 10);
 
+        //triggers for driver
+        static Trigger testTrigger = new Trigger();
+
         static Button operator_A_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 1);
         static Button operator_B_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 2);
         static Button operator_X_Button = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 3);
@@ -101,6 +105,9 @@ public final class Constants
         static Button operator_startButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 8);
         static Button operator_leftStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 9);
         static Button operator_rightStickButton = new JoystickButton(Constants.DriverAndOperatorJoystick.operatorStick, 10);
+
+        //triggers for operator
+
     }
 
     /**

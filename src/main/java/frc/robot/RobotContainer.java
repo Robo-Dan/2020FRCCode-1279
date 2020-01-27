@@ -79,7 +79,8 @@ public class RobotContainer
   private void configureButtonBindings()
   {
     //operator buttons
-    Constants.DriverAndOperatorJoystick.operator_A_Button.whenPressed(triggeredPowerCell);
+    Constants.DriverAndOperatorJoystick.operator_A_Button.whenPressed(triggeredPowerCell); //TODO: FIRST, try and press it to turn on, then press it again to see if it go off. keep trying that
+    //if that doesn't work, try to use a trigger to do it
     Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(movingIntakeUp);
     Constants.DriverAndOperatorJoystick.operator_Y_Button.whenPressed(armUp);
     Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(armDown);
@@ -89,11 +90,14 @@ public class RobotContainer
     Constants.DriverAndOperatorJoystick.operator_startButton.whenHeld(moveKickerOut);
     Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
     Constants.DriverAndOperatorJoystick.operator_rightStickButton.whenPressed(stopTrigPowerCell);
+
+    //TODO: TO GET MORE BUTTONS, if(trigger.get() == true) { commands} else {other commands};
+    //if we were to do that, make the less important commands be if holding the trigger
+
     //driver buttons
     Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
   }
 
-  
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *

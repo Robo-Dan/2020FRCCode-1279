@@ -13,7 +13,7 @@ import frc.robot.subsystems.PowerCell;
 
 public class TriggerBasedPowerCellShooter extends CommandBase
 {
-  //TODO: ASK MR HARKINS TO HELP
+  //TODO: ASK MR HARKINS TO HELP MAKING IT TRIGGER BASED
   private final PowerCell powerCellSubSystem;
   /**
    * Creates a new TriggerBasedPowerCellShooter.
