@@ -15,6 +15,7 @@ public class TriggerBasedPowerCellShooter extends CommandBase
 {
   //TODO: ASK MR HARKINS TO HELP MAKING IT TRIGGER BASED
   private final PowerCell powerCellSubSystem;
+  private boolean shooterOff;
   /**
    * Creates a new TriggerBasedPowerCellShooter.
    */
@@ -22,6 +23,7 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   {
     powerCellSubSystem = powerCellSub;
     // Use addRequirements() here to declare subsystem dependencies.
+    shooterOff = false;
     addRequirements(Robot.powerCell);
   }
 
@@ -29,7 +31,14 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   @Override
   public void initialize()
   {
-    
+    if(shooterOff == false)
+    {
+      this.execute();
+    }
+    else
+    {
+      this.end(false || true);
+    }
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -43,7 +52,8 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   @Override
   public void end(boolean interrupted)
   {
-    //powerCellSubSystem.stopShooting();
+    powerCellSubSystem.stopShooting();
+    shooterOff = !shooterOff;
   }
 
   // Returns true when the command should end.
