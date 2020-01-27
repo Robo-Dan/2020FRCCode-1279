@@ -57,9 +57,12 @@ public final class Constants
     {
         public static Joystick driverStick = new Joystick(0);
         public static Joystick operatorStick = new Joystick(1);
-        public static final int driverLeftXAxis = 1;
+        public static final int driverLeftXAxis = 1; //look at axes on driver station
         public static final int driverRightYAxis = 4;
         
+        public static final int operatorLeftTrigger = 2;
+        public static final int operatorRightTrigger = 3;
+
         public static Joystick getGamepad(int stickId)
         {
             if (stickId == 0)

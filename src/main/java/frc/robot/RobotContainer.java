@@ -91,6 +91,9 @@ public class RobotContainer
     Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
     Constants.DriverAndOperatorJoystick.operator_rightStickButton.whenPressed(stopTrigPowerCell);
 
+    //Constants.DriverAndOperatorJoystick.testTrigger.whenActive(triggeredPowerCell);
+    
+
     //TODO: TO GET MORE BUTTONS, if(trigger.get() == true) { commands} else {other commands};
     //if we were to do that, make the less important commands be if holding the trigger
 
