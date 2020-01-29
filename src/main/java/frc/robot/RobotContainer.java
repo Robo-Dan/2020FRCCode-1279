@@ -12,19 +12,19 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ClimbingRobotUp;
 import frc.robot.commands.ControlPanel;
 import frc.robot.commands.DriveAuto;
-import frc.robot.commands.DriveTrainCommand;
-import frc.robot.commands.ExampleCommand;
+//import frc.robot.commands.DriveTrainCommand;
+//import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.KickerIn;
 import frc.robot.commands.KickerOut;
 import frc.robot.commands.MovingArmDown;
 import frc.robot.commands.MovingArmUp;
 import frc.robot.commands.PowerCellElevatorDownIntake;
 import frc.robot.commands.PowerCellElevatorUpIntake;
-import frc.robot.commands.PowerCellShooter;
+//import frc.robot.commands.PowerCellShooter;
 import frc.robot.commands.SlowDriveTrain;
 import frc.robot.commands.TriggerBasedPowerCellShooter;
-import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.ExampleSubsystem;
+//import frc.robot.subsystems.DriveTrain;
+//import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -37,12 +37,12 @@ public class RobotContainer
 {
   // The robot's subsystems and commands are defined here...
 
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-  private final DriveTrain m_robotDrive = new DriveTrain();
+  //private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  //private final DriveTrain m_robotDrive = new DriveTrain();
   private final DriveAuto autoDriveCommand = new DriveAuto(Robot.robotDriveTrain, Robot.powerCell);
 
-  private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
+  //private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
   private PowerCellElevatorUpIntake movingIntakeUp = new PowerCellElevatorUpIntake(Robot.powerCell);
   private PowerCellElevatorDownIntake movingIntakeDown = new PowerCellElevatorDownIntake(Robot.powerCell);
   
