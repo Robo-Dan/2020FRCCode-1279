@@ -14,6 +14,8 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.cscore.VideoSource;
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -68,6 +70,9 @@ public class Robot extends TimedRobot
   UsbCamera forwardCamera;
   UsbCamera backwardCamera;
 
+  public static Compressor compressor = new Compressor();
+  public static DoubleSolenoid joesDoubleSolenoid = new DoubleSolenoid(1, 2);
+
   //private final I2C.Port i2cPort = I2C.Port.kOnboard;
   //private final ColorMatch m_colorMatcher = new ColorMatch();
   //private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
@@ -98,6 +103,13 @@ public class Robot extends TimedRobot
     backwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
     backwardCamera.setFPS(60);
     backwardCamera.setResolution(320, 240);
+
+    compressor.setClosedLoopControl(true);
+    compressor.setClosedLoopControl(false);
+
+    boolean enabled = compressor.enabled();
+    boolean pressureSwitch = compressor.getPressureSwitchValue();
+    double current = compressor.getCompressorCurrent();
   }
 
   /**
