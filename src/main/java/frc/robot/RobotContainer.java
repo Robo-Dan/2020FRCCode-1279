@@ -77,15 +77,14 @@ public class RobotContainer
   private void configureButtonBindings()
   {
     //operator buttons
-    Constants.DriverAndOperatorJoystick.operator_A_Button.toggleWhenPressed(triggeredPowerCell); //TODO: FIRST, try and press it to turn on, then press it again to see if it go off. keep trying that
-    //if that doesn't work, try to use a trigger to do it
+    Constants.DriverAndOperatorJoystick.operator_A_Button.toggleWhenPressed(triggeredPowerCell); //TODO: toggleWhenPressed changes the activity from on to off
     Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(movingIntakeUp);
     Constants.DriverAndOperatorJoystick.operator_Y_Button.whenPressed(armUp);
     Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(armDown);
     Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
     Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenHeld(winchRobotUp);
-    Constants.DriverAndOperatorJoystick.operator_backButton.whenHeld(moveKickerIn);
-    Constants.DriverAndOperatorJoystick.operator_startButton.whenHeld(moveKickerOut);
+    Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerIn);
+    Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut);
     Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
     //Constants.DriverAndOperatorJoystick.testTrigger.whenActive(triggeredPowerCell);
     
