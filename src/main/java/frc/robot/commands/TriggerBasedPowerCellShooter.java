@@ -31,29 +31,28 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   @Override
   public void initialize()
   {
-    if(shooterOff == false)
+    /**if(shooterOff == false)
     {
       this.execute();
     }
     else
     {
       this.end(false || true);
-    }
+    }*/
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-    powerCellSubSystem.shootPowerCell();
+        powerCellSubSystem.shootPowerCell();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-    powerCellSubSystem.stopShooting();
-    shooterOff = !shooterOff;
+      powerCellSubSystem.stopShooting();
   }
 
   // Returns true when the command should end.

@@ -22,7 +22,6 @@ import frc.robot.commands.PowerCellElevatorDownIntake;
 import frc.robot.commands.PowerCellElevatorUpIntake;
 import frc.robot.commands.PowerCellShooter;
 import frc.robot.commands.SlowDriveTrain;
-import frc.robot.commands.StopShooterTrigger;
 import frc.robot.commands.TriggerBasedPowerCellShooter;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -60,7 +59,6 @@ public class RobotContainer
   private ControlPanel controlPanel = new ControlPanel(Robot.controlPanelSubSystem);
 
   private TriggerBasedPowerCellShooter triggeredPowerCell = new TriggerBasedPowerCellShooter(Robot.powerCell);
-  private StopShooterTrigger stopTrigPowerCell = new StopShooterTrigger(Robot.powerCell);
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -79,7 +77,7 @@ public class RobotContainer
   private void configureButtonBindings()
   {
     //operator buttons
-    Constants.DriverAndOperatorJoystick.operator_A_Button.whenPressed(triggeredPowerCell); //TODO: FIRST, try and press it to turn on, then press it again to see if it go off. keep trying that
+    Constants.DriverAndOperatorJoystick.operator_A_Button.toggleWhenPressed(triggeredPowerCell); //TODO: FIRST, try and press it to turn on, then press it again to see if it go off. keep trying that
     //if that doesn't work, try to use a trigger to do it
     Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(movingIntakeUp);
     Constants.DriverAndOperatorJoystick.operator_Y_Button.whenPressed(armUp);
@@ -89,8 +87,6 @@ public class RobotContainer
     Constants.DriverAndOperatorJoystick.operator_backButton.whenHeld(moveKickerIn);
     Constants.DriverAndOperatorJoystick.operator_startButton.whenHeld(moveKickerOut);
     Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
-    Constants.DriverAndOperatorJoystick.operator_rightStickButton.whenPressed(stopTrigPowerCell);
-
     //Constants.DriverAndOperatorJoystick.testTrigger.whenActive(triggeredPowerCell);
     
 
