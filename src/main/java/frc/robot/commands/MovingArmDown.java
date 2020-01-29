@@ -13,13 +13,13 @@ import frc.robot.subsystems.ClimbingSubsystem;
 
 public class MovingArmDown extends CommandBase
 {
-  private ClimbingSubsystem test;
+  private ClimbingSubsystem bar;
   /**
    * Creates a new MovingArmDown.
    */
   public MovingArmDown(ClimbingSubsystem LoweringBar)
   {
-    test = LoweringBar; 
+    bar = LoweringBar; 
     addRequirements(Robot.climber);
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -35,14 +35,14 @@ public class MovingArmDown extends CommandBase
   @Override
   public void execute()
   {
-    test.movingArmDown();
+    bar.movingArmDown();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-    test.stopMovingArm();
+    bar.stopMovingArm();
   }
 
   // Returns true when the command should end.

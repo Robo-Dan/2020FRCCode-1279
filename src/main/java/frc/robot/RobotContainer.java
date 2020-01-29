@@ -18,6 +18,8 @@ import frc.robot.commands.KickerIn;
 import frc.robot.commands.KickerOut;
 import frc.robot.commands.MovingArmDown;
 import frc.robot.commands.MovingArmUp;
+import frc.robot.commands.PistonIn;
+import frc.robot.commands.PistonOut;
 import frc.robot.commands.PowerCellElevatorDownIntake;
 import frc.robot.commands.PowerCellElevatorUpIntake;
 //import frc.robot.commands.PowerCellShooter;
@@ -58,6 +60,10 @@ public class RobotContainer
 
   private ControlPanel controlPanel = new ControlPanel(Robot.controlPanelSubSystem);
 
+  private final PistonOut firePiston = new PistonOut(Robot.piston);
+  private final PistonIn returnPiston = new PistonIn(Robot.piston);
+
+
   private TriggerBasedPowerCellShooter triggeredPowerCell = new TriggerBasedPowerCellShooter(Robot.powerCell);
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -85,9 +91,10 @@ public class RobotContainer
     Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenHeld(winchRobotUp);
     Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerIn);
     Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut);
-    Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
+    //Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
     //Constants.DriverAndOperatorJoystick.testTrigger.whenActive(triggeredPowerCell);
-    
+    Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenPressed(firePiston);
+    Constants.DriverAndOperatorJoystick.operator_rightStickButton.whenPressed(returnPiston);
 
     //TODO: TO GET MORE BUTTONS, if(trigger.get() == true) { commands} else {other commands};
     //if we were to do that, make the less important commands be if holding the trigger

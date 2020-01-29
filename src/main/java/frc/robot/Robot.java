@@ -28,6 +28,7 @@ import frc.robot.commands.DriveAuto;
 import frc.robot.subsystems.ClimbingSubsystem;
 import frc.robot.subsystems.ControlPanelSub;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Piston;
 import frc.robot.subsystems.PowerCell;
 
 
@@ -51,6 +52,7 @@ public class Robot extends TimedRobot
   public static PowerCell powerCell = new PowerCell();
   public static ClimbingSubsystem climber = new ClimbingSubsystem();
   public static ControlPanelSub controlPanelSubSystem = new ControlPanelSub();
+  public static Piston piston = new Piston();
   //^^section for subsystems
   public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
 
@@ -70,7 +72,7 @@ public class Robot extends TimedRobot
   UsbCamera forwardCamera;
   UsbCamera backwardCamera;
 
-  public static Compressor compressor = new Compressor();
+  public static Compressor compressor = new Compressor(0);
   public static DoubleSolenoid joesDoubleSolenoid = new DoubleSolenoid(1, 2);
 
   //private final I2C.Port i2cPort = I2C.Port.kOnboard;
@@ -110,6 +112,8 @@ public class Robot extends TimedRobot
     boolean enabled = compressor.enabled();
     boolean pressureSwitch = compressor.getPressureSwitchValue();
     double current = compressor.getCompressorCurrent();
+
+    //compressor.start();
   }
 
   /**
@@ -203,7 +207,7 @@ public class Robot extends TimedRobot
   @Override
   public void disabledInit()
   {
-
+    compressor.stop();
   }
 
   @Override

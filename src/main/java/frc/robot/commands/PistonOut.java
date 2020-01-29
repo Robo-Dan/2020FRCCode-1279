@@ -7,17 +7,22 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Robot;
+import frc.robot.subsystems.Piston;
 
 public class PistonOut extends CommandBase
 {
+  private final Piston practicePiston;
   /**
    * Creates a new PistonOut.
    */
-  
-  public PistonOut()
+  public PistonOut(Piston p)
   {
+    practicePiston = p;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(Robot.piston);
   }
 
   // Called when the command is initially scheduled.
@@ -31,7 +36,7 @@ public class PistonOut extends CommandBase
   @Override
   public void execute()
   {
-
+    Robot.joesDoubleSolenoid.set(Value.kReverse);
   }
 
   // Called once the command ends or is interrupted.
