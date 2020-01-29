@@ -13,7 +13,6 @@ import frc.robot.subsystems.PowerCell;
 
 public class TriggerBasedPowerCellShooter extends CommandBase
 {
-  //TODO: ASK MR HARKINS TO HELP MAKING IT TRIGGER BASED
   private final PowerCell powerCellSubSystem;
   /**
    * Creates a new TriggerBasedPowerCellShooter.
@@ -29,14 +28,7 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   @Override
   public void initialize()
   {
-    /**if(shooterOff == false)
-    {
-      this.execute();
-    }
-    else
-    {
-      this.end(false || true);
-    }*/
+    
   }
 
   // Called every time the scheduler runs while the command is scheduled.

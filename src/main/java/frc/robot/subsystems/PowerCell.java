@@ -53,7 +53,7 @@ public class PowerCell extends SubsystemBase
 
   public void moveElevatorDownForIntake()
   {
-    Constants.TalonNames.elevatorForIntakingPowerCell.set(ControlMode.PercentOutput, .5); //TODO: if jammed, should this be slower? Ask Kedersha
+    Constants.TalonNames.elevatorForIntakingPowerCell.set(ControlMode.PercentOutput, .5);
   }
 
   public void moveKickerIn()
