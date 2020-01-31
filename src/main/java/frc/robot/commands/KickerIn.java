@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.PowerCell;
@@ -14,8 +15,10 @@ import frc.robot.subsystems.PowerCell;
 public class KickerIn extends CommandBase
 {
   private final PowerCell powerCellSubSystem;
+
+  private final Timer m_timer = new Timer();
   /**
-   * Creates a new KickerIn.
+   * Creates a new KickerIn. This is the motor that allows for the Power Cells to go to the shooter
    */
   public KickerIn(PowerCell systemForPowerCell)
   {
@@ -28,14 +31,18 @@ public class KickerIn extends CommandBase
   @Override
   public void initialize()
   {
-
+    m_timer.reset();
+    m_timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-    powerCellSubSystem.moveKickerIn();
+    if(m_timer.get() < 1)
+    {
+      powerCellSubSystem.moveKickerIn();
+    }
   }
 
   // Called once the command ends or is interrupted.

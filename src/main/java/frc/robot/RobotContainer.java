@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ClimbingRobotUp;
+import frc.robot.commands.CompressorOn;
 import frc.robot.commands.ControlPanel;
 import frc.robot.commands.DriveAuto;
 //import frc.robot.commands.DriveTrainCommand;
@@ -63,6 +64,7 @@ public class RobotContainer
   private final PistonOut firePiston = new PistonOut(Robot.piston);
   private final PistonIn returnPiston = new PistonIn(Robot.piston);
 
+  private final CompressorOn compressorOn = new CompressorOn(Robot.compressorSubsystem);
 
   private TriggerBasedPowerCellShooter triggeredPowerCell = new TriggerBasedPowerCellShooter(Robot.powerCell);
   /**
@@ -83,14 +85,15 @@ public class RobotContainer
   private void configureButtonBindings()
   {
     //operator buttons
-    Constants.DriverAndOperatorJoystick.operator_A_Button.toggleWhenPressed(triggeredPowerCell); //TODO: toggleWhenPressed changes the activity from on to off
+    Constants.DriverAndOperatorJoystick.operator_A_Button.toggleWhenPressed(triggeredPowerCell); //TODO: toggleWhenPressed makes it so that you can use just one button to turn it on and off
     Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(movingIntakeUp);
     Constants.DriverAndOperatorJoystick.operator_Y_Button.whenPressed(armUp);
     Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(armDown);
     Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
     Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenHeld(winchRobotUp);
     Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerIn);
-    Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut);
+    //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut); TODO: PUT THIS BACK IN
+    Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(compressorOn);
     //Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
     //Constants.DriverAndOperatorJoystick.testTrigger.whenActive(triggeredPowerCell);
     Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenPressed(firePiston);

@@ -15,6 +15,8 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.cscore.VideoSource;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Counter;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.I2C;
@@ -26,6 +28,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.DriveAuto;
 import frc.robot.subsystems.ClimbingSubsystem;
+import frc.robot.subsystems.CompressorSubsystem;
 import frc.robot.subsystems.ControlPanelSub;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Piston;
@@ -53,6 +56,7 @@ public class Robot extends TimedRobot
   public static ClimbingSubsystem climber = new ClimbingSubsystem();
   public static ControlPanelSub controlPanelSubSystem = new ControlPanelSub();
   public static Piston piston = new Piston();
+  public static CompressorSubsystem compressorSubsystem = new CompressorSubsystem();
   //^^section for subsystems
   public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
 
@@ -74,6 +78,9 @@ public class Robot extends TimedRobot
 
   public static Compressor compressor = new Compressor(0);
   public static DoubleSolenoid joesDoubleSolenoid = new DoubleSolenoid(1, 2);
+
+  public static DigitalInput limitSwitchForArm = new DigitalInput(Constants.LimitSwitch.barArmDownLimitSwitch);
+  public static Counter counterForArm = new Counter(limitSwitchForArm);
 
   //private final I2C.Port i2cPort = I2C.Port.kOnboard;
   //private final ColorMatch m_colorMatcher = new ColorMatch();

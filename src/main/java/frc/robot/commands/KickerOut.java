@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.PowerCell;
@@ -14,6 +15,7 @@ import frc.robot.subsystems.PowerCell;
 public class KickerOut extends CommandBase
 {
   private final PowerCell powerCellSystem;
+  private final Timer m_timer = new Timer();
   /**
    * Creates a new KickerOut.
    */
@@ -28,14 +30,18 @@ public class KickerOut extends CommandBase
   @Override
   public void initialize()
   {
-
+    m_timer.reset();
+    m_timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-    powerCellSystem.moveKickerOut();
+    if(m_timer.get() < 1)
+    {
+      powerCellSystem.moveKickerOut();
+    }
   }
 
   // Called once the command ends or is interrupted.

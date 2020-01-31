@@ -42,12 +42,17 @@ public class DriveAuto extends CommandBase
   @Override
   public void execute()
   {
-    if(m_timer.get() < 10)
+    if(m_timer.get() < 1)
+    {
+      shooting.moveKickerOut();
+    }
+    else if(m_timer.get() < 10)
     {
       shooting.shootPowerCell();
     }
     else if(m_timer.get() > 10 && m_timer.get() < 12)
     {
+      shooting.moveKickerIn();
       shooting.stopShooting();
       driveTrainAuto.driveAuto();
     }

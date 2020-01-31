@@ -7,22 +7,21 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.subsystems.Piston;
+import frc.robot.subsystems.CompressorSubsystem;
 
-public class PistonIn extends CommandBase
+public class CompressorOn extends CommandBase
 {
-  private final Piston practicePiston;
+  private final CompressorSubsystem cSubsystem;
   /**
-   * Creates a new PistonIn.
+   * Creates a new CompressorOn.
    */
-  public PistonIn(Piston p)
+  public CompressorOn(CompressorSubsystem input)
   {
-    practicePiston = p;
+    cSubsystem = input;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.piston);
+    addRequirements(Robot.compressorSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -36,16 +35,14 @@ public class PistonIn extends CommandBase
   @Override
   public void execute()
   {
-    System.out.println("Coming in");
-    Robot.joesDoubleSolenoid.set(Value.kForward);
-    System.out.println("Came in");
+    Robot.compressor.start();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-
+    Robot.compressor.stop();
   }
 
   // Returns true when the command should end.

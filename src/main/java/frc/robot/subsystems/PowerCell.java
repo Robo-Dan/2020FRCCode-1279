@@ -58,12 +58,12 @@ public class PowerCell extends SubsystemBase
 
   public void moveKickerIn()
   {
-    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, .5);
+    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, .25);
   }
 
   public void moveKickerOut()
   {
-    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, -.5);
+    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, -.25);
   }
 
   public void stopAll() //May have to change this later. I think I may change this to stopShooting and stopIntaking

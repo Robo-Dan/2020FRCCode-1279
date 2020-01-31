@@ -36,7 +36,9 @@ public class PistonOut extends CommandBase
   @Override
   public void execute()
   {
+    System.out.println("Shooting out");
     Robot.joesDoubleSolenoid.set(Value.kReverse);
+    System.out.println("Shot out");
   }
 
   // Called once the command ends or is interrupted.

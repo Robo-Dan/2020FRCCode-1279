@@ -53,4 +53,9 @@ public class ClimbingSubsystem extends SubsystemBase
   {
     Constants.TalonNames.pullingRobotUpMotor.stopMotor();
   }
+
+  public boolean limitSwitchForClimbingArm()
+  {
+    return false;
+  }
 }
