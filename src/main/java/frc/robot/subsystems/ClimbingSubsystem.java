@@ -55,8 +55,8 @@ public class ClimbingSubsystem extends SubsystemBase
     Constants.TalonNames.pullingRobotUpMotor.stopMotor();
   }
 
-  public boolean limitSwitchForClimbingArm()
-  {
-    return Robot.limitSwitchForArm.get();
-  }
+  //public boolean limitSwitchForClimbingArm()
+  //{
+    //return Robot.limitSwitchForArm.get();
+  //}
 }
