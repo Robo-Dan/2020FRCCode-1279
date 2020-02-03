@@ -79,6 +79,7 @@ public class Robot extends TimedRobot
   public static Compressor compressor = new Compressor(0);
   public static DoubleSolenoid joesDoubleSolenoid = new DoubleSolenoid(1, 2);
 
+  
   public static DigitalInput limitSwitchForArm = new DigitalInput(Constants.LimitSwitch.barArmDownLimitSwitch);
   public static Counter counterForArm = new Counter(limitSwitchForArm);
 
@@ -120,6 +121,8 @@ public class Robot extends TimedRobot
     boolean pressureSwitch = compressor.getPressureSwitchValue();
     double current = compressor.getCompressorCurrent();
 
+    compressor.start();
+
     //compressor.start();
   }
 
@@ -139,6 +142,7 @@ public class Robot extends TimedRobot
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
 
+    //compressor.start();
     
     // sensor returns a value from 0-4095 that is scaled to inches
     

@@ -32,7 +32,7 @@ public class ClimbingSubsystem extends SubsystemBase
 
   public void movingArmUp()
   {
-    Constants.TalonNames.raisingTheBarMotor.set(ControlMode.PercentOutput, -.50);
+    Constants.TalonNames.raisingTheBarMotor.set(ControlMode.PercentOutput, -.30);
   }
 
   public void movingArmDown()
