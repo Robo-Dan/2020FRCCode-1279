@@ -13,6 +13,8 @@ import frc.robot.commands.ClimbingRobotUp;
 import frc.robot.commands.CompressorOn;
 import frc.robot.commands.ControlPanel;
 import frc.robot.commands.DriveAuto;
+import frc.robot.commands.IntakeArmIn;
+import frc.robot.commands.IntakeArmOut;
 //import frc.robot.commands.DriveTrainCommand;
 //import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.KickerIn;
@@ -48,6 +50,9 @@ public class RobotContainer
   //private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
   private PowerCellElevatorUpIntake movingIntakeUp = new PowerCellElevatorUpIntake(Robot.powerCell);
   private PowerCellElevatorDownIntake movingIntakeDown = new PowerCellElevatorDownIntake(Robot.powerCell);
+
+  private IntakeArmIn intakeArmIn = new IntakeArmIn(Robot.powerCell);
+  private IntakeArmOut intakeArmOut = new IntakeArmOut(Robot.powerCell);
   
   private MovingArmUp armUp = new MovingArmUp(Robot.climber);
   private MovingArmDown armDown = new MovingArmDown(Robot.climber);
