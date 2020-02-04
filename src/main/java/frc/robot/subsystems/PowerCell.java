@@ -47,13 +47,13 @@ public class PowerCell extends SubsystemBase
 
   public void moveElevatorUpForIntake()
   {
-    Constants.TalonNames.elevatorForIntakingPowerCell.set(ControlMode.PercentOutput, -.5);
+    Constants.TalonNames.elevatorForIntakingPowerCell.set(ControlMode.PercentOutput, .5);
     //Constants.TalonNames.rightIntakeMotor.set(ControlMode.PercentOutput, .5);
   }
 
   public void moveElevatorDownForIntake()
   {
-    Constants.TalonNames.elevatorForIntakingPowerCell.set(ControlMode.PercentOutput, .5);
+    Constants.TalonNames.elevatorForIntakingPowerCell.set(ControlMode.PercentOutput, -.5);
   }
 
   public void moveKickerIn()
