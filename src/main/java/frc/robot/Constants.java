@@ -137,16 +137,16 @@ public final class Constants
         public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(8); //change to 7
         public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(7); // change to 8
 
-        public static WPI_TalonSRX elevatorForIntakingPowerCell = new WPI_TalonSRX(20); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
+        public static WPI_TalonSRX elevatorForIntakingPowerCell = new WPI_TalonSRX(2); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
 
         public static WPI_TalonSRX kickerTalon = new WPI_TalonSRX(100);
 
-        public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(10); //this will be the value for testing
+        public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(15); //this will be the value for testing
         public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
 
         public static WPI_TalonSRX controlPanel = new WPI_TalonSRX(45);
 
-        public static WPI_TalonSRX intakeArm = new WPI_TalonSRX(48);
+        public static WPI_TalonSRX intakeArm = new WPI_TalonSRX(10);
         //Land of Misfit Talons
         //public static WPI_TalonSRX leftOffConveyorBelt = new WPI_TalonSRX(17); // change to 5
         //TODO: REASON FOR COMMENTED OUT ^ ONLY ONE MOTOR

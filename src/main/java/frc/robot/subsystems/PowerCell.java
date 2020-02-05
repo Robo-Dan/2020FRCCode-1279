@@ -68,12 +68,12 @@ public class PowerCell extends SubsystemBase
 
   public void intakeArmIn()
   {
-    Constants.TalonNames.intakeArm.set(ControlMode.PercentOutput, -.30);
+    Constants.TalonNames.intakeArm.set(ControlMode.PercentOutput, -.60);
   }
 
   public void intakeArmOut()
   {
-    Constants.TalonNames.intakeArm.set(ControlMode.PercentOutput, .30);
+    Constants.TalonNames.intakeArm.set(ControlMode.PercentOutput, .20);
   }
 
   public void stopAll() //May have to change this later. I think I may change this to stopShooting and stopIntaking
