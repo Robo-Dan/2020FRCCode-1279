@@ -156,6 +156,8 @@ public class Robot extends TimedRobot
     SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
     SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
     //SmartDashboard.putNumber("Possible Fix for Distance (in inches)", possibleFixToErrorInDistance);
+
+    double autoNumber = SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
     
     String gameData;
     gameData = DriverStation.getInstance().getGameSpecificMessage();

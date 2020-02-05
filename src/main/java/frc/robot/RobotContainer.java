@@ -103,7 +103,6 @@ public class RobotContainer
     //Constants.DriverAndOperatorJoystick.testTrigger.whenActive(triggeredPowerCell);
     Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenPressed(firePiston);
     Constants.DriverAndOperatorJoystick.operator_rightStickButton.whenPressed(returnPiston);
-
     //TODO: TO GET MORE BUTTONS, if(trigger.get() == true) { commands} else {other commands};
     //if we were to do that, make the less important commands be if holding the trigger
 
