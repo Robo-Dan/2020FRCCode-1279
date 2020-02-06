@@ -13,15 +13,15 @@ import frc.robot.subsystems.CompressorSubsystem;
 
 public class CompressorOn extends CommandBase
 {
-  private final CompressorSubsystem cSubsystem;
+  //private final CompressorSubsystem cSubsystem;
   /**
    * Creates a new CompressorOn.
    */
-  public CompressorOn(CompressorSubsystem input)
+  public CompressorOn()//CompressorSubsystem input)
   {
-    cSubsystem = input;
+    //cSubsystem = input;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.compressorSubsystem);
+    //addRequirements(Robot.compressorSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -35,14 +35,14 @@ public class CompressorOn extends CommandBase
   @Override
   public void execute()
   {
-    Robot.compressor.start();
+    //Robot.compressor.start();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-    Robot.compressor.stop();
+    //Robot.compressor.stop();
   }
 
   // Returns true when the command should end.

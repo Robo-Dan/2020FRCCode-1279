@@ -14,15 +14,15 @@ import frc.robot.subsystems.Piston;
 
 public class PistonIn extends CommandBase
 {
-  private final Piston practicePiston;
+  //private final Piston practicePiston;
   /**
    * Creates a new PistonIn.
    */
-  public PistonIn(Piston p)
+  public PistonIn()//Piston p)
   {
-    practicePiston = p;
+    //practicePiston = p;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.piston);
+    //addRequirements(Robot.piston);
   }
 
   // Called when the command is initially scheduled.
@@ -36,9 +36,9 @@ public class PistonIn extends CommandBase
   @Override
   public void execute()
   {
-    System.out.println("Coming in");
-    Robot.joesDoubleSolenoid.set(Value.kForward);
-    System.out.println("Came in");
+    //System.out.println("Coming in");
+    //Robot.joesDoubleSolenoid.set(Value.kForward);
+    //System.out.println("Came in");
   }
 
   // Called once the command ends or is interrupted.

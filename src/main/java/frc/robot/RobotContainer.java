@@ -66,10 +66,10 @@ public class RobotContainer
 
   private ControlPanel controlPanel = new ControlPanel(Robot.controlPanelSubSystem);
 
-  private final PistonOut firePiston = new PistonOut(Robot.piston);
-  private final PistonIn returnPiston = new PistonIn(Robot.piston);
+  //private final PistonOut firePiston = new PistonOut(Robot.piston);
+  //private final PistonIn returnPiston = new PistonIn(Robot.piston);
 
-  private final CompressorOn compressorOn = new CompressorOn(Robot.compressorSubsystem);
+  //private final CompressorOn compressorOn = new CompressorOn(Robot.compressorSubsystem);
 
   private TriggerBasedPowerCellShooter triggeredPowerCell = new TriggerBasedPowerCellShooter(Robot.powerCell);
   /**
@@ -98,11 +98,11 @@ public class RobotContainer
     Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenHeld(winchRobotUp);
     Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerIn);
     //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut); TODO: PUT THIS BACK IN
-    Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(compressorOn);
+    //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(compressorOn);
     //Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
     //Constants.DriverAndOperatorJoystick.testTrigger.whenActive(triggeredPowerCell);
-    Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenPressed(firePiston);
-    Constants.DriverAndOperatorJoystick.operator_rightStickButton.whenPressed(returnPiston);
+    //Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenPressed(firePiston);
+    //Constants.DriverAndOperatorJoystick.operator_rightStickButton.whenPressed(returnPiston);
     //TODO: TO GET MORE BUTTONS, if(trigger.get() == true) { commands} else {other commands};
     //if we were to do that, make the less important commands be if holding the trigger
 

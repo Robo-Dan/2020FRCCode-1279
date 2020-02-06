@@ -14,15 +14,15 @@ import frc.robot.subsystems.Piston;
 
 public class PistonOut extends CommandBase
 {
-  private final Piston practicePiston;
+  //private final Piston practicePiston;
   /**
    * Creates a new PistonOut.
    */
-  public PistonOut(Piston p)
+  public PistonOut()//Piston p)
   {
-    practicePiston = p;
+    //practicePiston = p;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.piston);
+    //addRequirements(Robot.piston);
   }
 
   // Called when the command is initially scheduled.
@@ -36,9 +36,9 @@ public class PistonOut extends CommandBase
   @Override
   public void execute()
   {
-    System.out.println("Shooting out");
-    Robot.joesDoubleSolenoid.set(Value.kReverse);
-    System.out.println("Shot out");
+    //System.out.println("Shooting out");
+    //Robot.joesDoubleSolenoid.set(Value.kReverse);
+    //System.out.println("Shot out");
   }
 
   // Called once the command ends or is interrupted.

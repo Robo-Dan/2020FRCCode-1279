@@ -14,10 +14,10 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.cscore.VideoSource;
 import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.Compressor;
+//import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+//import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -76,8 +76,8 @@ public class Robot extends TimedRobot
   UsbCamera forwardCamera;
   UsbCamera backwardCamera;
 
-  public static Compressor compressor = new Compressor(0);
-  public static DoubleSolenoid joesDoubleSolenoid = new DoubleSolenoid(1, 2);
+  //public static Compressor compressor = new Compressor(0);
+  //public static DoubleSolenoid joesDoubleSolenoid = new DoubleSolenoid(1, 2);
 
   
   public static DigitalInput limitSwitchForArm = new DigitalInput(Constants.LimitSwitch.barArmDownLimitSwitch);
@@ -114,14 +114,14 @@ public class Robot extends TimedRobot
     backwardCamera.setFPS(60);
     backwardCamera.setResolution(320, 240);
 
-    compressor.setClosedLoopControl(true);
-    compressor.setClosedLoopControl(false);
+    //compressor.setClosedLoopControl(true);
+    //compressor.setClosedLoopControl(false);
 
-    boolean enabled = compressor.enabled();
-    boolean pressureSwitch = compressor.getPressureSwitchValue();
-    double current = compressor.getCompressorCurrent();
+    //boolean enabled = compressor.enabled();
+    //boolean pressureSwitch = compressor.getPressureSwitchValue();
+    //double current = compressor.getCompressorCurrent();
 
-    compressor.start();
+    //compressor.start();
 
     //compressor.start();
   }
@@ -220,7 +220,7 @@ public class Robot extends TimedRobot
   @Override
   public void disabledInit()
   {
-    compressor.stop();
+    //compressor.stop();
   }
 
   @Override
