@@ -39,8 +39,14 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   @Override
   public void execute()
   {
-    //if(m_timer.get())
+    if(m_timer.get() < 1)
+    { 
+      powerCellSubSystem.moveKickerOut();
+    }
+    else
+    {
     powerCellSubSystem.shootPowerCell();
+    }
   }
 
   // Called once the command ends or is interrupted.
@@ -48,6 +54,7 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   public void end(boolean interrupted)
   {
     powerCellSubSystem.stopShooting();
+    powerCellSubSystem.moveKickerIn();
   }
 
   // Returns true when the command should end.

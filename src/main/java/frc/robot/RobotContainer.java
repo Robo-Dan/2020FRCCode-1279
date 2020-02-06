@@ -99,7 +99,7 @@ public class RobotContainer
     //Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(intakeArmOut);
     //Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
     Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenHeld(winchRobotUp);
-    Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerIn);
+    //Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerIn);
     //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut); TODO: PUT THIS BACK IN
     //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(compressorOn);
     //Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
