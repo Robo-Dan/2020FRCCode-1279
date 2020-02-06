@@ -159,6 +159,7 @@ public class Robot extends TimedRobot
 
     double autoNumber = SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
     
+    
     String gameData;
     gameData = DriverStation.getInstance().getGameSpecificMessage();
     gameData.toUpperCase(); //this makes it so that the gamedata that we get is capitalized and the code returned works
