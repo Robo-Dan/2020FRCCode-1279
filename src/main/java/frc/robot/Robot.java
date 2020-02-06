@@ -26,7 +26,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.DriveAuto;
 import frc.robot.subsystems.ClimbingSubsystem;
 import frc.robot.subsystems.CompressorSubsystem;
 import frc.robot.subsystems.ControlPanelSub;
@@ -44,7 +43,6 @@ import frc.robot.subsystems.PowerCell;
 public class Robot extends TimedRobot
 {
   private Command m_autonomousCommand;
-  private DriveAuto driveAuto = new DriveAuto(robotDriveTrain, powerCell);
 
   private RobotContainer m_robotContainer;
 
@@ -83,7 +81,7 @@ public class Robot extends TimedRobot
   public static DigitalInput limitSwitchForArm = new DigitalInput(Constants.LimitSwitch.barArmDownLimitSwitch);
   public static Counter counterForArm = new Counter(limitSwitchForArm);
 
-  double autoNum;
+  static int autoNum;
 
   //private final I2C.Port i2cPort = I2C.Port.kOnboard;
   //private final ColorMatch m_colorMatcher = new ColorMatch();
@@ -159,7 +157,7 @@ public class Robot extends TimedRobot
     SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
     //SmartDashboard.putNumber("Possible Fix for Distance (in inches)", possibleFixToErrorInDistance);
 
-    double autoNumber = SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
+    int autoNumber = (int) SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
     
     autoNum = autoNumber;
 
@@ -357,7 +355,7 @@ public class Robot extends TimedRobot
 
   }
 
-  public double getAutoNumber()
+  public static int getAutoNumber()
   {
     return autoNum;
   }

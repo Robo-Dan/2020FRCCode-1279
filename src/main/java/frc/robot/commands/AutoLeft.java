@@ -7,22 +7,22 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
-import edu.wpi.first.wpilibj.Timer;
 
-public class DriveAuto extends CommandBase
+public class AutoLeft extends CommandBase
 {
   private final Timer m_timer = new Timer();
 
   private final DriveTrain driveTrainAuto;
   private final PowerCell shooting;
   /**
-   * Creates a new DriveAuto.
+   * Creates a new AutoLeft.
    */
-  public DriveAuto(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
+  public AutoLeft(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
   {
     driveTrainAuto = driveTrainSubsystem;
     shooting = testPowerCell;
@@ -34,40 +34,21 @@ public class DriveAuto extends CommandBase
   @Override
   public void initialize()
   {
-    m_timer.reset();
-    m_timer.start();
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-    if(m_timer.get() < 1)
-    {
-      shooting.moveKickerOut();
-    }
-    else if(m_timer.get() < 10)
-    {
-      shooting.shootPowerCell();
-    }
-    else if(m_timer.get() > 10 && m_timer.get() < 12)
-    {
-      shooting.moveKickerIn();
-      shooting.stopShooting();
-      driveTrainAuto.driveAuto();
-    }
-    else
-    {
-      driveTrainAuto.stopDriving();
-    }
+
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-    shooting.stopShooting();
-    //driveTrainAuto.stopDriving(); //TODO: if a problem arises, check this
+
   }
 
   // Returns true when the command should end.

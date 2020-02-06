@@ -9,10 +9,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.AutoSimple;
 import frc.robot.commands.ClimbingRobotUp;
 import frc.robot.commands.CompressorOn;
 import frc.robot.commands.ControlPanel;
-import frc.robot.commands.DriveAuto;
 import frc.robot.commands.IntakeArmIn;
 import frc.robot.commands.IntakeArmOut;
 //import frc.robot.commands.DriveTrainCommand;
@@ -45,7 +45,7 @@ public class RobotContainer
   //private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   //private final DriveTrain m_robotDrive = new DriveTrain();
-  private final DriveAuto autoDriveCommand = new DriveAuto(Robot.robotDriveTrain, Robot.powerCell);
+  private final AutoSimple simpleAuto = new AutoSimple(Robot.robotDriveTrain, Robot.powerCell);
 
   //private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
   private PowerCellElevatorUpIntake movingIntakeUp = new PowerCellElevatorUpIntake(Robot.powerCell);
@@ -122,6 +122,12 @@ public class RobotContainer
   {
     // An ExampleCommand will run in autonomous
     //return autoDriveCommand;
-    return autoDriveCommand;
+    switch (Robot.getAutoNumber())
+    {
+      case 0:
+      return simpleAuto;
+      default:
+      return simpleAuto;
+    }
   }
 }
