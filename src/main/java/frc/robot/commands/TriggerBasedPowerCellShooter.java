@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.PowerCell;
@@ -14,6 +15,8 @@ import frc.robot.subsystems.PowerCell;
 public class TriggerBasedPowerCellShooter extends CommandBase
 {
   private final PowerCell powerCellSubSystem;
+  private final Timer m_timer = new Timer();
+
   /**
    * Creates a new TriggerBasedPowerCellShooter.
    */
@@ -28,13 +31,15 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   @Override
   public void initialize()
   {
-    
+    m_timer.reset();
+    m_timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
+    //if(m_timer.get())
     powerCellSubSystem.shootPowerCell();
   }
 
