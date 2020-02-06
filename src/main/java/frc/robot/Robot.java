@@ -83,6 +83,8 @@ public class Robot extends TimedRobot
   public static DigitalInput limitSwitchForArm = new DigitalInput(Constants.LimitSwitch.barArmDownLimitSwitch);
   public static Counter counterForArm = new Counter(limitSwitchForArm);
 
+  double autoNum;
+
   //private final I2C.Port i2cPort = I2C.Port.kOnboard;
   //private final ColorMatch m_colorMatcher = new ColorMatch();
   //private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
@@ -159,7 +161,8 @@ public class Robot extends TimedRobot
 
     double autoNumber = SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
     
-    
+    autoNum = autoNumber;
+
     String gameData;
     gameData = DriverStation.getInstance().getGameSpecificMessage();
     gameData.toUpperCase(); //this makes it so that the gamedata that we get is capitalized and the code returned works
@@ -352,5 +355,10 @@ public class Robot extends TimedRobot
   public void testPeriodic()
   {
 
+  }
+
+  public double getAutoNumber()
+  {
+    return autoNum;
   }
 }
