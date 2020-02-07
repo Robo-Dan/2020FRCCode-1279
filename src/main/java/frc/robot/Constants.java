@@ -134,12 +134,12 @@ public final class Constants
         public static SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
 
         // This is the Talons for shooting the ball
-        public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(8); //change to 7
+        public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(4); //change to 7
         public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(7); // change to 8
 
         public static WPI_TalonSRX elevatorForIntakingPowerCell = new WPI_TalonSRX(2); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
 
-        public static WPI_TalonSRX kickerTalon = new WPI_TalonSRX(100);
+        public static WPI_TalonSRX kickerTalon = new WPI_TalonSRX(3);
 
         public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(15); //this will be the value for testing
         public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);

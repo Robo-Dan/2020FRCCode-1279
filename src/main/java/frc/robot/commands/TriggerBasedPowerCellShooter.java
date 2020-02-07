@@ -16,7 +16,8 @@ public class TriggerBasedPowerCellShooter extends CommandBase
 {
   private final PowerCell powerCellSubSystem;
   private final Timer m_timer = new Timer();
-
+  double endOfShooterTime = 0;
+  double kickerTime = 0;
   /**
    * Creates a new TriggerBasedPowerCellShooter.
    */
@@ -41,11 +42,18 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   {
     if(m_timer.get() < 1)
     { 
-      powerCellSubSystem.moveKickerOut();
+      //powerCellSubSystem.moveKickerOut();
+      powerCellSubSystem.shootPowerCell();
+    }
+    else if(m_timer.get() > 1 && m_timer.get() < 2)
+    {
+    powerCellSubSystem.moveKickerOut();
+    powerCellSubSystem.shootPowerCell();
     }
     else
     {
-    powerCellSubSystem.shootPowerCell();
+      powerCellSubSystem.stopKicker();
+      powerCellSubSystem.shootPowerCell();
     }
   }
 
@@ -53,8 +61,20 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   @Override
   public void end(boolean interrupted)
   {
-    powerCellSubSystem.stopShooting();
-    powerCellSubSystem.moveKickerIn();
+    if(endOfShooterTime == kickerTime)
+    {
+      m_timer.reset();
+      m_timer.start();
+      kickerTime++;
+    }
+    while(m_timer.get() < 1)
+    {
+      powerCellSubSystem.stopShooting();
+      powerCellSubSystem.moveKickerIn();
+    }
+      System.out.println("YOU ARE HITTING ELSE");
+      powerCellSubSystem.stopKicker();
+      powerCellSubSystem.stopShooting();
   }
 
   // Returns true when the command should end.
