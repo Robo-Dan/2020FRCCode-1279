@@ -45,9 +45,11 @@ public class AutoSimple extends CommandBase
     if(m_timer.get() < 1)
     {
       shooting.moveKickerOut();
+      shooting.shootPowerCell();
     }
     else if(m_timer.get() < 10)
     {
+      shooting.stopKicker();
       shooting.shootPowerCell();
     }
     else if(m_timer.get() > 10 && m_timer.get() < 12)
@@ -58,6 +60,7 @@ public class AutoSimple extends CommandBase
     }
     else
     {
+      shooting.stopKicker();
       driveTrainAuto.stopDriving();
     }
   }
