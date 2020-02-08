@@ -13,39 +13,39 @@ import frc.robot.Robot;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
 
-public class AutoLeft extends CommandBase
+public class AutoRight extends CommandBase
 {
-  private final Timer m_timer = new Timer();
+    private final Timer m_timer = new Timer();
 
-  private final DriveTrain driveTrainAuto;
-  private final PowerCell shooting;
-  /**
-   * Creates a new AutoLeft.
-   */
-  public AutoLeft(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
-  {
-    driveTrainAuto = driveTrainSubsystem;
-    shooting = testPowerCell;
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.robotDriveTrain);
-  }
+    private final DriveTrain driveTrainAuto;
+    private final PowerCell shooting;
+    /**
+     * Creates a new AutoRight
+     */
+    public AutoRight(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
+    {
+        driveTrainAuto = driveTrainSubsystem;
+        shooting = testPowerCell;
+        // Use addRequirements() here to decclare subsystem dependencies
+        addRequirements(Robot.robotDriveTrain);
+    }
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize()
+    // Called when the command is initially scheduled.
+    @Override
+    public void initialize()
 {
-  m_timer.reset();
-  m_timer.start();
+    m_timer.reset();
+    m_timer.start();
 }
 
-  // Called every time the scheduler runs while the command is scheduled.
+  //Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
 {
   if(m_timer.get() < 1)
   {
-    shooting.shootPowerCell(); 
-    driveTrainAuto.turnRobotRight();   
+    shooting.shootPowerCell();
+    driveTrainAuto.turnRobotLeft();
   }
   else if(m_timer.get() < 2)
   {
@@ -55,7 +55,7 @@ public class AutoLeft extends CommandBase
   else if(m_timer.get() < 3)
   {
     shooting.shootPowerCell();
-    driveTrainAuto.turnRobotRight();
+    driveTrainAuto.turnRobotLeft();
   }
   else if(m_timer.get() > 4 && m_timer.get() < 5)
   {
