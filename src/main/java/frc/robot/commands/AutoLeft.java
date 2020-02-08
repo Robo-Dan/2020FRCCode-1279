@@ -33,16 +33,53 @@ public class AutoLeft extends CommandBase
   // Called when the command is initially scheduled.
   @Override
   public void initialize()
-  {
-
-  }
+{
+  m_timer.reset();
+  m_timer.start();
+}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
+{
+  if(m_timer.get() < 1)
   {
+    shooting.shootPowerCell(); 
+    driveTrainAuto.turnRobotRight();   
 
   }
+  else if(m_timer.get() < 2)
+  {
+    shooting.shootPowerCell();
+    driveTrainAuto.driveForward();
+  }
+  else if(m_timer.get() < 3)
+  {
+    shooting.shootPowerCell();
+    driveTrainAuto.turnRobotRight();
+  }
+  else if(m_timer.get() > 4 && m_timer.get() < 5)
+  {
+    shooting.shootPowerCell();
+    shooting.moveKickerOut();
+  }
+  else if(m_timer.get() < 10)
+  {
+    shooting.shootPowerCell();
+    shooting.stopKicker();
+  }
+  else if(m_timer.get() < 11)
+  {
+    shooting.stopShooting();
+    shooting.moveKickerIn();
+    driveTrainAuto.driveBackward();
+  }
+  else if(m_timer.get() < 12)
+  {
+    driveTrainAuto.driveBackward();
+  }
+
+}
 
   // Called once the command ends or is interrupted.
   @Override

@@ -45,12 +45,29 @@ public class DriveTrain extends SubsystemBase
     Robot.drive.feed();
   }
 
-  public void driveAuto()
+  public void driveBackward() //used to be driveAuto
   {
-    Robot.drive.arcadeDrive(-.3, 0);// this is test auto
-    
+    Robot.drive.arcadeDrive(-.3, 0);
     Robot.drive.feed();
   }
+
+  public void turnRobotRight()
+  {
+    Robot.drive.arcadeDrive(0, 0.3);
+    Robot.drive.feed();
+  }
+
+public void turnRobotLeft()
+{
+  Robot.drive.arcadeDrive(0, -0.3);
+  Robot.drive.feed();
+}
+
+public void driveForward()
+{
+  Robot.drive.arcadeDrive(0.3, 0);
+  Robot.drive.feed();
+}
 
   public void flipDirection()
   {
