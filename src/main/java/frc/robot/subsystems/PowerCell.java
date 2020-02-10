@@ -58,12 +58,12 @@ public class PowerCell extends SubsystemBase
 
   public void moveKickerIn()
   {
-    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, .25);
+    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, 1);
   }
 
   public void moveKickerOut()
   {
-    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, -.25);
+    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, -1);
   }
 
   public void intakeArmIn()

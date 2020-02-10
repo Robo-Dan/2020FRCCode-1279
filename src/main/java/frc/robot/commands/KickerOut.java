@@ -15,7 +15,9 @@ import frc.robot.subsystems.PowerCell;
 public class KickerOut extends CommandBase
 {
   private final PowerCell powerCellSystem;
-  private final Timer m_timer = new Timer();
+  private final Timer timer = new Timer();
+
+  int tester = 0;
   /**
    * Creates a new KickerOut.
    */
@@ -30,17 +32,25 @@ public class KickerOut extends CommandBase
   @Override
   public void initialize()
   {
-    m_timer.reset();
-    m_timer.start();
+    timer.reset();
+    timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-    if(m_timer.get() < 1)
+    if(timer.get() < .44 && tester == 0)
     {
       powerCellSystem.moveKickerOut();
+    }
+    else if(timer.get() == .44)
+    {
+      tester++;
+    }
+    else
+    {
+      this.end(false || true);
     }
   }
 
@@ -49,6 +59,7 @@ public class KickerOut extends CommandBase
   public void end(boolean interrupted)
   {
     powerCellSystem.stopKicker();
+    tester = 0;
   }
 
   // Returns true when the command should end.

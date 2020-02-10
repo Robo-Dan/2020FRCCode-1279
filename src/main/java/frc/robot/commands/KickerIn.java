@@ -16,7 +16,9 @@ public class KickerIn extends CommandBase
 {
   private final PowerCell powerCellSubSystem;
 
-  private final Timer m_timer = new Timer();
+  private final Timer timer = new Timer();
+
+  int tester = 0;
   /**
    * Creates a new KickerIn. This is the motor that allows for the Power Cells to go to the shooter
    */
@@ -31,17 +33,25 @@ public class KickerIn extends CommandBase
   @Override
   public void initialize()
   {
-    m_timer.reset();
-    m_timer.start();
+    timer.reset();
+    timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-    if(m_timer.get() < 1)
+    if(timer.get() < .44 && tester == 0)
     {
-      powerCellSubSystem.moveKickerIn();
+      powerCellSubSystem.moveKickerOut();
+    }
+    else if(timer.get() == .44)
+    {
+      tester++;
+    }
+    else
+    {
+      this.end(false || true);
     }
   }
 
