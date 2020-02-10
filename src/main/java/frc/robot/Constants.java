@@ -147,7 +147,7 @@ public final class Constants
         public static WPI_TalonSRX controlPanel = new WPI_TalonSRX(45);
 
         public static WPI_TalonSRX intakeArm = new WPI_TalonSRX(10);
-        //Land of Misfit Talons
+        //Island of Misfit Talons
         //public static WPI_TalonSRX leftOffConveyorBelt = new WPI_TalonSRX(17); // change to 5
         //TODO: REASON FOR COMMENTED OUT ^ ONLY ONE MOTOR
         //public static WPI_TalonSRX rightOffConveyorBelt = new WPI_TalonSRX(95); // change to 6
