@@ -66,7 +66,7 @@ public class PowerCell extends SubsystemBase
     Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, -1);
   }
 
-  public void intakeArmIn()
+  /*public void intakeArmIn()
   {
     Constants.TalonNames.intakeArm.set(ControlMode.PercentOutput, -.60);
   }
@@ -74,7 +74,7 @@ public class PowerCell extends SubsystemBase
   public void intakeArmOut()
   {
     Constants.TalonNames.intakeArm.set(ControlMode.PercentOutput, .20);
-  }
+  }**/
 
   public void stopAll() //May have to change this later. I think I may change this to stopShooting and stopIntaking
   {
@@ -102,8 +102,8 @@ public class PowerCell extends SubsystemBase
     Constants.TalonNames.kickerTalon.stopMotor();
   }
 
-  public void stopIntakeArm()
+  /**public void stopIntakeArm()
   {
     Constants.TalonNames.intakeArm.stopMotor();
-  }
+  }*/
 }

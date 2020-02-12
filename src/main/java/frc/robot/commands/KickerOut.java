@@ -18,6 +18,7 @@ public class KickerOut extends CommandBase
   private final Timer timer = new Timer();
 
   int tester = 0;
+  double timeToMove = .2;
   /**
    * Creates a new KickerOut.
    */
@@ -40,11 +41,11 @@ public class KickerOut extends CommandBase
   @Override
   public void execute()
   {
-    if(timer.get() < .44 && tester == 0)
+    if(timer.get() < timeToMove && tester == 0)
     {
       powerCellSystem.moveKickerOut();
     }
-    else if(timer.get() == .44)
+    else if(timer.get() == timeToMove)
     {
       tester++;
     }

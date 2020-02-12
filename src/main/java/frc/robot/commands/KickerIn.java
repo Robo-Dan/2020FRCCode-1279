@@ -19,6 +19,7 @@ public class KickerIn extends CommandBase
   private final Timer timer = new Timer();
 
   int tester = 0;
+  double timeToMove = .4195;
   /**
    * Creates a new KickerIn. This is the motor that allows for the Power Cells to go to the shooter
    */
@@ -41,11 +42,11 @@ public class KickerIn extends CommandBase
   @Override
   public void execute()
   {
-    if(timer.get() < .44 && tester == 0)
+    if(timer.get() < timeToMove && tester == 0)
     {
       powerCellSubSystem.moveKickerOut();
     }
-    else if(timer.get() == .44)
+    else if(timer.get() == timeToMove)
     {
       tester++;
     }
@@ -60,6 +61,7 @@ public class KickerIn extends CommandBase
   public void end(boolean interrupted)
   {
     powerCellSubSystem.stopKicker();
+    tester = 0;
   }
 
   // Returns true when the command should end.

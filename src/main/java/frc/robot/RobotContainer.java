@@ -100,18 +100,7 @@ public class RobotContainer
     //Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(intakeArmIn);
     //Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(intakeArmOut);
     //Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
-    //Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerOut);
-    //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerIn);
-    //Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerIn);
-    //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut); TODO: PUT THIS BACK IN
-    //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(compressorOn);
-    //Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenHeld(controlPanel);
-    //Constants.DriverAndOperatorJoystick.testTrigger.whenActive(triggeredPowerCell);
-    //Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenPressed(firePiston);
-    //Constants.DriverAndOperatorJoystick.operator_rightStickButton.whenPressed(returnPiston);
-    //TODO: TO GET MORE BUTTONS, if(trigger.get() == true) { commands} else {other commands};
-    //if we were to do that, make the less important commands be if holding the trigger
-
+    Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut);
     //driver buttons
     Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
   }
