@@ -121,15 +121,15 @@ public final class Constants
     public static final class TalonNames
     {
         //TALONS 7, 8, 10, 13 ARE FOR TESTING CURRENTLY
-        public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(7000000); //change to one //Talon 10
-        public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(80); //change to two //Talon 8
+        public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_SEVEN); //change to one //Talon 10
+        public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_ONE); //change to two //Talon 8
         /**
          * This is the speed group for the left side of the robot for motors
          */
         public static SpeedControllerGroup m_left = new SpeedControllerGroup(frontLeft, rearLeft);
 
-        public static WPI_TalonSRX frontRight = new WPI_TalonSRX(100000); //change to three //Talon 7
-        public static WPI_TalonSRX rearRight = new WPI_TalonSRX(13); //change to four //Talon 13
+        public static WPI_TalonSRX frontRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_FIVE); //change to three //Talon 7
+        public static WPI_TalonSRX rearRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_SIX); //change to four //Talon 13
 
         public static SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
 
