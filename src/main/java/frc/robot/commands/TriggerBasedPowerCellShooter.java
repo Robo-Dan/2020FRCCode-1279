@@ -77,7 +77,7 @@ public class TriggerBasedPowerCellShooter extends CommandBase
       m_timer.start();
       kickerTime++;
     }
-    while(m_timer.get() < .44)
+    while(m_timer.get() < .44) //Hello
     {
       powerCellSubSystem.stopShooting();
       powerCellSubSystem.moveKickerIn();

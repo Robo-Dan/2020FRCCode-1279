@@ -93,14 +93,15 @@ public class RobotContainer
     Constants.DriverAndOperatorJoystick.operator_A_Button.toggleWhenPressed(triggeredPowerCell); //TODO: toggleWhenPressed makes it so that you can use just one button to turn it on and off
     Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(movingIntakeUp);
     Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(movingIntakeDown);
-    Constants.DriverAndOperatorJoystick.operator_X_Button.whenPressed(armUp);
+    Constants.DriverAndOperatorJoystick.operator_X_Button.whenPressed(armUp); //add another thing possibly
     Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(armDown);
+    Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenHeld(winchRobotUp);
+    Constants.DriverAndOperatorJoystick.operator_backButton.whenHeld(controlPanel);
     //Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(intakeArmIn);
     //Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(intakeArmOut);
     //Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
-    Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenHeld(winchRobotUp);
-    Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerOut);
-    Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerIn);
+    //Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerOut);
+    //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerIn);
     //Constants.DriverAndOperatorJoystick.operator_backButton.toggleWhenPressed(moveKickerIn);
     //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut); TODO: PUT THIS BACK IN
     //Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(compressorOn);
