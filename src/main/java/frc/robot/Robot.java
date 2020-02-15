@@ -32,33 +32,35 @@ import frc.robot.subsystems.ControlPanelSub;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Piston;
 import frc.robot.subsystems.PowerCell;
-
+import io.github.pseudoresonance.pixy2api.Pixy2;
+import io.github.pseudoresonance.pixy2api.Pixy2.Checksum;
+import io.github.pseudoresonance.pixy2api.links.Link;
 
 /**
- * The VM is configured to automatically run this class, and to call the functions corresponding to
- * each mode, as described in the TimedRobot documentation. If you change the name of this class or
- * the package after creating this project, you must also update the build.gradle file in the
+ * The VM is configured to automatically run this class, and to call the
+ * functions corresponding to each mode, as described in the TimedRobot
+ * documentation. If you change the name of this class or the package after
+ * creating this project, you must also update the build.gradle file in the
  * project.
  */
-public class Robot extends TimedRobot
-{
+public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
 
-  //TODO: add pneumatics code for Joe
+  // TODO: add pneumatics code for Joe
 
-  //section for subsystems
+  // section for subsystems
   public static DriveTrain robotDriveTrain = new DriveTrain();
   public static PowerCell powerCell = new PowerCell();
   public static ClimbingSubsystem climber = new ClimbingSubsystem();
   public static ControlPanelSub controlPanelSubSystem = new ControlPanelSub();
   public static Piston piston = new Piston();
   public static CompressorSubsystem compressorSubsystem = new CompressorSubsystem();
-  //^^section for subsystems
-  public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
+  // ^^section for subsystems
+  public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left,
+      Constants.TalonNames.m_right);
 
-  
   // distance in inches the robot wants to stay from an object
   private static final double kHoldDistance = 12.0;
 
@@ -70,46 +72,50 @@ public class Robot extends TimedRobot
   private static final int kUltrasonicPort = 0;
 
   private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
-  //TODO: Possibly make own class just for the distance sensor. that way, can make it work for auto
+  // TODO: Possibly make own class just for the distance sensor. that way, can
+  // make it work for auto
   UsbCamera forwardCamera;
   UsbCamera backwardCamera;
 
-  //public static Compressor compressor = new Compressor(0);
-  //public static DoubleSolenoid joesDoubleSolenoid = new DoubleSolenoid(1, 2);
+  // public static Compressor compressor = new Compressor(0);
+  // public static DoubleSolenoid joesDoubleSolenoid = new DoubleSolenoid(1, 2);
 
-  
   public static DigitalInput limitSwitchForArm = new DigitalInput(Constants.LimitSwitch.barArmDownLimitSwitch);
   public static Counter counterForArm = new Counter(limitSwitchForArm);
 
   static int autoNum;
 
-  //private final I2C.Port i2cPort = I2C.Port.kOnboard;
-  //private final ColorMatch m_colorMatcher = new ColorMatch();
-  //private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
+  // private final I2C.Port i2cPort = I2C.Port.kOnboard;
+  // private final ColorMatch m_colorMatcher = new ColorMatch();
+  // private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
 
-  /**private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
-  private final Color kGreenTarget = ColorMatch.makeColor(0.197, 0.561, 0.240);
-  private final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);
-  private final Color kYellowTarget = ColorMatch.makeColor(0.361, 0.524, 0.113);*/
   /**
-   * This function is run when the robot is first started up and should be used for any
-   * initialization code.
+   * private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
+   * private final Color kGreenTarget = ColorMatch.makeColor(0.197, 0.561, 0.240);
+   * private final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);
+   * private final Color kYellowTarget = ColorMatch.makeColor(0.361, 0.524,
+   * 0.113);
+   */
+  /**
+   * This function is run when the robot is first started up and should be used
+   * for any initialization code.
    */
   @Override
   public void robotInit()
   {
-    // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
+    // Instantiate our RobotContainer. This will perform all our button bindings,
+    // and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
     forwardCamera = CameraServer.getInstance().startAutomaticCapture(0);
     backwardCamera = CameraServer.getInstance().startAutomaticCapture(1);
-    //server = CameraServer.getInstance().addServer("Switched camera");
-    //server = CameraServer.getInstance().addSwitchedCamera("Switched camera");
+    // server = CameraServer.getInstance().addServer("Switched camera");
+    // server = CameraServer.getInstance().addSwitchedCamera("Switched camera");
     forwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
     forwardCamera.setFPS(60);
     forwardCamera.setResolution(320, 240);
-    
+
     backwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
     backwardCamera.setFPS(60);
     backwardCamera.setResolution(320, 240);
