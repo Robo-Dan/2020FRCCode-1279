@@ -121,15 +121,15 @@ public final class Constants
     public static final class TalonNames
     {
         //TALONS 7, 8, 10, 13 ARE FOR TESTING CURRENTLY
-        public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_SEVEN); //change to one //Talon 10
-        public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_ONE); //change to two //Talon 8
+        public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_THREE); //change to one //Talon 10
+        public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(Constants.TalonIDs.TALON_FOUR); //change to two //Talon 8
         /**
          * This is the speed group for the left side of the robot for motors
          */
         public static SpeedControllerGroup m_left = new SpeedControllerGroup(frontLeft, rearLeft);
 
         public static WPI_TalonSRX frontRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_FIVE); //change to three //Talon 7
-        public static WPI_TalonSRX rearRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_SIX); //change to four //Talon 13
+        public static WPI_TalonSRX rearRight = new WPI_TalonSRX(Constants.TalonIDs.TALON_EIGHT); //change to four //Talon 13
 
         public static SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
 
@@ -137,12 +137,12 @@ public final class Constants
         public static WPI_TalonSRX leftShooter = new WPI_TalonSRX(Constants.TalonIDs.TALON_TEN); //change to 7
         public static WPI_TalonSRX rightShooter = new WPI_TalonSRX(Constants.TalonIDs.TALON_NINE); // change to 8
 
-        public static WPI_TalonSRX elevatorForIntakingPowerCell = new WPI_TalonSRX(50000); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
+        public static WPI_TalonSRX elevatorForIntakingPowerCell = new WPI_TalonSRX(Constants.TalonIDs.TALON_ONE); // change to 9 THIS IS ORIGINALLY THE LEFT INTAKE MOTOR
 
-        public static WPI_TalonSRX kickerTalon = new WPI_TalonSRX(Constants.TalonIDs.TALON_EIGHT);
+        public static WPI_TalonSRX kickerTalon = new WPI_TalonSRX(Constants.TalonIDs.TALON_SIX);
 
-        public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(15); //this will be the value for testing
-        public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
+        public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_SEVEN); //this will be the value for testing
+        public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_TWO);
 
         public static WPI_TalonSRX controlPanel = new WPI_TalonSRX(45);
 

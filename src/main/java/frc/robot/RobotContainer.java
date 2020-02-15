@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.AutoLeft;
 import frc.robot.commands.AutoSimple;
 import frc.robot.commands.ClimbingRobotUp;
 import frc.robot.commands.CompressorOn;
@@ -28,6 +29,7 @@ import frc.robot.commands.PowerCellElevatorUpIntake;
 //import frc.robot.commands.PowerCellShooter;
 import frc.robot.commands.SlowDriveTrain;
 import frc.robot.commands.TriggerBasedPowerCellShooter;
+import frc.robot.commands.AutoRight;
 //import frc.robot.subsystems.DriveTrain;
 //import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -46,6 +48,9 @@ public class RobotContainer
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   //private final DriveTrain m_robotDrive = new DriveTrain();
   private final AutoSimple simpleAuto = new AutoSimple(Robot.robotDriveTrain, Robot.powerCell);
+  private final AutoLeft leftAuto = new AutoLeft(Robot.robotDriveTrain, Robot.powerCell);
+  private final AutoRight rightAuto = new AutoRight(Robot.robotDriveTrain, Robot.powerCell);
+
 
   //private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
   private PowerCellElevatorUpIntake movingIntakeUp = new PowerCellElevatorUpIntake(Robot.powerCell);
@@ -118,6 +123,10 @@ public class RobotContainer
     {
       case 0:
       return simpleAuto;
+      case 1:
+      return leftAuto;
+      case 2:
+      return rightAuto;
       default:
       return simpleAuto;
     }

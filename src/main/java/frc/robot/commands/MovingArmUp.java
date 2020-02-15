@@ -38,7 +38,7 @@ public class MovingArmUp extends CommandBase
   @Override
   public void execute()
   {
-    if(m_timer.get() < .25)
+    if(m_timer.get() < .8)
     {
       climberInSubsystem.movingArmUp();
     }
