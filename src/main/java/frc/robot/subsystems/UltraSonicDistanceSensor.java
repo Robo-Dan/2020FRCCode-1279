@@ -5,9 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
+package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
  * This is the DistanceSensor class. The purpose of this
@@ -15,7 +16,7 @@ import edu.wpi.first.wpilibj.AnalogInput;
  * Than just telling us how far away we are
  * We would be able to use this for auto and possibly even teleop
  */
-public class UltraSonicDistanceSensor 
+public class UltraSonicDistanceSensor extends SubsystemBase
 {
     private static final double kHoldDistance = 12.0;
   // factor to convert sensor values to a distance in inches
