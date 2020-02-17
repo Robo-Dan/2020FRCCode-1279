@@ -22,6 +22,7 @@ import frc.robot.commands.KickerIn;
 import frc.robot.commands.KickerOut;
 import frc.robot.commands.MovingArmDown;
 import frc.robot.commands.MovingArmUp;
+import frc.robot.commands.MovingArmUpSlower;
 import frc.robot.commands.PistonIn;
 import frc.robot.commands.PistonOut;
 import frc.robot.commands.PowerCellElevatorDownIntake;
@@ -69,6 +70,8 @@ public class RobotContainer
   private KickerIn moveKickerIn = new KickerIn(Robot.powerCell);
   private KickerOut moveKickerOut = new KickerOut(Robot.powerCell);
 
+  private MovingArmUpSlower slowArmUp = new MovingArmUpSlower(Robot.climber);
+
   private ControlPanel controlPanel = new ControlPanel(Robot.controlPanelSubSystem);
 
   //private final PistonOut firePiston = new PistonOut(Robot.piston);
@@ -106,6 +109,7 @@ public class RobotContainer
     //Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(intakeArmOut);
     //Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
     Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut);
+    Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenPressed(slowArmUp);
     //driver buttons
     Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
   }

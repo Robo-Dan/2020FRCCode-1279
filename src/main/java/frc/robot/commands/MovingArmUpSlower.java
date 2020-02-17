@@ -8,28 +8,23 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.PowerCell;
+import frc.robot.subsystems.ClimbingSubsystem;
 
-public class AutoLeftWithGyro extends CommandBase
+public class MovingArmUpSlower extends CommandBase
 {
+  private ClimbingSubsystem climberInSubsystem;
   private final Timer m_timer = new Timer();
-  Gyro gyro;
-  private final DriveTrain driveTrainAuto;
-  private final PowerCell shooting;
   /**
-   * Creates a new AutoLeftWithGyro.
+   * Creates a new MovingArmUpSlower.
    */
-  public AutoLeftWithGyro(DriveTrain drive, PowerCell power)
+  public MovingArmUpSlower(ClimbingSubsystem climb)
   {
-    driveTrainAuto = drive;
-    shooting = power;
+    climberInSubsystem = climb;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.robotDriveTrain);
-    addRequirements(Robot.powerCell);
+    addRequirements(Robot.climber);
+    // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
@@ -44,24 +39,31 @@ public class AutoLeftWithGyro extends CommandBase
   @Override
   public void execute()
   {
-    while(m_timer.get() < 13)
+    if(m_timer.get() < .5)
     {
-      double time = 0;
-      while(gyro.getAngle() < -90)
-      {
-        driveTrainAuto.turnRobotLeft();
-        //shooting.moveKickerIn();
-        shooting.shootPowerCell();
-        time = m_timer.get();
-      }
+      climberInSubsystem.movingArmUp();
     }
+    else
+    {
+      climberInSubsystem.stopMovingArm();
+    }
+    //for(int i = 0; i < 8; i++)
+    //{
+      //m_timer.start();
+      //Timer timer = new Timer();
+      //if(timer.get() <= .5)
+      //{
+        //climberInSubsystem.movingArmUp();
+      //}
+      //climberInSubsystem.stopMovingArm();
+    //}
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-
+    climberInSubsystem.stopMovingArm();
   }
 
   // Returns true when the command should end.
