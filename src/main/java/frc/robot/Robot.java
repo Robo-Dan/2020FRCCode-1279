@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -32,9 +33,9 @@ import frc.robot.subsystems.ControlPanelSub;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Piston;
 import frc.robot.subsystems.PowerCell;
-import io.github.pseudoresonance.pixy2api.Pixy2;
-import io.github.pseudoresonance.pixy2api.Pixy2.Checksum;
-import io.github.pseudoresonance.pixy2api.links.Link;
+//import io.github.pseudoresonance.pixy2api.Pixy2;
+//import io.github.pseudoresonance.pixy2api.Pixy2.Checksum;
+//--import io.github.pseudoresonance.pixy2api.links.Link;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -43,7 +44,8 @@ import io.github.pseudoresonance.pixy2api.links.Link;
  * creating this project, you must also update the build.gradle file in the
  * project.
  */
-public class Robot extends TimedRobot {
+public class Robot extends TimedRobot
+{
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
@@ -85,6 +87,8 @@ public class Robot extends TimedRobot {
 
   static int autoNum;
 
+  Gyro gyro;
+
   // private final I2C.Port i2cPort = I2C.Port.kOnboard;
   // private final ColorMatch m_colorMatcher = new ColorMatch();
   // private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
@@ -120,6 +124,7 @@ public class Robot extends TimedRobot {
     backwardCamera.setFPS(60);
     backwardCamera.setResolution(320, 240);
 
+    gyro.calibrate();
     //compressor.setClosedLoopControl(true);
     //compressor.setClosedLoopControl(false);
 
@@ -330,6 +335,8 @@ public class Robot extends TimedRobot {
     Constants.TalonNames.rearLeft.setSafetyEnabled(false);
     Constants.TalonNames.frontRight.setSafetyEnabled(false);
     Constants.TalonNames.rearRight.setSafetyEnabled(false);
+
+    gyro.reset();
 
   }
 

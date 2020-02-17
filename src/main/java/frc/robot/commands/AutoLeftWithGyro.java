@@ -8,26 +8,28 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
 
-public class AutoSimple extends CommandBase
+public class AutoLeftWithGyro extends CommandBase
 {
   private final Timer m_timer = new Timer();
-
+  Gyro gyro;
   private final DriveTrain driveTrainAuto;
   private final PowerCell shooting;
   /**
-   * Creates a new AutoSimple.
+   * Creates a new AutoLeftWithGyro.
    */
-  public AutoSimple(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
+  public AutoLeftWithGyro(DriveTrain drive, PowerCell power)
   {
-    driveTrainAuto = driveTrainSubsystem;
-    shooting = testPowerCell;
+    driveTrainAuto = drive;
+    shooting = power;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.robotDriveTrain);
+    addRequirements(Robot.powerCell);
   }
 
   // Called when the command is initially scheduled.
@@ -42,30 +44,16 @@ public class AutoSimple extends CommandBase
   @Override
   public void execute()
   {
-    if(m_timer.get() < .075)
+    while(m_timer.get() < 13)
     {
-      shooting.moveKickerIn();
-      shooting.shootPowerCell();
-    }
-    else if(m_timer.get() >.075 && m_timer.get() < 1.575)
-    {
-      shooting.shootPowerCell();
-    }
-    else if(m_timer.get() > 1.575 && m_timer.get() < 10)
-    {
-      shooting.moveKickerOut();
-      shooting.shootPowerCell();
-    }
-    else if(m_timer.get() > 10 && m_timer.get() < 12)
-    {
-      //shooting.moveKickerOut();
-      //shooting.stopShooting();
-      driveTrainAuto.driveBackward();
-    }
-    else
-    {
-      shooting.stopKicker();
-      driveTrainAuto.stopDriving();
+      double time = 0;
+      while(gyro.getAngle() < -90)
+      {
+        driveTrainAuto.turnRobotLeft();
+        //shooting.moveKickerIn();
+        shooting.shootPowerCell();
+        time = m_timer.get();
+      }
     }
   }
 
@@ -73,7 +61,7 @@ public class AutoSimple extends CommandBase
   @Override
   public void end(boolean interrupted)
   {
-    shooting.stopShooting();
+
   }
 
   // Returns true when the command should end.
