@@ -22,7 +22,6 @@ import frc.robot.commands.KickerIn;
 import frc.robot.commands.KickerOut;
 import frc.robot.commands.MovingArmDown;
 import frc.robot.commands.MovingArmUp;
-import frc.robot.commands.MovingArmUpSlower;
 import frc.robot.commands.PistonIn;
 import frc.robot.commands.PistonOut;
 import frc.robot.commands.PowerCellElevatorDownIntake;
@@ -70,8 +69,6 @@ public class RobotContainer
   private KickerIn moveKickerIn = new KickerIn(Robot.powerCell);
   private KickerOut moveKickerOut = new KickerOut(Robot.powerCell);
 
-  private MovingArmUpSlower slowArmUp = new MovingArmUpSlower(Robot.climber);
-
   private ControlPanel controlPanel = new ControlPanel(Robot.controlPanelSubSystem);
 
   //private final PistonOut firePiston = new PistonOut(Robot.piston);
@@ -101,7 +98,7 @@ public class RobotContainer
     Constants.DriverAndOperatorJoystick.operator_A_Button.toggleWhenPressed(triggeredPowerCell); //TODO: toggleWhenPressed makes it so that you can use just one button to turn it on and off
     Constants.DriverAndOperatorJoystick.operator_B_Button.whenHeld(movingIntakeUp);
     Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(movingIntakeDown);
-    Constants.DriverAndOperatorJoystick.operator_X_Button.whenPressed(armUp); //add another thing possibly
+    Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(armUp); //add another thing possibly
     Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(armDown);
     Constants.DriverAndOperatorJoystick.operator_rightShoulderButton.whenHeld(winchRobotUp);
     Constants.DriverAndOperatorJoystick.operator_backButton.whenHeld(controlPanel);
@@ -109,7 +106,6 @@ public class RobotContainer
     //Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(intakeArmOut);
     //Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
     Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut);
-    Constants.DriverAndOperatorJoystick.operator_leftStickButton.whenPressed(slowArmUp);
     //driver buttons
     Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
   }

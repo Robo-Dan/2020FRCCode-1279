@@ -38,14 +38,18 @@ public class MovingArmUp extends CommandBase
   @Override
   public void execute()
   {
-    if(m_timer.get() < .8)
-    {
+    //if(m_timer.get() < 1.1)
+    //{
       climberInSubsystem.movingArmUp();
-    }
-    else
-    {
-      climberInSubsystem.stopMovingArm();
-    }
+    //}
+    //else if(m_timer.get() > 1.1 && m_timer.get() < 1.2)
+    //{
+     // climberInSubsystem.movingArmUpSlowly();
+    //}
+    //else
+    //{
+      //climberInSubsystem.stopMovingArm();
+    //}
     //for(int i = 0; i < 8; i++)
     //{
       //m_timer.start();

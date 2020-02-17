@@ -22,7 +22,6 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -87,7 +86,6 @@ public class Robot extends TimedRobot
 
   static int autoNum;
 
-  Gyro gyro;
 
   // private final I2C.Port i2cPort = I2C.Port.kOnboard;
   // private final ColorMatch m_colorMatcher = new ColorMatch();
@@ -124,7 +122,6 @@ public class Robot extends TimedRobot
     backwardCamera.setFPS(60);
     backwardCamera.setResolution(320, 240);
 
-    gyro.calibrate();
     //compressor.setClosedLoopControl(true);
     //compressor.setClosedLoopControl(false);
 
@@ -335,9 +332,6 @@ public class Robot extends TimedRobot
     Constants.TalonNames.rearLeft.setSafetyEnabled(false);
     Constants.TalonNames.frontRight.setSafetyEnabled(false);
     Constants.TalonNames.rearRight.setSafetyEnabled(false);
-
-    gyro.reset();
-
   }
 
   /**
