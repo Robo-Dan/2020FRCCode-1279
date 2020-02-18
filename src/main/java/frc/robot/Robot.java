@@ -11,6 +11,7 @@ import com.revrobotics.ColorMatch;
 import com.revrobotics.ColorSensorV3;
 
 import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.VideoSink;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.cscore.VideoSource;
 import edu.wpi.first.wpilibj.AnalogInput;
@@ -59,8 +60,7 @@ public class Robot extends TimedRobot
   public static Piston piston = new Piston();
   public static CompressorSubsystem compressorSubsystem = new CompressorSubsystem();
   // ^^section for subsystems
-  public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left,
-      Constants.TalonNames.m_right);
+  public static DifferentialDrive drive = new DifferentialDrive(Constants.TalonNames.m_left, Constants.TalonNames.m_right);
 
   // distance in inches the robot wants to stay from an object
   private static final double kHoldDistance = 12.0;
@@ -86,6 +86,7 @@ public class Robot extends TimedRobot
 
   static int autoNum;
 
+  VideoSink server;
 
   // private final I2C.Port i2cPort = I2C.Port.kOnboard;
   // private final ColorMatch m_colorMatcher = new ColorMatch();
@@ -121,6 +122,9 @@ public class Robot extends TimedRobot
     backwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
     backwardCamera.setFPS(60);
     backwardCamera.setResolution(320, 240);
+
+    server = CameraServer.getInstance().addServer("Switched camera");
+    server = CameraServer.getInstance().addSwitchedCamera("Switched camera");
 
     //compressor.setClosedLoopControl(true);
     //compressor.setClosedLoopControl(false);
@@ -343,6 +347,17 @@ public class Robot extends TimedRobot
 
     
     robotDriveTrain.robotDrive();
+
+    if(!DriveTrain.getDirection())
+    {
+      //System.out.println("setting camera 2");
+      server.setSource(forwardCamera);
+    }
+    if(DriveTrain.getDirection())
+    {
+      //System.out.println("setting camera 1");
+      server.setSource(backwardCamera);
+    } 
 
   }
 

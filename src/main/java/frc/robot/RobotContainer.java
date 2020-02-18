@@ -26,6 +26,8 @@ import frc.robot.commands.PistonIn;
 import frc.robot.commands.PistonOut;
 import frc.robot.commands.PowerCellElevatorDownIntake;
 import frc.robot.commands.PowerCellElevatorUpIntake;
+import frc.robot.commands.SetDirectionBackward;
+import frc.robot.commands.SetDirectionForward;
 //import frc.robot.commands.PowerCellShooter;
 import frc.robot.commands.SlowDriveTrain;
 import frc.robot.commands.TriggerBasedPowerCellShooter;
@@ -77,6 +79,9 @@ public class RobotContainer
   //private final CompressorOn compressorOn = new CompressorOn(Robot.compressorSubsystem);
 
   private TriggerBasedPowerCellShooter triggeredPowerCell = new TriggerBasedPowerCellShooter(Robot.powerCell);
+
+  private SetDirectionForward setForward = new SetDirectionForward();
+  private SetDirectionBackward setBackward = new SetDirectionBackward();
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -108,6 +113,8 @@ public class RobotContainer
     Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut);
     //driver buttons
     Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
+    Constants.DriverAndOperatorJoystick.driver_A_Button.whenPressed(setForward);
+    Constants.DriverAndOperatorJoystick.driver_B_Button.whenPressed(setBackward);
   }
 
   /**

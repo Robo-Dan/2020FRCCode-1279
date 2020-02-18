@@ -144,7 +144,7 @@ public final class Constants
         public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_SEVEN); //this will be the value for testing
         public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_TWO);
 
-        public static WPI_TalonSRX controlPanel = new WPI_TalonSRX(45);
+        public static WPI_TalonSRX controlPanel = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
 
         //public static WPI_TalonSRX intakeArm = new WPI_TalonSRX(10);
         //Island of Misfit Talons
