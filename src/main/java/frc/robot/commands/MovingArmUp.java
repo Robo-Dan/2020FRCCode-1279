@@ -7,7 +7,7 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
+//import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.ClimbingSubsystem;
@@ -15,7 +15,7 @@ import frc.robot.subsystems.ClimbingSubsystem;
 public class MovingArmUp extends CommandBase
 {
   private ClimbingSubsystem climberInSubsystem;
-  private final Timer m_timer = new Timer();
+  //private final Timer m_timer = new Timer();
   /**
    * Creates a new MovingArmUp.
    */
@@ -30,36 +30,15 @@ public class MovingArmUp extends CommandBase
   @Override
   public void initialize()
   {
-    m_timer.reset();
-    m_timer.start();
+    //m_timer.reset();
+    //m_timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute()
   {
-    //if(m_timer.get() < 1.1)
-    //{
-      climberInSubsystem.movingArmUp();
-    //}
-    //else if(m_timer.get() > 1.1 && m_timer.get() < 1.2)
-    //{
-     // climberInSubsystem.movingArmUpSlowly();
-    //}
-    //else
-    //{
-      //climberInSubsystem.stopMovingArm();
-    //}
-    //for(int i = 0; i < 8; i++)
-    //{
-      //m_timer.start();
-      //Timer timer = new Timer();
-      //if(timer.get() <= .5)
-      //{
-        //climberInSubsystem.movingArmUp();
-      //}
-      //climberInSubsystem.stopMovingArm();
-    //}
+    climberInSubsystem.movingArmUp();
   }
 
   // Called once the command ends or is interrupted.

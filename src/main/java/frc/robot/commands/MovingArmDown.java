@@ -35,14 +35,7 @@ public class MovingArmDown extends CommandBase
   @Override
   public void execute()
   {
-    //if(bar.limitSwitchForClimbingArm() == false)
-    //{
       bar.movingArmDown();
-    //}
-    //else
-    //{
-      //end(false || true);
-    //}
   }
 
   // Called once the command ends or is interrupted.
