@@ -34,6 +34,7 @@ public final class Constants
     public static final class TalonIDs
     {
         //These names may be changed later. Just for placement know
+        public static final int TALON_ZERO = 0;
         public static final int TALON_ONE = 1; // Name for the first talon
         public static final int TALON_TWO = 2; // Name for the second talon
         public static final int TALON_THREE = 3; // Name for the third talon
@@ -144,7 +145,7 @@ public final class Constants
         public static WPI_TalonSRX raisingTheBarMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_SEVEN); //this will be the value for testing
         public static WPI_TalonSRX pullingRobotUpMotor = new WPI_TalonSRX(Constants.TalonIDs.TALON_TWO);
 
-        public static WPI_TalonSRX controlPanel = new WPI_TalonSRX(Constants.TalonIDs.TALON_ELEVEN);
+        public static WPI_TalonSRX controlPanel = new WPI_TalonSRX(Constants.TalonIDs.TALON_ZERO); //TODO: remind Dom to change Talon
 
         //public static WPI_TalonSRX intakeArm = new WPI_TalonSRX(10);
         //Island of Misfit Talons

@@ -31,7 +31,7 @@ public class ControlPanelSub extends SubsystemBase
 
   public void turnControlPanel()
   {
-    Constants.TalonNames.controlPanel.set(ControlMode.PercentOutput, .25);
+    Constants.TalonNames.controlPanel.set(ControlMode.PercentOutput, .40);
   }
 
   public void stopControlPanel()
