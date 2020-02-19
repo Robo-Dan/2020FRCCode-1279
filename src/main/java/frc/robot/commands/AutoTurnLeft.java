@@ -7,13 +7,15 @@
 
 package frc.robot.commands;
 
+import javax.lang.model.util.ElementScanner6;
+
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
 
-public class AutoRight extends CommandBase
+public class AutoTurnLeft extends CommandBase
 {
     private final Timer m_timer = new Timer();
 
@@ -22,7 +24,7 @@ public class AutoRight extends CommandBase
     /**
      * Creates a new AutoRight
      */
-    public AutoRight(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
+    public AutoTurnLeft(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
     {
         driveTrainAuto = driveTrainSubsystem;
         shooting = testPowerCell;
@@ -44,47 +46,51 @@ public class AutoRight extends CommandBase
 {
   if(m_timer.get() < 1)
   {
-    shooting.shootPowerCell();
+    //shooting.shootPowerCell();
     driveTrainAuto.turnRobotLeft();
   }
-  else if(m_timer.get() < 2)
+  else if(m_timer.get() < 2 && m_timer.get() > 1)
   {
-    shooting.shootPowerCell();
+    //shooting.shootPowerCell();
     driveTrainAuto.driveForward();
   }
-  else if(m_timer.get() < 3)
+  else if(m_timer.get() < 3 && m_timer.get() > 2)
   {
-    shooting.shootPowerCell();
+    //shooting.shootPowerCell();
     driveTrainAuto.turnRobotLeft();
   }
-  else if(m_timer.get() > 4 && m_timer.get() < 5)
+  else if(m_timer.get() > 3 && m_timer.get() < 3.075)
+  {
+    shooting.shootPowerCell();
+    shooting.moveKickerIn();
+  }
+  else if(m_timer.get() > 3.075 && m_timer.get() < 10)
   {
     shooting.shootPowerCell();
     shooting.moveKickerOut();
   }
-  else if(m_timer.get() < 10)
-  {
-    shooting.shootPowerCell();
-    shooting.stopKicker();
-  }
-  else if(m_timer.get() < 11)
+  else if(m_timer.get() > 10 && m_timer.get() < 11)
   {
     shooting.stopShooting();
-    shooting.moveKickerIn();
+    shooting.stopKicker();
     driveTrainAuto.driveBackward();
   }
-  else if(m_timer.get() < 12)
+  else if(m_timer.get() > 11 && m_timer.get() < 12)
   {
     driveTrainAuto.driveBackward();
   }
-
+  else
+  {
+    shooting.stopKicker();
+    driveTrainAuto.stopDriving();
+  }
 }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted)
   {
-
+    shooting.stopShooting();
   }
 
   // Returns true when the command should end.

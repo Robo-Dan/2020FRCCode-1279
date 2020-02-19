@@ -9,7 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.AutoLeft;
+import frc.robot.commands.AutoTurnRight;
 import frc.robot.commands.AutoSimple;
 import frc.robot.commands.ClimbingRobotUp;
 import frc.robot.commands.CompressorOn;
@@ -31,7 +31,7 @@ import frc.robot.commands.SetDirectionForward;
 //import frc.robot.commands.PowerCellShooter;
 import frc.robot.commands.SlowDriveTrain;
 import frc.robot.commands.TriggerBasedPowerCellShooter;
-import frc.robot.commands.AutoRight;
+import frc.robot.commands.AutoTurnLeft;
 //import frc.robot.subsystems.DriveTrain;
 //import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -50,8 +50,8 @@ public class RobotContainer
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   //private final DriveTrain m_robotDrive = new DriveTrain();
   private final AutoSimple simpleAuto = new AutoSimple(Robot.robotDriveTrain, Robot.powerCell);
-  private final AutoLeft leftAuto = new AutoLeft(Robot.robotDriveTrain, Robot.powerCell);
-  private final AutoRight rightAuto = new AutoRight(Robot.robotDriveTrain, Robot.powerCell);
+  private final AutoTurnRight rightTurnAuto = new AutoTurnRight(Robot.robotDriveTrain, Robot.powerCell);
+  private final AutoTurnLeft leftTurnAuto = new AutoTurnLeft(Robot.robotDriveTrain, Robot.powerCell);
 
 
   //private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
@@ -126,16 +126,13 @@ public class RobotContainer
   {
     // An ExampleCommand will run in autonomous
     //return autoDriveCommand;
-    switch (Robot.getAutoNumber())
-    {
-      case 0:
+    if(Robot.getAutoNumber() == 0)
       return simpleAuto;
-      case 1:
-      return leftAuto;
-      case 2:
-      return rightAuto;
-      default:
+    else if(Robot.getAutoNumber() == 1)
+      return rightTurnAuto;
+    else if(Robot.getAutoNumber() == 2)
+      return leftTurnAuto;
+    else
       return simpleAuto;
-    }
   }
 }

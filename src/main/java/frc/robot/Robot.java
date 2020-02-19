@@ -116,11 +116,11 @@ public class Robot extends TimedRobot
     // server = CameraServer.getInstance().addServer("Switched camera");
     // server = CameraServer.getInstance().addSwitchedCamera("Switched camera");
     forwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
-    forwardCamera.setFPS(60);
-    forwardCamera.setResolution(320, 240);
+    forwardCamera.setFPS(15);
+    forwardCamera.setResolution(160, 120);
 
     backwardCamera.setConnectionStrategy(VideoSource.ConnectionStrategy.kAutoManage);
-    backwardCamera.setFPS(60);
+    backwardCamera.setFPS(15);
     backwardCamera.setResolution(320, 240);
 
     server = CameraServer.getInstance().addServer("Switched camera");
@@ -168,10 +168,9 @@ public class Robot extends TimedRobot
     SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
     SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
     //SmartDashboard.putNumber("Possible Fix for Distance (in inches)", possibleFixToErrorInDistance);
-
-    int autoNumber = (int) SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
+    SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
     
-    autoNum = autoNumber;
+    //autoNum = autoNumber;
 
     String gameData;
     gameData = DriverStation.getInstance().getGameSpecificMessage();
@@ -377,8 +376,8 @@ public class Robot extends TimedRobot
 
   }
 
-  public static int getAutoNumber()
+  public static double getAutoNumber()
   {
-    return autoNum;
+    return SmartDashboard.getNumber("Autonomous Number", 0);
   }
 }

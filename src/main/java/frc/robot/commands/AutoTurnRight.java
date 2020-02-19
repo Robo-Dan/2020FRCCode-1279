@@ -13,7 +13,7 @@ import frc.robot.Robot;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
 
-public class AutoLeft extends CommandBase
+public class AutoTurnRight extends CommandBase
 {
   private final Timer m_timer = new Timer();
 
@@ -22,7 +22,7 @@ public class AutoLeft extends CommandBase
   /**
    * Creates a new AutoLeft.
    */
-  public AutoLeft(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
+  public AutoTurnRight(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
   {
     driveTrainAuto = driveTrainSubsystem;
     shooting = testPowerCell;
