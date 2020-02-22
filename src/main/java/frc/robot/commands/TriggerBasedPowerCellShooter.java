@@ -49,16 +49,16 @@ public class TriggerBasedPowerCellShooter extends CommandBase
       counter = 0;
       endOfShooterTime = kickerTime;
     }
-    if(m_timer.get() < .075)
+    if(m_timer.get() < .085)
     {
       powerCellSubSystem.moveKickerIn();
     }
-    else if(m_timer.get() > .075 && m_timer.get() < 1.575)
+    else if(m_timer.get() > .085 && m_timer.get() < 1.585)
     { 
       //powerCellSubSystem.moveKickerOut();
       powerCellSubSystem.shootPowerCell();
     }
-    else if(m_timer.get() > 1.575 && m_timer.get() < 2.575)
+    else if(m_timer.get() > 1.585 && m_timer.get() < 2.585)
     {
       powerCellSubSystem.shootPowerCell();
       powerCellSubSystem.moveKickerOut();

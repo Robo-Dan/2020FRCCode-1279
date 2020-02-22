@@ -13,16 +13,16 @@ import frc.robot.Robot;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
 
-public class AutoSimple extends CommandBase
+public class AutoSimpleReducedSpeed extends CommandBase
 {
   private final Timer m_timer = new Timer();
 
   private final DriveTrain driveTrainAuto;
   private final PowerCell shooting;
   /**
-   * Creates a new AutoSimple.
+   * Creates a new AutoSimpleReducedSpeed.
    */
-  public AutoSimple(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
+  public AutoSimpleReducedSpeed(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
   {
     driveTrainAuto = driveTrainSubsystem;
     shooting = testPowerCell;
@@ -45,22 +45,22 @@ public class AutoSimple extends CommandBase
     if(m_timer.get() < .075)
     {
       shooting.moveKickerIn();
-      shooting.shootPowerCell();
+      shooting.reducedShootPowerCellSpeed();
     }
     else if(m_timer.get() >.075 && m_timer.get() < 1.575)
     {
-      shooting.shootPowerCell();
+      shooting.reducedShootPowerCellSpeed();
     }
-    else if(m_timer.get() > 1.575 && m_timer.get() < 6.575)
+    else if(m_timer.get() > 1.575 && m_timer.get() < 10)
     {
       shooting.moveKickerOut();
-      shooting.shootPowerCell();
+      shooting.reducedShootPowerCellSpeed();
     }
-    else if(m_timer.get() > 7 && m_timer.get() < 8)
+    else if(m_timer.get() > 10 && m_timer.get() < 12)
     {
       //shooting.moveKickerOut();
-      //shooting.stopShooting();
-      driveTrainAuto.driveForward();
+      shooting.stopShooting();
+      driveTrainAuto.driveBackward();
     }
     else
     {

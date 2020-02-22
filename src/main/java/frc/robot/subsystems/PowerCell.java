@@ -45,6 +45,12 @@ public class PowerCell extends SubsystemBase
     //Test
   }
 
+  public void reducedShootPowerCellSpeed()
+  {
+    Constants.TalonNames.leftShooter.set(ControlMode.PercentOutput, .75);
+    Constants.TalonNames.rightShooter.set(ControlMode.PercentOutput, -.75);
+  }
+
   public void moveElevatorUpForIntake()
   {
     Constants.TalonNames.elevatorForIntakingPowerCell.set(ControlMode.PercentOutput, 1);
@@ -58,12 +64,12 @@ public class PowerCell extends SubsystemBase
 
   public void moveKickerIn()
   {
-    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, .75);
+    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, .85);
   }
 
   public void moveKickerOut()
   {
-    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, -.75);
+    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, -.85);
   }
 
   /*public void intakeArmIn()

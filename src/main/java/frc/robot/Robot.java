@@ -169,8 +169,8 @@ public class Robot extends TimedRobot
     SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
     //SmartDashboard.putNumber("Possible Fix for Distance (in inches)", possibleFixToErrorInDistance);
     SmartDashboard.putNumber("Autonomous Number", autoNum);
-    SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
-    
+    int autoNumber = (int) SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
+    autoNum = autoNumber;
     //autoNum = autoNumber;
 
     String gameData;

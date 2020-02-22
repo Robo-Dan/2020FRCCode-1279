@@ -38,7 +38,7 @@ public class DriveTrain extends SubsystemBase
   public void robotDrive()
   {
     double xSpeed = driverStick.getRawAxis(Constants.DriverAndOperatorJoystick.driverLeftXAxis) * -1 * inverse * modifier; // makes forward stick positive
-    double zRotation =  driverStick.getRawAxis(Constants.DriverAndOperatorJoystick.driverRightYAxis) * modifier; // WPI Drivetrain uses positive=> right; right stick for left and right
+    double zRotation =  driverStick.getRawAxis(Constants.DriverAndOperatorJoystick.driverRightYAxis) * .6; // WPI Drivetrain uses positive=> right; right stick for left and right
 
     Robot.drive.arcadeDrive(xSpeed, zRotation);
 
@@ -47,7 +47,7 @@ public class DriveTrain extends SubsystemBase
 
   public void driveBackward() //used to be driveAuto
   {
-    Robot.drive.arcadeDrive(-.3, 0);
+    Robot.drive.arcadeDrive(-.5, 0);
     Robot.drive.feed();
   }
 
@@ -65,7 +65,7 @@ public void turnRobotLeft()
 
 public void driveForward()
 {
-  Robot.drive.arcadeDrive(0.3, 0);
+  Robot.drive.arcadeDrive(0.5, 0);
   Robot.drive.feed();
 }
 

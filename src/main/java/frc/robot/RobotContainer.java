@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.AutoTurnRight;
 import frc.robot.commands.AutoSimple;
+import frc.robot.commands.AutoSimpleReducedSpeed;
 import frc.robot.commands.ClimbingRobotUp;
 import frc.robot.commands.CompressorOn;
 import frc.robot.commands.ControlPanel;
@@ -82,6 +83,8 @@ public class RobotContainer
 
   private SetDirectionForward setForward = new SetDirectionForward();
   private SetDirectionBackward setBackward = new SetDirectionBackward();
+
+  private AutoSimpleReducedSpeed reduceSpeedAuto = new AutoSimpleReducedSpeed(Robot.robotDriveTrain, Robot.powerCell);
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -126,13 +129,13 @@ public class RobotContainer
   {
     // An ExampleCommand will run in autonomous
     //return autoDriveCommand;
-    if(Robot.getAutoNumber() == 0)
+    //if(Robot.getAutoNumber() == 0)
       return simpleAuto;
-    else if(Robot.getAutoNumber() == 1)
-      return rightTurnAuto;
-    else if(Robot.getAutoNumber() == 2)
-      return leftTurnAuto;
-    else
-      return simpleAuto;
+    //else if(Robot.getAutoNumber() == 1)
+      //return rightTurnAuto;
+    //else if(Robot.getAutoNumber() == 2)
+      //return leftTurnAuto;
+    //else
+      //return simpleAuto;
   }
 }
