@@ -129,13 +129,13 @@ public class RobotContainer
   {
     // An ExampleCommand will run in autonomous
     //return autoDriveCommand;
-    //if(Robot.getAutoNumber() == 0)
+    if(Robot.getAutoNumber() == 0)
       return simpleAuto;
-    //else if(Robot.getAutoNumber() == 1)
-      //return rightTurnAuto;
-    //else if(Robot.getAutoNumber() == 2)
-      //return leftTurnAuto;
-    //else
-      //return simpleAuto;
+    else if(Robot.getAutoNumber() == 1)
+      return rightTurnAuto;
+    else if(Robot.getAutoNumber() == 2)
+      return leftTurnAuto;
+    else
+      return simpleAuto;
   }
 }
