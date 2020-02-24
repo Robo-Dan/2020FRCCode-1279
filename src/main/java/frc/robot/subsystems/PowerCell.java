@@ -69,7 +69,7 @@ public class PowerCell extends SubsystemBase
 
   public void moveKickerOut()
   {
-    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, -.85);
+    Constants.TalonNames.kickerTalon.set(ControlMode.PercentOutput, -.60);
   }
 
   /*public void intakeArmIn()

@@ -59,7 +59,7 @@ public class AutoSimple extends CommandBase
     else if(m_timer.get() > 7 && m_timer.get() < 9)
     {
       //shooting.moveKickerOut();
-      //shooting.stopShooting();
+      shooting.stopShooting();
       driveTrainAuto.driveBackward();
     }
     else

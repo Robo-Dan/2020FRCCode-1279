@@ -41,18 +41,18 @@ public class KickerOut extends CommandBase
   @Override
   public void execute()
   {
-    if(timer.get() < timeToMove && tester == 0)
-    {
+    //if(timer.get() < timeToMove && tester == 0)
+    //{
       powerCellSystem.moveKickerOut();
-    }
-    else if(timer.get() == timeToMove)
-    {
-      tester++;
-    }
-    else
-    {
-      this.end(false || true);
-    }
+    //}
+    //else if(timer.get() == timeToMove)
+    //{
+      //tester++;
+    //}
+    //else
+    //{
+      //this.end(false || true);
+    //}
   }
 
   // Called once the command ends or is interrupted.
@@ -60,7 +60,7 @@ public class KickerOut extends CommandBase
   public void end(boolean interrupted)
   {
     powerCellSystem.stopKicker();
-    tester = 0;
+    //tester = 0;
   }
 
   // Returns true when the command should end.

@@ -84,7 +84,7 @@ public class Robot extends TimedRobot
   public static DigitalInput limitSwitchForArm = new DigitalInput(Constants.LimitSwitch.barArmDownLimitSwitch);
   public static Counter counterForArm = new Counter(limitSwitchForArm);
 
-  static int autoNum;
+  static double autoNum;
 
   VideoSink server;
 
@@ -133,6 +133,8 @@ public class Robot extends TimedRobot
     //boolean pressureSwitch = compressor.getPressureSwitchValue();
     //double current = compressor.getCompressorCurrent();
 
+    SmartDashboard.putNumber("Autonomous Number", 0);
+
     //compressor.start();
 
     //compressor.start();
@@ -168,8 +170,7 @@ public class Robot extends TimedRobot
     SmartDashboard.putNumber("Distance (in inches):", currentDistance); //Outputs 
     SmartDashboard.putNumber("CurrentSpeed: ", currentSpeed);
     //SmartDashboard.putNumber("Possible Fix for Distance (in inches)", possibleFixToErrorInDistance);
-    SmartDashboard.putNumber("Autonomous Number", autoNum);
-    int autoNumber = (int) SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
+    double autoNumber = SmartDashboard.getNumber("Autonomous Number", 0); //the zero is the default value. make that the just shoot and back up
     autoNum = autoNumber;
     //autoNum = autoNumber;
 
@@ -379,6 +380,6 @@ public class Robot extends TimedRobot
 
   public static double getAutoNumber()
   {
-    return SmartDashboard.getNumber("Autonomous Number", 0);
+    return autoNum;
   }
 }

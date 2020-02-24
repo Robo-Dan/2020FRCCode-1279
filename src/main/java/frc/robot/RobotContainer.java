@@ -113,7 +113,7 @@ public class RobotContainer
     //Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(intakeArmIn);
     //Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(intakeArmOut);
     //Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
-    Constants.DriverAndOperatorJoystick.operator_startButton.toggleWhenPressed(moveKickerOut);
+    Constants.DriverAndOperatorJoystick.operator_startButton.whenHeld(moveKickerOut);
     //driver buttons
     Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
     Constants.DriverAndOperatorJoystick.driver_A_Button.whenPressed(setForward);
