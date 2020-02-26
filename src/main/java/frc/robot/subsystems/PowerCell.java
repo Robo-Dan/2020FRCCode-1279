@@ -47,8 +47,8 @@ public class PowerCell extends SubsystemBase
 
   public void reducedShootPowerCellSpeed()
   {
-    Constants.TalonNames.leftShooter.set(ControlMode.PercentOutput, .75);
-    Constants.TalonNames.rightShooter.set(ControlMode.PercentOutput, -.75);
+    Constants.TalonNames.leftShooter.set(ControlMode.PercentOutput, .5);
+    Constants.TalonNames.rightShooter.set(ControlMode.PercentOutput, -.5);
   }
 
   public void moveElevatorUpForIntake()

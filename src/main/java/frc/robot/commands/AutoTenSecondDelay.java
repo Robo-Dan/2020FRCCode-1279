@@ -7,22 +7,24 @@
 
 package frc.robot.commands;
 
+import javax.lang.model.util.ElementScanner6;
+
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.PowerCell;
 
-public class AutoSimple extends CommandBase
+public class AutoTenSecondDelay extends CommandBase
 {
   private final Timer m_timer = new Timer();
 
   private final DriveTrain driveTrainAuto;
   private final PowerCell shooting;
   /**
-   * Creates a new AutoSimple.
+   * Creates a new AutoTenSecondDelay.
    */
-  public AutoSimple(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
+  public AutoTenSecondDelay(DriveTrain driveTrainSubsystem, PowerCell testPowerCell)
   {
     driveTrainAuto = driveTrainSubsystem;
     shooting = testPowerCell;
@@ -42,30 +44,30 @@ public class AutoSimple extends CommandBase
   @Override
   public void execute()
   {
-    if(m_timer.get() < .075)
+    if(m_timer.get() < 1)
+    {
+      driveTrainAuto.driveForward();
+    }
+    else if(m_timer.get() >= 1 && m_timer.get() < 1.075)
     {
       shooting.moveKickerIn();
-      shooting.shootPowerCell();
     }
-    else if(m_timer.get() >= .075 && m_timer.get() < 1.575)
+    else if(m_timer.get() >= 1.075 && m_timer.get() < 10)
     {
-      shooting.shootPowerCell();
+      driveTrainAuto.stopDriving();
+      shooting.stopKicker();
+      shooting.stopShooting();
     }
-    else if(m_timer.get() >= 1.575 && m_timer.get() < 6.575)
+    else if(m_timer.get() >= 10 && m_timer.get() < 15)
     {
       shooting.moveKickerOut();
       shooting.shootPowerCell();
     }
-    else if(m_timer.get() > 7 && m_timer.get() < 9)
-    {
-      //shooting.moveKickerOut();
-      shooting.stopShooting();
-      driveTrainAuto.driveBackward();
-    }
     else
     {
-      shooting.stopKicker();
       driveTrainAuto.stopDriving();
+      shooting.stopKicker();
+      shooting.stopShooting();
     }
   }
 
@@ -73,6 +75,8 @@ public class AutoSimple extends CommandBase
   @Override
   public void end(boolean interrupted)
   {
+    driveTrainAuto.stopDriving();
+    shooting.stopKicker();
     shooting.stopShooting();
   }
 

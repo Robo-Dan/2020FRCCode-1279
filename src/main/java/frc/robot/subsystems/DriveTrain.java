@@ -99,7 +99,7 @@ public void driveForward()
    */
   public void slowSpeed()
   {
-    modifier = 0.6; // 60%
+    modifier = 0.5; // 60%
   }
 
   /**

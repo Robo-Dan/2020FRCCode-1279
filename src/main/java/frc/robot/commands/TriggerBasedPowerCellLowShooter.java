@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.PowerCell;
 
-public class TriggerBasedPowerCellShooter extends CommandBase
+public class TriggerBasedPowerCellLowShooter extends CommandBase
 {
   private final PowerCell powerCellSubSystem;
   private final Timer m_timer = new Timer();
@@ -23,7 +23,7 @@ public class TriggerBasedPowerCellShooter extends CommandBase
   /**
    * Creates a new TriggerBasedPowerCellShooter.
    */
-  public TriggerBasedPowerCellShooter(PowerCell powerCellSub)
+  public TriggerBasedPowerCellLowShooter(PowerCell powerCellSub)
   {
     powerCellSubSystem = powerCellSub;
     // Use addRequirements() here to declare subsystem dependencies.
@@ -56,17 +56,15 @@ public class TriggerBasedPowerCellShooter extends CommandBase
     else if(m_timer.get() > .085 && m_timer.get() < 1.585)
     { 
       //powerCellSubSystem.moveKickerOut();
-      powerCellSubSystem.shootPowerCell();
+      powerCellSubSystem.reducedShootPowerCellSpeed();
     } 
-    else if (m_timer.get() > 1.585 && m_timer.get() < 2.585) 
-    {
-      powerCellSubSystem.shootPowerCell();
+    else if (m_timer.get() > 1.585 && m_timer.get() < 2.585) {
+      powerCellSubSystem.reducedShootPowerCellSpeed();
       powerCellSubSystem.moveKickerOut();
     } 
-    else 
-    {
+    else {
       powerCellSubSystem.moveKickerOut();
-      powerCellSubSystem.shootPowerCell();
+      powerCellSubSystem.reducedShootPowerCellSpeed();
       powerCellSubSystem.moveElevatorUpForIntake();
     }
   }

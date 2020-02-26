@@ -10,8 +10,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.AutoTurnRight;
+import frc.robot.commands.AutoFiveSecondDelay;
 import frc.robot.commands.AutoSimple;
 import frc.robot.commands.AutoSimpleReducedSpeed;
+import frc.robot.commands.AutoTenSecondDelay;
 import frc.robot.commands.ClimbingRobotUp;
 import frc.robot.commands.CompressorOn;
 import frc.robot.commands.ControlPanel;
@@ -31,6 +33,7 @@ import frc.robot.commands.SetDirectionBackward;
 import frc.robot.commands.SetDirectionForward;
 //import frc.robot.commands.PowerCellShooter;
 import frc.robot.commands.SlowDriveTrain;
+import frc.robot.commands.TriggerBasedPowerCellLowShooter;
 import frc.robot.commands.TriggerBasedPowerCellShooter;
 import frc.robot.commands.AutoTurnLeft;
 //import frc.robot.subsystems.DriveTrain;
@@ -51,8 +54,10 @@ public class RobotContainer
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   //private final DriveTrain m_robotDrive = new DriveTrain();
   private final AutoSimple simpleAuto = new AutoSimple(Robot.robotDriveTrain, Robot.powerCell);
-  private final AutoTurnRight rightTurnAuto = new AutoTurnRight(Robot.robotDriveTrain, Robot.powerCell);
-  private final AutoTurnLeft leftTurnAuto = new AutoTurnLeft(Robot.robotDriveTrain, Robot.powerCell);
+  private AutoFiveSecondDelay autoFiveDelay = new AutoFiveSecondDelay(Robot.robotDriveTrain, Robot.powerCell);
+  private AutoTenSecondDelay autoTenDelay = new AutoTenSecondDelay(Robot.robotDriveTrain, Robot.powerCell);
+  //private final AutoTurnRight rightTurnAuto = new AutoTurnRight(Robot.robotDriveTrain, Robot.powerCell);
+  //private final AutoTurnLeft leftTurnAuto = new AutoTurnLeft(Robot.robotDriveTrain, Robot.powerCell);
 
 
   //private PowerCellShooter shooting = new PowerCellShooter(Robot.powerCell);
@@ -74,6 +79,7 @@ public class RobotContainer
 
   private ControlPanel controlPanel = new ControlPanel(Robot.controlPanelSubSystem);
 
+  private TriggerBasedPowerCellLowShooter lowShooter = new TriggerBasedPowerCellLowShooter(Robot.powerCell);
   //private final PistonOut firePiston = new PistonOut(Robot.piston);
   //private final PistonIn returnPiston = new PistonIn(Robot.piston);
 
@@ -113,9 +119,9 @@ public class RobotContainer
     //Constants.DriverAndOperatorJoystick.operator_Y_Button.whenHeld(intakeArmIn);
     //Constants.DriverAndOperatorJoystick.operator_X_Button.whenHeld(intakeArmOut);
     //Constants.DriverAndOperatorJoystick.operator_leftShoulderButton.whenHeld(movingIntakeDown);
-    Constants.DriverAndOperatorJoystick.operator_startButton.whenHeld(moveKickerOut);
+    Constants.DriverAndOperatorJoystick.operator_startButton.whenHeld(lowShooter);
     //driver buttons
-    Constants.DriverAndOperatorJoystick.driver_leftShoulderButton.whenHeld(slowDrive);
+    Constants.DriverAndOperatorJoystick.driver_rightShoulderButton.whenHeld(slowDrive);
     Constants.DriverAndOperatorJoystick.driver_A_Button.whenPressed(setForward);
     Constants.DriverAndOperatorJoystick.driver_B_Button.whenPressed(setBackward);
   }
@@ -132,9 +138,9 @@ public class RobotContainer
     if(Robot.getAutoNumber() == 0)
       return simpleAuto;
     else if(Robot.getAutoNumber() == 1)
-      return rightTurnAuto;
+      return autoFiveDelay;
     else if(Robot.getAutoNumber() == 2)
-      return leftTurnAuto;
+      return autoTenDelay;
     else
       return simpleAuto;
   }

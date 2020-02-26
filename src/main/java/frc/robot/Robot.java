@@ -111,6 +111,8 @@ public class Robot extends TimedRobot
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
+    //robotDriveTrain.setDirectionForward();
+
     forwardCamera = CameraServer.getInstance().startAutomaticCapture(0);
     backwardCamera = CameraServer.getInstance().startAutomaticCapture(1);
     // server = CameraServer.getInstance().addServer("Switched camera");
