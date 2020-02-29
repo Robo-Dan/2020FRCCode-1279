@@ -60,7 +60,7 @@ public class AutoSimple extends CommandBase
     {
       //shooting.moveKickerOut();
       shooting.stopShooting();
-      driveTrainAuto.driveBackward();
+      driveTrainAuto.driveForward();
     }
     else
     {

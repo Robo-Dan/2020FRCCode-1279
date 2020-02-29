@@ -61,7 +61,7 @@ public class AutoFiveSecondDelay extends CommandBase
     {
       //shooting.moveKickerOut();
       //shooting.stopShooting();
-      driveTrainAuto.driveBackward();
+      driveTrainAuto.driveForward();
     }
     else
     {
