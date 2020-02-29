@@ -111,6 +111,17 @@ public void driveForward()
     modifier = 1; // 100%
   }
 
+  public void addSpeed()
+  {
+    double change = 0.1;
+    modifier += change;
+  }
+
+  public void startSpeed()
+  {
+
+  }
+  
   /**
    * Returns the direction of the drivetrain
    * @return false when not inverted (cargo side), true when inverted (hatch side)
