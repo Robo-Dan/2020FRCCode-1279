@@ -382,6 +382,6 @@ public class Robot extends TimedRobot
 
   public static double getAutoNumber()
   {
-    return autoNum;
+    return autoNum; //SmartDashboard.getNumber("Autonomous Number", 0);
   }
 }
