@@ -48,15 +48,19 @@ public class AutoTenSecondDelay extends CommandBase
     {
       driveTrainAuto.driveForward();
     }
-    else if(m_timer.get() >= 1 && m_timer.get() < 1.075)
+    else if(m_timer.get() >= 1 && m_timer.get() < 1.085)
     {
       shooting.moveKickerIn();
     }
-    else if(m_timer.get() >= 1.075 && m_timer.get() < 10)
+    else if(m_timer.get() >= 1.085 && m_timer.get() < 8)
     {
       driveTrainAuto.stopDriving();
       shooting.stopKicker();
       shooting.stopShooting();
+    }
+    else if(m_timer.get() >= 8 && m_timer.get() < 10)
+    {
+      shooting.shootPowerCell();
     }
     else if(m_timer.get() >= 10 && m_timer.get() < 15)
     {

@@ -43,24 +43,34 @@ public class AutoFiveSecondDelay extends CommandBase
   @Override
   public void execute()
   {
-    if(m_timer.get() > 5 && m_timer.get() < 5.075)
+    if(m_timer.get() < 5)
+    {
+      shooting.stopShooting();
+      shooting.stopKicker();
+    }
+    if(m_timer.get() >= 5 && m_timer.get() <= 5.085)
     {
       shooting.moveKickerIn();
-      shooting.shootPowerCell();
+      //shooting.shootPowerCell();
     }
-    else if(m_timer.get() > 5.075 && m_timer.get() < 6.575)
+    else if(m_timer.get() > 5.085 && m_timer.get() < 6.085)
+    {
+      shooting.stopShooting();
+      shooting.stopKicker();
+    }
+    else if(m_timer.get() >= 6.085 && m_timer.get() < 7.585)
     {
       shooting.shootPowerCell();
     }
-    else if(m_timer.get() > 6.575 && m_timer.get() < 11.575)
+    else if(m_timer.get() > 7.585 && m_timer.get() < 12.585)
     {
       shooting.moveKickerOut();
       shooting.shootPowerCell();
     }
-    else if(m_timer.get() > 12 && m_timer.get() < 14)
+    else if(m_timer.get() > 13 && m_timer.get() < 15)
     {
       //shooting.moveKickerOut();
-      //shooting.stopShooting();
+      shooting.stopShooting();
       driveTrainAuto.driveForward();
     }
     else

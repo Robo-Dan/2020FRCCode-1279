@@ -42,21 +42,28 @@ public class AutoSimple extends CommandBase
   @Override
   public void execute()
   {
-    if(m_timer.get() < .075)
+    if(m_timer.get() <= .085)
     {
       shooting.moveKickerIn();
-      shooting.shootPowerCell();
+      //shooting.shootPowerCell();
     }
-    else if(m_timer.get() >= .075 && m_timer.get() < 1.575)
+    else if(m_timer.get() >= .085 && m_timer.get() < 1.085)
     {
+      //shooting.shootPowerCell();
+      shooting.stopKicker();
+      shooting.stopShooting();
+    }
+    else if(m_timer.get() >= 1.085 && m_timer.get() < 2.585)
+    {
+      //shooting.moveKickerOut();
       shooting.shootPowerCell();
     }
-    else if(m_timer.get() >= 1.575 && m_timer.get() < 6.575)
+    else if(m_timer.get() >= 2.585 && m_timer.get() < 7.585)
     {
       shooting.moveKickerOut();
       shooting.shootPowerCell();
     }
-    else if(m_timer.get() > 7 && m_timer.get() < 9)
+    else if(m_timer.get() > 8 && m_timer.get() < 10)
     {
       //shooting.moveKickerOut();
       shooting.stopShooting();
