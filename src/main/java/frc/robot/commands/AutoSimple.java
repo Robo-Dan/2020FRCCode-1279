@@ -58,12 +58,12 @@ public class AutoSimple extends CommandBase
       //shooting.moveKickerOut();
       shooting.shootPowerCell();
     }
-    else if(m_timer.get() >= 2.585 && m_timer.get() < 7.585)
+    else if(m_timer.get() >= 2.585 && m_timer.get() < 4.085)
     {
       shooting.moveKickerOut();
       shooting.shootPowerCell();
     }
-    else if(m_timer.get() > 8 && m_timer.get() < 10)
+    else if(m_timer.get() > 5 && m_timer.get() < 6)
     {
       //shooting.moveKickerOut();
       shooting.stopShooting();

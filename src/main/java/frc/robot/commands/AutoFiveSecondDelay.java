@@ -62,12 +62,12 @@ public class AutoFiveSecondDelay extends CommandBase
     {
       shooting.shootPowerCell();
     }
-    else if(m_timer.get() > 7.585 && m_timer.get() < 12.585)
+    else if(m_timer.get() > 7.585 && m_timer.get() < 9.085)
     {
       shooting.moveKickerOut();
       shooting.shootPowerCell();
     }
-    else if(m_timer.get() > 13 && m_timer.get() < 15)
+    else if(m_timer.get() > 10 && m_timer.get() < 11)
     {
       //shooting.moveKickerOut();
       shooting.stopShooting();

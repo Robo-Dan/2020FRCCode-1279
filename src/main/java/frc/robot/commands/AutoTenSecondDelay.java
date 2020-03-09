@@ -44,7 +44,7 @@ public class AutoTenSecondDelay extends CommandBase
   @Override
   public void execute()
   {
-    if(m_timer.get() < 1)
+    if(m_timer.get() < .5)
     {
       driveTrainAuto.driveForward();
     }
@@ -62,10 +62,14 @@ public class AutoTenSecondDelay extends CommandBase
     {
       shooting.shootPowerCell();
     }
-    else if(m_timer.get() >= 10 && m_timer.get() < 15)
+    else if(m_timer.get() >= 10 && m_timer.get() < 12)
     {
       shooting.moveKickerOut();
       shooting.shootPowerCell();
+    }
+    else if(m_timer.get() >= 12 && m_timer.get() < 13)
+    {
+      driveTrainAuto.driveForward();
     }
     else
     {
